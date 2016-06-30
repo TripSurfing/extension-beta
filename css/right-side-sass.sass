@@ -1,0 +1,345 @@
+// function
+=rotate($deg)
+    -ms-transform:      rotate($deg+deg)
+    -webkit-transform:  rotate($deg+deg)
+    transform:          rotate($deg+deg)
+    transition: all 0.3s
+=title-wrap
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+
+// =keyframes($key-name)
+//     @keyframes #{$key-name}
+//         @content
+// +keyframes(fadeEffect)
+//     from
+//         opacity: 0.5
+//     to
+//         opacity: 1
+// =animation($string)
+
+// Variables
+$z-index: 23051996
+
+// css
+/* Button tool */
+#btn-tool-selector
+    display: block
+    #btn-tool-show
+        opacity: 0.5
+        z-index: $z-index
+        border: 0
+        position: fixed
+        bottom: 15px
+        right: 20px
+        height: 43px
+        width: 43px
+        border-radius: 50%
+        &:hover
+            opacity: 1
+            transition: all 0.3s
+            background-color: #eee
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+
+        img
+            width: 35px
+            height: 35px
+            margin: 4px
+            &:hover
+                +rotate(-180)
+/* Right-side */
+#right-side
+    z-index: $z-index
+    width: 372px
+    height: 435px
+    bottom: 63px
+    right: 0
+    position: fixed
+    box-shadow: 0 0px 20px rgba(0,0,0,0.25), 0 0px 7px rgba(0,0,0,0.22)
+    display: none
+    font-family: Arial
+    box-sizing: content-box   
+    background-color: #fff
+
+    #right-side-nav-tabs
+        background-color: #f8f8f8
+        position: relative
+        box-sizing: content-box
+        padding: 8px 0px
+        border-bottom: 1px ridge rgba(128, 128, 128, 0.3)
+        height: 26px
+
+        /* navigation menu */
+        .rs-icon-list
+            position: absolute
+            padding: 9px
+            top: -2px
+            font-size: 28px
+            color: #e78720
+            z-index: $z-index+1
+            &:hover .my-dropdown-content
+                display: block
+            .my-dropdown-content
+                display: none
+                overflow: auto
+                max-height: 390px
+                z-index: $z-index+2
+                position: absolute
+                top: 45px
+                left: 0
+                background-color: #f9f9f9
+                min-width: 160px
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+                a
+                    color: #333
+                    padding: 8px 10px
+                    text-decoration: none
+                    display: block
+                    font:
+                        size: 16px
+                        family: Arial
+                    &:hover
+                        background-color: rgba(243, 144,17,0.38)
+                    &:active
+                        background-color: rgba(243, 144, 17, 0.5)
+        #rs-trip-name
+            font-size: 19px
+            margin-left: 43px
+            line-height: 1.45
+            text-transform: uppercase
+            width: 245px
+            z-index: $z-index+1
+            +title-wrap
+
+    #rs-nav
+        position: absolute
+        top: 7px
+        width: 100%
+        .rs-nav-ul
+            list-style-type: none
+            margin: 0 0 3px
+            padding: 0
+            overflow: hidden
+            background-color: transparent
+            display: block
+            height: 33px
+            .rs-nav-li-tab
+                &:focus
+                    outline: none !important
+                padding: 0 10px 5px !important
+                display: inline-block !important
+                float: right
+                color: #999 !important
+                .rs-nav-a
+                    display: block
+                    text-align: center
+                    text-decoration: none
+                    font-size: 23px
+                    
+                    &:hover
+                        background-color: transparent
+                    &:focus
+                        outline: none
+                        // color: #e78720 !important
+            .rs-nav-a-active
+                color: #e78720 !important
+        .rs-nav-tab-content
+            height: 380px
+            overflow: auto
+            display: none
+        .rs-tab-active
+            display: block !important
+
+    .box-blur
+        height: 100%
+        -webkit-filter: blur(1px)
+        -moz-filter: blur(1px)
+        -ms-filter: blur(1px)
+        -o-filter: blur(1px)
+        filter: blur(1px)
+
+    /* Box */
+
+    .box
+        position: relative
+        height: 84px
+        width: auto
+        border-radius: 0
+        overflow: hidden
+        background-color: #fff
+        margin: 0
+        border-bottom: 1px ridge rgba(128,128,128,0.4)
+        .box-full
+            height: auto
+        &:hover
+            transition: all 0.2s
+            border-bottom: 1px ridge #ef7e05
+            .rs-title-wrap
+                transition: all 0.1s
+                color: #ef7e05
+        a
+            &:link,
+            &:visited
+                color: #333
+                text-decoration: none
+            &:active
+                text-decoration: underline
+            &:hover
+                text-decoration: none
+        .box-image
+            border: 0
+            margin: 12px
+            display: inline-block
+            float: left
+            .image
+                width: 60px
+                height: 60px
+                background-size: cover
+                background-position: center center
+
+        .box-info
+            display: inline-block
+            margin-top: 12px
+            float: left
+            width: 272px
+            height: 60px
+            .box-desc
+                font:
+                    size: 12px
+                    style: italic
+                height: 22px
+                +title-wrap
+
+        .place-bottom
+            .rating
+                color: #e69000
+                font:
+                    weight: bold
+                    size: 14px
+                display: inline-block
+            .delete-btn,
+            .favorite-btn
+                @extend .rating
+                color: #999
+                float: right
+                margin-top: 1px
+
+            .delete-btn
+                width: 25px
+                .rs-icon-trash
+                    padding: 11px
+                &:hover .rs-icon-trash
+                    color: #333
+                    font-size: 20px
+                    padding: 1px 8px 8px 
+
+            .favorite-btn
+                .favorite-active,
+                .favorite-active:hover
+                    color: red
+                .favorite-not-active,
+                .favorite-not-active:hover
+                    color: #999
+                .rs-icon-heart
+                    padding: 11px
+                &:hover .rs-icon-heart
+                    padding: 1px 8px 8px
+                    font-size: 20px
+        .link-bottom
+            background-size: 15px !important
+            height: 20px
+            .link-canonical-url
+                font:
+                    size: 12px
+                    style: italic
+                color: rgba(0,0,255,0.8)
+                padding: 5px 0
+                margin-left: 20px
+                // width: 
+                +title-wrap
+            .delete-btn
+                float: right
+                width: 25px
+                .rs-icon-trash
+                    font-size: 14px
+                    color: #999
+                    padding: 11px
+                &:hover .rs-icon-trash
+                    color: #333
+                    padding: 8px
+                    font-size: 20px
+        .rs-title-wrap
+            font:
+                size: 14px
+                family: Arial
+            margin: 0 0 6px
+            width: 262px
+            font-weight: bold
+            +title-wrap
+
+        /* box confirm before delete */
+        .box-confirm
+            height: 84px
+            width: 100%
+            background-color: rgba(238,238,238,0.85)
+            z-index: $z-index+1
+            position: absolute
+            top: 0
+            .box-confirm-content
+                height: 70px
+                width: 150px
+                margin: 0 auto
+                p
+                    color: #333
+                    font:
+                        size: 20px
+                        weight: bold
+                    text-align: center 
+                    margin: 10px 0 12px
+                    z-index: 2
+
+                .btn-confirm-no
+                    z-index: $z-index+2
+                    width: 44px
+                    height: 29px
+                    margin: 0 0 0 20px
+                    float: left
+                    font-weight: bold
+                    font-size: 15px
+                    border: 1px solid transparent
+                    border-radius: 4px
+                    color: #333
+                    background-color: #fff
+                    border-color: #ccc
+                    &:hover
+                        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+                        transition: all 0.3s cubic-bezier(.25,.8,.25,1)
+                .btn-confirm-yes
+                    @extend .btn-confirm-no
+                    float: right
+                    color: white
+                    background-color: #f0ad4e
+                    border-color: #eea236
+                    margin: 0 20px 0 0
+
+    /* Error box */
+    .error
+        height: auto
+        text-align: center
+        box-sizing: content-box
+        padding: 96px 40px 0
+        .error-content
+            font-style: italic
+            width: 188px
+            margin: 0 auto 11px
+            font-size: 18px
+        .login-btn
+            color: white
+            font-size: 16px
+            width: 70px
+            height: 30px
+            border: 1px solid transparent
+            border-radius: 4px
+            background-color: #f0ad4e
+            border-color: #eea236

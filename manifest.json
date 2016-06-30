@@ -1,0 +1,36 @@
+{
+    "manifest_version": 2,
+    "name": "Trip Surfing Right Side",
+    "version": "1.0",
+    "description": "My first chrome extension",
+
+    "browser_action": {
+        "default_icon": "image/icon19.png"
+        // "default_popup": "popup.html"
+    },
+
+    "background": {
+        "persistent": true,
+        "page": "html/background.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["lib/jquery-1.12.4.min.js", "lib/jquery-ui.min.js", "lib/tipsy/jquery.tipsy.js", "js/background.js"],
+            "css": ["lib/entypo/rs-entypo.css","css/right-side-2.css", "lib/tipsy/tipsy.css"]
+        }
+    ],
+    "permissions": [
+      "storage",
+      "tabs",
+      "http://*/*",
+      "https://*/*"
+    ],
+    "web_accessible_resources": [
+       "image/*",
+       "lib/*",
+       "lib/entypo/fonts/*",
+       "lib/entypo/*"
+     ]
+}
+//  TODO: sua lai atr cho rs-icon de no ko phu thuoc vao <a>
