@@ -49,16 +49,23 @@
     border-bottom: 1px ridge rgba(128, 128, 128, 0.3);
     height: 26px;
     /* navigation menu */ }
-    #right-side #right-side-nav-tabs .rs-icon-list {
+    #right-side #right-side-nav-tabs .tsrs-icon-list {
+      color: #999 !important;
+      text-decoration: none !important;
+      text-align: center !important;
+      font-style: normal !important;
+      font-weight: none !important;
+      font-family: "tsrs-entypo";
       position: absolute;
       padding: 9px;
       top: -2px;
       font-size: 28px;
-      color: #e78720;
-      z-index: 23051997; }
-      #right-side #right-side-nav-tabs .rs-icon-list:hover .my-dropdown-content {
+      color: #e78720 !important;
+      z-index: 23051997;
+      line-height: 1 !important; }
+      #right-side #right-side-nav-tabs .tsrs-icon-list:hover .my-dropdown-content {
         display: block; }
-      #right-side #right-side-nav-tabs .rs-icon-list .my-dropdown-content {
+      #right-side #right-side-nav-tabs .tsrs-icon-list .my-dropdown-content {
         display: none;
         overflow: auto;
         max-height: 390px;
@@ -69,62 +76,70 @@
         background-color: #f9f9f9;
         min-width: 160px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
-        #right-side #right-side-nav-tabs .rs-icon-list .my-dropdown-content a {
-          color: #333;
-          padding: 8px 10px;
-          text-decoration: none;
-          display: block;
-          font-size: 16px;
-          font-family: Arial; }
-          #right-side #right-side-nav-tabs .rs-icon-list .my-dropdown-content a:hover {
-            background-color: rgba(243, 144, 17, 0.38); }
-          #right-side #right-side-nav-tabs .rs-icon-list .my-dropdown-content a:active {
-            background-color: rgba(243, 144, 17, 0.5); }
-    #right-side #right-side-nav-tabs #rs-trip-name {
+        #right-side #right-side-nav-tabs .tsrs-icon-list .my-dropdown-content a {
+          color: #333 !important;
+          padding: 8px 10px !important;
+          text-decoration: none !important;
+          display: block !important;
+          text-align: left !important;
+          line-height: 1 !important;
+          font-size: 16px !important;
+          font-family: Arial !important; }
+          #right-side #right-side-nav-tabs .tsrs-icon-list .my-dropdown-content a:hover {
+            background-color: rgba(243, 144, 17, 0.38) !important; }
+          #right-side #right-side-nav-tabs .tsrs-icon-list .my-dropdown-content a:active {
+            background-color: rgba(243, 144, 17, 0.5) !important; }
+    #right-side #right-side-nav-tabs #tsrs-trip-name {
       font-size: 19px;
       margin-left: 43px;
-      line-height: 1.45;
+      line-height: 1.4;
       text-transform: uppercase;
       width: 245px;
       z-index: 23051997;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden; }
-  #right-side #rs-nav {
+  #right-side #tsrs-nav {
     position: absolute;
     top: 7px;
     width: 100%; }
-    #right-side #rs-nav .rs-nav-ul {
-      list-style-type: none;
-      margin: 0 0 3px;
-      padding: 0;
-      overflow: hidden;
-      background-color: transparent;
-      display: block;
-      height: 33px; }
-      #right-side #rs-nav .rs-nav-ul .rs-nav-li-tab {
-        padding: 0 10px 5px !important;
+    #right-side #tsrs-nav ul.tsrs-nav-ul {
+      list-style-type: none !important;
+      margin: 0 0 3px !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      background-color: transparent !important;
+      display: block !important;
+      height: 33px !important; }
+      #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab {
+        padding: 2px 10px 5px !important;
         display: inline-block !important;
-        float: right;
-        color: #999 !important; }
-        #right-side #rs-nav .rs-nav-ul .rs-nav-li-tab:focus {
+        float: right !important; }
+        #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab:focus {
           outline: none !important; }
-        #right-side #rs-nav .rs-nav-ul .rs-nav-li-tab .rs-nav-a {
-          display: block;
-          text-align: center;
-          text-decoration: none;
-          font-size: 23px; }
-          #right-side #rs-nav .rs-nav-ul .rs-nav-li-tab .rs-nav-a:hover {
-            background-color: transparent; }
-          #right-side #rs-nav .rs-nav-ul .rs-nav-li-tab .rs-nav-a:focus {
-            outline: none; }
-      #right-side #rs-nav .rs-nav-ul .rs-nav-a-active {
-        color: #e78720 !important; }
-    #right-side #rs-nav .rs-nav-tab-content {
+        #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a {
+          display: block !important;
+          line-height: 1 !important; }
+          #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a:hover {
+            background-color: transparent !important; }
+          #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a:focus {
+            outline: none !important; }
+          #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a .tsrs-icon-location-pin,
+          #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a .tsrs-icon-link {
+            font-size: 23px !important;
+            color: #999 !important;
+            text-decoration: none !important;
+            text-align: center !important;
+            font-style: normal !important;
+            font-weight: none !important;
+            font-family: "tsrs-entypo"; }
+          #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a .tsrs-nav-i-active {
+            color: #e78720 !important; }
+    #right-side #tsrs-nav .tsrs-nav-tab-content {
       height: 380px;
       overflow: auto;
       display: none; }
-    #right-side #rs-nav .rs-tab-active {
+    #right-side #tsrs-nav .tsrs-tab-active {
       display: block !important; }
   #right-side .box-blur {
     height: 100%;
@@ -148,16 +163,16 @@
     #right-side .box:hover {
       transition: all 0.2s;
       border-bottom: 1px ridge #ef7e05; }
-      #right-side .box:hover .rs-title-wrap {
+      #right-side .box:hover .tsrs-title-wrap {
         transition: all 0.1s;
         color: #ef7e05; }
     #right-side .box a:link, #right-side .box a:visited {
-      color: #333;
-      text-decoration: none; }
+      color: #333 !important;
+      text-decoration: none !important; }
     #right-side .box a:active {
-      text-decoration: underline; }
+      text-decoration: underline !important; }
     #right-side .box a:hover {
-      text-decoration: none; }
+      text-decoration: none !important; }
     #right-side .box .box-image {
       border: 0;
       margin: 12px;
@@ -181,36 +196,55 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden; }
-    #right-side .box .place-bottom .rating, #right-side .box .place-bottom .delete-btn,
-    #right-side .box .place-bottom .favorite-btn {
-      color: #e69000;
+    #right-side .box .place-bottom .tsrs-rating {
+      color: #e69000 !important;
       font-weight: bold;
       font-size: 14px;
       display: inline-block; }
+      #right-side .box .place-bottom .tsrs-rating .tsrs-icon-star {
+        color: #999 !important;
+        text-decoration: none !important;
+        text-align: center !important;
+        font-style: normal !important;
+        font-weight: none !important;
+        font-family: "tsrs-entypo";
+        color: #e69000 !important; }
     #right-side .box .place-bottom .delete-btn,
     #right-side .box .place-bottom .favorite-btn {
-      color: #999;
+      font-weight: bold;
+      font-size: 14px;
+      display: inline-block;
       float: right;
       margin-top: 1px; }
+      #right-side .box .place-bottom .delete-btn .tsrs-icon-trash,
+      #right-side .box .place-bottom .delete-btn .tsrs-icon-heart,
+      #right-side .box .place-bottom .favorite-btn .tsrs-icon-trash,
+      #right-side .box .place-bottom .favorite-btn .tsrs-icon-heart {
+        color: #999 !important;
+        text-decoration: none !important;
+        text-align: center !important;
+        font-style: normal !important;
+        font-weight: none !important;
+        font-family: "tsrs-entypo"; }
     #right-side .box .place-bottom .delete-btn {
       width: 25px; }
-      #right-side .box .place-bottom .delete-btn .rs-icon-trash {
+      #right-side .box .place-bottom .delete-btn .tsrs-icon-trash {
         padding: 11px; }
-      #right-side .box .place-bottom .delete-btn:hover .rs-icon-trash {
+      #right-side .box .place-bottom .delete-btn:hover .tsrs-icon-trash {
         color: #333;
         font-size: 20px;
         padding: 1px 8px 8px; }
     #right-side .box .place-bottom .favorite-btn .favorite-active,
     #right-side .box .place-bottom .favorite-btn .favorite-active:hover {
-      color: red; }
+      color: red !important; }
     #right-side .box .place-bottom .favorite-btn .favorite-not-active,
     #right-side .box .place-bottom .favorite-btn .favorite-not-active:hover {
-      color: #999; }
-    #right-side .box .place-bottom .favorite-btn .rs-icon-heart {
+      color: #999 !important; }
+    #right-side .box .place-bottom .favorite-btn .tsrs-icon-heart {
       padding: 11px; }
-    #right-side .box .place-bottom .favorite-btn:hover .rs-icon-heart {
+    #right-side .box .place-bottom .favorite-btn:hover .tsrs-icon-heart {
       padding: 1px 8px 8px;
-      font-size: 20px; }
+      font-size: 20px !important; }
     #right-side .box .link-bottom {
       background-size: 15px !important;
       height: 20px; }
@@ -226,20 +260,28 @@
       #right-side .box .link-bottom .delete-btn {
         float: right;
         width: 25px; }
-        #right-side .box .link-bottom .delete-btn .rs-icon-trash {
+        #right-side .box .link-bottom .delete-btn .tsrs-icon-trash {
+          color: #999 !important;
+          text-decoration: none !important;
+          text-align: center !important;
+          font-style: normal !important;
+          font-weight: none !important;
+          font-family: "tsrs-entypo";
           font-size: 14px;
-          color: #999;
           padding: 11px; }
-        #right-side .box .link-bottom .delete-btn:hover .rs-icon-trash {
+        #right-side .box .link-bottom .delete-btn:hover .tsrs-icon-trash {
           color: #333;
           padding: 8px;
           font-size: 20px; }
-    #right-side .box .rs-title-wrap {
-      font-size: 14px;
-      font-family: Arial;
-      margin: 0 0 6px;
-      width: 262px;
-      font-weight: bold;
+    #right-side .box .tsrs-title-wrap {
+      font-size: 14px !important;
+      font-family: Arial !important;
+      line-height: 1;
+      height: 16px !important;
+      margin: 0 0 6px !important;
+      width: 262px !important;
+      font-weight: bold !important;
+      color: #333;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden; }
@@ -255,34 +297,39 @@
         width: 150px;
         margin: 0 auto; }
         #right-side .box .box-confirm .box-confirm-content p {
-          color: #333;
-          font-size: 20px;
-          font-weight: bold;
-          text-align: center;
-          margin: 10px 0 12px;
+          color: #333 !important;
+          font-size: 20px !important;
+          font-weight: bold !important;
+          text-align: center !important;
+          margin: 10px 0 12px !important;
+          height: 23px;
           z-index: 2; }
-        #right-side .box .box-confirm .box-confirm-content .btn-confirm-no, #right-side .box .box-confirm .box-confirm-content .btn-confirm-yes {
+        #right-side .box .box-confirm .box-confirm-content button.btn-confirm-no, #right-side .box .box-confirm .box-confirm-content button.btn-confirm-yes {
           z-index: 23051998;
           width: 44px;
           height: 29px;
-          margin: 0 0 0 20px;
-          float: left;
-          font-weight: bold;
-          font-size: 15px;
-          border: 1px solid transparent;
-          border-radius: 4px;
-          color: #333;
-          background-color: #fff;
-          border-color: #ccc; }
-          #right-side .box .box-confirm .box-confirm-content .btn-confirm-no:hover, #right-side .box .box-confirm .box-confirm-content .btn-confirm-yes:hover {
+          margin: 0 0 0 20px !important;
+          float: left !important;
+          font-weight: bold !important;
+          font-size: 15px !important;
+          font-family: Arial !important;
+          border: 1px solid transparent !important;
+          border-radius: 4px !important;
+          color: #333 !important;
+          background-color: #fff !important;
+          border-color: #ccc !important;
+          padding: 0 !important;
+          line-height: 1.4;
+          text-transform: none; }
+          #right-side .box .box-confirm .box-confirm-content button.btn-confirm-no:hover, #right-side .box .box-confirm .box-confirm-content button.btn-confirm-yes:hover {
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
-        #right-side .box .box-confirm .box-confirm-content .btn-confirm-yes {
-          float: right;
-          color: white;
-          background-color: #f0ad4e;
-          border-color: #eea236;
-          margin: 0 20px 0 0; }
+        #right-side .box .box-confirm .box-confirm-content button.btn-confirm-yes {
+          float: right !important;
+          color: white !important;
+          background-color: #f0ad4e !important;
+          border-color: #eea236 !important;
+          margin: 0 20px 0 0 !important; }
   #right-side .error {
     height: auto;
     text-align: center;

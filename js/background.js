@@ -2,7 +2,7 @@ const chromeUrl = url => chrome.extension.getURL(url);
 $('body').append(
 	`<div id="right-side">
         <div id="right-side-nav-tabs">
-            <i class="rs-icon-list">
+            <i class="tsrs-icon-list">
                 <div class="my-dropdown-content">
                     <a href="javascript:void(0)" id="74">test</a>
                     <a href="javascript:void(0)" id="80" class="default-trip">Philippines 2</a>
@@ -11,26 +11,26 @@ $('body').append(
                     <a href="javascript:void(0)" id="27">First trip</a>
                 </div>
             </i>
-            <div id="rs-trip-name"></div>
+            <div id="tsrs-trip-name"></div>
         </div>
 
-        <div id="rs-nav">
-            <ul class="rs-nav-ul">
-                <li id="rs-nav-li-link" class="rs-nav-li-tab">
-                    <a class="rs-nav-a">
-                        <i class="rs-icon-link" title="Links" rs-data="tipsy"></i>
+        <div id="tsrs-nav">
+            <ul class="tsrs-nav-ul">
+                <li id="tsrs-nav-li-link" class="tsrs-nav-li-tab">
+                    <a class="tsrs-nav-a">
+                        <i class="tsrs-icon-link" title="Links" tsrs-data="tipsy"></i>
                     </a>
                 </li>
 
-                <li id="rs-nav-li-place" class="rs-nav-li-tab  rs-nav-a-active">
-                    <a class="rs-nav-a">
-                        <i class="rs-icon-location-pin" title="Places" rs-data="tipsy"></i>
+                <li id="tsrs-nav-li-place" class="tsrs-nav-li-tab">
+                    <a class="tsrs-nav-a">
+                        <i class="tsrs-icon-location-pin tsrs-nav-i-active" title="Places" tsrs-data="tipsy"></i>
                     </a>
                 </li>
             </ul>
 
-            <div id="place-tab" class="rs-nav-tab-content rs-tab-active"></div>
-            <div id="link-tab" class="rs-nav-tab-content"></div>
+            <div id="place-tab" class="tsrs-nav-tab-content tsrs-tab-active"></div>
+            <div id="link-tab" class="tsrs-nav-tab-content"></div>
         </div>
     </div>
     <div id='btn-tool-selector' class="btn-group">
@@ -78,9 +78,10 @@ rightSide.on('click', '.btn-confirm-yes',function() {
     /*Do something to server here*/
 });
 
-rightSide.on("click", ".rs-icon-heart", function() {
+rightSide.on("click", ".tsrs-icon-heart", function() {
     let heart = $(this);
     heart.toggleClass("favorite-active favorite-not-active");
+    this.title = heart.hasClass('favorite-active') ? "Remove from favorite" : "Add to favorite";
     // if (heart.hasClass('favorite-active')) {
     //     $.post('wwww.tripsurfing.co/api/favorite', 
     //         {
@@ -107,20 +108,20 @@ const updatePlace = placeList => {
                     
                     <div class="box-info">
                         <a href=${place.url} class="box-title" target="_blank" title="${place.name}">
-                            <h4 class="rs-title-wrap">${place.name}</h4>
+                            <div class="tsrs-title-wrap">${place.name}</div>
                         </a>
                         
                         <div class="box-desc" title="${place.address}">${place.address}</div>
                         
                         <div class="place-bottom" id="place-${place.id}">
-                            <div class="rating">
-                                <i class="rs-icon-star"></i> 4.5
+                            <div class="tsrs-rating">
+                                <i class="tsrs-icon-star"></i> 4.5
                             </div>
                             <div class="delete-btn">
-                                <i class="rs-icon-trash" title="Delete" rs-data="tipsy"></i>
+                                <i class="tsrs-icon-trash" title="Delete" tsrs-data="tipsy"></i>
                             </div>
                             <div class="favorite-btn">
-                                <i class="rs-icon-heart favorite-not-active"  title="Add to favorite"   rs-data="tipsy"></i>
+                                <i class="tsrs-icon-heart favorite-not-active"  title="Add to favorite"   tsrs-data="tipsy"></i>
                             </div>
                         </div>
                     </div>
@@ -138,7 +139,7 @@ const updateLink = linkList => {
                 </a>
                 <div class="box-info">
                     <a href=${link.url} class="box-title"  target="_blank" title="${link.title}">
-                        <h4 class="media-heading rs-title-wrap">` + link.title + `</h4>
+                        <div class="tsrs-title-wrap">${link.title}</div>
                     </a>
                     <div class="box-desc" title="${link.description}">${link.description}</div>
                     
@@ -147,7 +148,7 @@ const updateLink = linkList => {
                             ${link.canonicalUrl}
                         </a>
                         <div class="delete-btn" >
-                            <i class="icon-entyp rs-icon-trash" title="Delete" rs-data="tipsy"></i>\
+                            <i class="icon-entyp tsrs-icon-trash" title="Delete" tsrs-data="tipsy"></i>\
                         </div>
                     </div>
                 </div>
@@ -171,7 +172,7 @@ const load = tripId => {
     if (isNaN(tripId)) {
         let defaultTrip = $(".default-trip")[0];
         tripId = +defaultTrip.id;
-        $("#rs-trip-name").text(defaultTrip.text);
+        $("#tsrs-trip-name").text(defaultTrip.text);
     }
     $.ajax({
         type: 'POST',
@@ -188,10 +189,10 @@ const load = tripId => {
             case "success":
                 updatePlace(res.place);
                 updateLink(res.link);
-                $('[rs-data="tipsy"]').tipsy({
+                $('[tsrs-data="tipsy"]').tipsy({
                     gravity: 'se',
                     fade: true,
-                    delayIn: 400
+                    delayIn: 200
                 });
                 break;
             case "error":
@@ -205,8 +206,7 @@ const load = tripId => {
 
 }
 const clearWindow = callback => {
-    $("#link-tab").children("div").remove();
-    $("#place-tab").children("div").remove();
+    $("#link-tab, #place-tab").children("div").remove();
     callback();
 }
 
@@ -228,25 +228,26 @@ rightSide.on('click', '.my-dropdown-content a', function() {
     clearWindow( () => {
         load(tripId);
     });
-    $('#rs-trip-name').text(text);
+    $('#tsrs-trip-name').text(text);
 });
 
 /*  Change Tab function
-*   .rs-tab-active:     tab is active now
-*   .rs-nav-a-active:   icon is active now
+*   .tsrs-tab-active:     tab is active now
+*   .tsrs-nav-a-active:   icon is active now
 *
  */
 const tabsKey = {
     // id-tab : id-tab-content
-    "rs-nav-li-place": "#place-tab",
-    "rs-nav-li-link" : "#link-tab"
+    "tsrs-nav-li-place": "#place-tab",
+    "tsrs-nav-li-link" : "#link-tab"
 }
-$(".rs-nav-li-tab").click(function() { 
+$(".tsrs-nav-li-tab").click(function() { 
     let displayTab = tabsKey[this.id]; 
-    $(".rs-tab-active").fadeOut(220, function() {
-        $(this).removeClass("rs-tab-active");
-        $(displayTab).addClass("rs-tab-active");
+    $(".tsrs-tab-active").fadeOut(220, function() {
+        $(this).removeClass("tsrs-tab-active");
+        $(displayTab).addClass("tsrs-tab-active");
     });
-    $(".rs-nav-li-tab").removeClass('rs-nav-a-active');
-    $(this).addClass('rs-nav-a-active');
+
+    $(".tsrs-nav-li-tab a i").removeClass('tsrs-nav-i-active');
+    $(this).children('a').children('i').addClass('tsrs-nav-i-active');
 });

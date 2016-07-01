@@ -1,12 +1,12 @@
 @font-face {
-	font-family: 'rs-entypo';
-	src:url('chrome-extension://__MSG_@@extension_id__/lib/entypo/fonts/rs-entypo.woff?-62lsm4') format('woff');
+	font-family: 'tsrs-entypo';
+	src:url('chrome-extension://__MSG_@@extension_id__/lib/entypo/fonts/tsrs-entypo.woff?-62lsm4') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
 
 i {
-	font-family: 'rs-entypo';
+	font-family: 'tsrs-entypo';
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -586,7 +586,7 @@ i {
 .icon-hand:before {
 	content: "\e6bc";
 }
-.rs-icon-heart:before {
+.tsrs-icon-heart:before {
 	content: "\e6bd";
 }
 .icon-heart-outlined:before {
@@ -691,7 +691,7 @@ i {
 .icon-line-graph:before {
 	content: "\e6df";
 }
-.rs-icon-link:before {
+.tsrs-icon-link:before {
 	content: "\e6e0";
 }
 .icon-linkedin:before {
@@ -700,13 +700,13 @@ i {
 .icon-linkedin-with-circle:before {
 	content: "\e6e2";
 }
-.rs-icon-list:before {
+.tsrs-icon-list:before {
 	content: "\e6e3";
 }
-.rs-icon-location:before {
+.tsrs-icon-location:before {
 	content: "\e6e4";
 }
-.rs-icon-location-pin:before {
+.tsrs-icon-location-pin:before {
 	content: "\e6e5";
 }
 .icon-lock:before {
@@ -1048,7 +1048,7 @@ i {
 .icon-squared-plus:before {
 	content: "\e756";
 }
-.rs-icon-star:before {
+.tsrs-icon-star:before {
 	content: "\e757";
 }
 .icon-star-outlined:before {
@@ -1120,7 +1120,7 @@ i {
 .icon-traffic-cone:before {
 	content: "\e76e";
 }
-.rs-icon-trash:before {
+.tsrs-icon-trash:before {
 	content: "\e76f";
 }
 .icon-tree:before {

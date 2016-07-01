@@ -8,7 +8,13 @@
     white-space: nowrap
     text-overflow: ellipsis
     overflow: hidden
-
+=tsrs-icon
+    color: #999 !important
+    text-decoration: none !important
+    text-align: center !important
+    font-style: normal !important
+    font-weight: none !important
+    font-family: "tsrs-entypo"
 // =keyframes($key-name)
 //     @keyframes #{$key-name}
 //         @content
@@ -71,13 +77,15 @@ $z-index: 23051996
         height: 26px
 
         /* navigation menu */
-        .rs-icon-list
+        .tsrs-icon-list
+            +tsrs-icon
             position: absolute
             padding: 9px
             top: -2px
             font-size: 28px
-            color: #e78720
+            color: #e78720 !important
             z-index: $z-index+1
+            line-height: 1 !important
             &:hover .my-dropdown-content
                 display: block
             .my-dropdown-content
@@ -92,63 +100,65 @@ $z-index: 23051996
                 min-width: 160px
                 box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
                 a
-                    color: #333
-                    padding: 8px 10px
-                    text-decoration: none
-                    display: block
+                    color: #333 !important
+                    padding: 8px 10px !important
+                    text-decoration: none !important
+                    display: block !important
+                    text-align: left !important
+                    line-height: 1 !important
                     font:
-                        size: 16px
-                        family: Arial
+                        size: 16px !important
+                        family: Arial !important
                     &:hover
-                        background-color: rgba(243, 144,17,0.38)
+                        background-color: rgba(243, 144,17,0.38) !important
                     &:active
-                        background-color: rgba(243, 144, 17, 0.5)
-        #rs-trip-name
+                        background-color: rgba(243, 144, 17, 0.5) !important
+        #tsrs-trip-name
             font-size: 19px
             margin-left: 43px
-            line-height: 1.45
+            line-height: 1.4
             text-transform: uppercase
             width: 245px
             z-index: $z-index+1
             +title-wrap
 
-    #rs-nav
+    #tsrs-nav
         position: absolute
         top: 7px
         width: 100%
-        .rs-nav-ul
-            list-style-type: none
-            margin: 0 0 3px
-            padding: 0
-            overflow: hidden
-            background-color: transparent
-            display: block
-            height: 33px
-            .rs-nav-li-tab
+        ul.tsrs-nav-ul
+            list-style-type: none !important
+            margin: 0 0 3px !important
+            padding: 0 !important
+            overflow: hidden !important
+            background-color: transparent !important
+            display: block !important
+            height: 33px !important
+            li.tsrs-nav-li-tab
                 &:focus
                     outline: none !important
-                padding: 0 10px 5px !important
+                padding: 2px 10px 5px !important
                 display: inline-block !important
-                float: right
-                color: #999 !important
-                .rs-nav-a
-                    display: block
-                    text-align: center
-                    text-decoration: none
-                    font-size: 23px
-                    
+                float: right !important
+                a.tsrs-nav-a
+                    display: block !important
+                    line-height: 1 !important
                     &:hover
-                        background-color: transparent
+                        background-color: transparent !important
                     &:focus
-                        outline: none
+                        outline: none !important
                         // color: #e78720 !important
-            .rs-nav-a-active
-                color: #e78720 !important
-        .rs-nav-tab-content
+                    .tsrs-icon-location-pin,
+                    .tsrs-icon-link
+                        font-size: 23px !important
+                        +tsrs-icon
+                    .tsrs-nav-i-active
+                        color: #e78720 !important
+        .tsrs-nav-tab-content
             height: 380px
             overflow: auto
             display: none
-        .rs-tab-active
+        .tsrs-tab-active
             display: block !important
 
     .box-blur
@@ -175,18 +185,18 @@ $z-index: 23051996
         &:hover
             transition: all 0.2s
             border-bottom: 1px ridge #ef7e05
-            .rs-title-wrap
-                transition: all 0.1s
+            .tsrs-title-wrap
+                transition: all 0.1s                
                 color: #ef7e05
         a
             &:link,
             &:visited
-                color: #333
-                text-decoration: none
+                color: #333  !important
+                text-decoration: none !important
             &:active
-                text-decoration: underline
+                text-decoration: underline !important
             &:hover
-                text-decoration: none
+                text-decoration: none !important
         .box-image
             border: 0
             margin: 12px
@@ -212,24 +222,32 @@ $z-index: 23051996
                 +title-wrap
 
         .place-bottom
-            .rating
-                color: #e69000
+            .tsrs-rating
+                .tsrs-icon-star
+                    +tsrs-icon
+                    color: #e69000 !important
+                color: #e69000 !important
                 font:
                     weight: bold
                     size: 14px
                 display: inline-block
             .delete-btn,
             .favorite-btn
-                @extend .rating
-                color: #999
+                .tsrs-icon-trash,
+                .tsrs-icon-heart
+                    +tsrs-icon
+                font:
+                    weight: bold
+                    size: 14px
+                display: inline-block
                 float: right
                 margin-top: 1px
 
             .delete-btn
                 width: 25px
-                .rs-icon-trash
+                .tsrs-icon-trash
                     padding: 11px
-                &:hover .rs-icon-trash
+                &:hover .tsrs-icon-trash
                     color: #333
                     font-size: 20px
                     padding: 1px 8px 8px 
@@ -237,15 +255,15 @@ $z-index: 23051996
             .favorite-btn
                 .favorite-active,
                 .favorite-active:hover
-                    color: red
+                    color: red !important
                 .favorite-not-active,
                 .favorite-not-active:hover
-                    color: #999
-                .rs-icon-heart
+                    color: #999 !important
+                .tsrs-icon-heart
                     padding: 11px
-                &:hover .rs-icon-heart
+                &:hover .tsrs-icon-heart
                     padding: 1px 8px 8px
-                    font-size: 20px
+                    font-size: 20px !important
         .link-bottom
             background-size: 15px !important
             height: 20px
@@ -261,21 +279,24 @@ $z-index: 23051996
             .delete-btn
                 float: right
                 width: 25px
-                .rs-icon-trash
-                    font-size: 14px
-                    color: #999
+                .tsrs-icon-trash
+                    +tsrs-icon
+                    font-size: 14px 
                     padding: 11px
-                &:hover .rs-icon-trash
+                &:hover .tsrs-icon-trash
                     color: #333
                     padding: 8px
                     font-size: 20px
-        .rs-title-wrap
+        .tsrs-title-wrap
             font:
-                size: 14px
-                family: Arial
-            margin: 0 0 6px
-            width: 262px
-            font-weight: bold
+                size: 14px !important
+                family: Arial !important
+            line-height: 1
+            height: 16px !important
+            margin: 0 0 6px !important
+            width: 262px !important
+            font-weight: bold !important
+            color: #333
             +title-wrap
 
         /* box confirm before delete */
@@ -291,37 +312,43 @@ $z-index: 23051996
                 width: 150px
                 margin: 0 auto
                 p
-                    color: #333
+                    color: #333 !important
                     font:
-                        size: 20px
-                        weight: bold
-                    text-align: center 
-                    margin: 10px 0 12px
+                        size: 20px !important
+                        weight: bold !important
+                    text-align: center !important
+                    margin: 10px 0 12px !important
+                    height: 23px
                     z-index: 2
 
-                .btn-confirm-no
+                button.btn-confirm-no
                     z-index: $z-index+2
                     width: 44px
                     height: 29px
-                    margin: 0 0 0 20px
-                    float: left
-                    font-weight: bold
-                    font-size: 15px
-                    border: 1px solid transparent
-                    border-radius: 4px
-                    color: #333
-                    background-color: #fff
-                    border-color: #ccc
+                    margin: 0 0 0 20px !important
+                    float: left !important
+                    font:
+                        weight: bold !important
+                        size: 15px !important
+                        family: Arial !important
+                    border: 1px solid transparent !important
+                    border-radius: 4px !important
+                    color: #333 !important
+                    background-color: #fff !important
+                    border-color: #ccc !important
+                    padding: 0 !important
+                    line-height: 1.4
+                    text-transform: none
                     &:hover
                         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
                         transition: all 0.3s cubic-bezier(.25,.8,.25,1)
-                .btn-confirm-yes
+                button.btn-confirm-yes
                     @extend .btn-confirm-no
-                    float: right
-                    color: white
-                    background-color: #f0ad4e
-                    border-color: #eea236
-                    margin: 0 20px 0 0
+                    float: right  !important
+                    color: white !important
+                    background-color: #f0ad4e !important
+                    border-color: #eea236 !important
+                    margin: 0 20px 0 0  !important
 
     /* Error box */
     .error
