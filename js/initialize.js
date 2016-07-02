@@ -17,6 +17,6 @@ const ajaxPost = (link, ajaxData, sendResponse) => {
 }
 const getApi = {
     getTripById: 'api/renderTrip',
-
+    deleteItem: 'api/action'
 }
 

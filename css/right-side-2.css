@@ -247,13 +247,14 @@
       font-size: 20px !important; }
     #right-side .box .link-bottom {
       background-size: 15px !important;
-      height: 20px; }
+      height: 20px !important; }
       #right-side .box .link-bottom .link-canonical-url {
-        font-size: 12px;
-        font-style: italic;
-        color: rgba(0, 0, 255, 0.8);
-        padding: 5px 0;
-        margin-left: 20px;
+        font-size: 12px !important;
+        font-style: italic !important;
+        color: rgba(0, 0, 255, 0.8) !important;
+        padding: 0 !important;
+        line-height: 1.9;
+        margin-left: 20px !important;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden; }

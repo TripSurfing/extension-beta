@@ -67,9 +67,11 @@ rightSide.on('click', '.btn-confirm-no',function() {
 });
 rightSide.on('click', '.btn-confirm-yes',function() {
     // $(this).parents('div.box').remove();
-    $(this).parents("div.box").fadeOut(300, function() {
+    let box = $(this).parents('div.box');
+    box.fadeOut(300, function() {
         // Sau này muốn thêm chức năng undo, bỏ dòng này đi
-        $(this).remove();
+        box.remove();
+        deleteItem(box[0]);
     });
     /*Do something to server here*/
 });
@@ -78,15 +80,6 @@ rightSide.on("click", ".tsrs-icon-heart", function() {
     let heart = $(this);
     heart.toggleClass("favorite-active favorite-not-active");
     this.title = heart.hasClass('favorite-active') ? "Remove from favorite" : "Add to favorite";
-    // if (heart.hasClass('favorite-active')) {
-    //     $.post('wwww.tripsurfing.co/api/favorite', 
-    //         {
-    //             itemId:,
-    //             type:,
-    //             action: 'add'
-    //         }
-    //     );
-    // }
 });
 
 /*
