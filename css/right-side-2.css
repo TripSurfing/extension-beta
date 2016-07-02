@@ -48,6 +48,7 @@
     padding: 8px 0px;
     border-bottom: 1px ridge rgba(128, 128, 128, 0.3);
     height: 26px;
+    text-align: left;
     /* navigation menu */ }
     #right-side #right-side-nav-tabs .tsrs-icon-list {
       color: #999 !important;
@@ -120,10 +121,11 @@
         #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a {
           display: block !important;
           line-height: 1 !important; }
-          #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a:hover {
+          #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a:hover, #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a:focus, #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a:active {
+            outline: none !important;
+            text-decoration: none !important;
+            color: transparent !important;
             background-color: transparent !important; }
-          #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a:focus {
-            outline: none !important; }
           #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a .tsrs-icon-location-pin,
           #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a .tsrs-icon-link {
             font-size: 23px !important;
@@ -188,7 +190,8 @@
       margin-top: 12px;
       float: left;
       width: 270px;
-      height: 60px; }
+      height: 60px;
+      text-align: left; }
       #right-side .box .box-info .box-desc {
         font-size: 12px;
         font-style: italic;

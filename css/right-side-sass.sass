@@ -75,7 +75,7 @@ $z-index: 23051996
         padding: 8px 0px
         border-bottom: 1px ridge rgba(128, 128, 128, 0.3)
         height: 26px
-
+        text-align: left
         /* navigation menu */
         .tsrs-icon-list
             +tsrs-icon
@@ -143,10 +143,13 @@ $z-index: 23051996
                 a.tsrs-nav-a
                     display: block !important
                     line-height: 1 !important
-                    &:hover
-                        background-color: transparent !important
-                    &:focus
+                    &:hover,
+                    &:focus,
+                    &:active
                         outline: none !important
+                        text-decoration: none !important
+                        color: transparent !important
+                        background-color: transparent !important
                         // color: #e78720 !important
                     .tsrs-icon-location-pin,
                     .tsrs-icon-link
@@ -214,6 +217,7 @@ $z-index: 23051996
             float: left
             width: 270px
             height: 60px
+            text-align: left
             .box-desc
                 font:
                     size: 12px
