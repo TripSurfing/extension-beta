@@ -17,14 +17,16 @@
         {
             "matches": ["http://*/*", "https://*/*"],
             "css": ["lib/entypo/tsrs-entypo.css","css/right-side-2.css", "lib/tipsy/tipsy.css"],
-            "js": ["lib/jquery-1.12.4.min.js", "lib/jquery-ui.min.js", "lib/tipsy/jquery.tipsy.js", "js/background.js"]
+            "js": ["lib/jquery-1.12.4.min.js", "lib/jquery-ui.min.js", "lib/tipsy/jquery.tipsy.js","js/content-script.js"]
         }
     ],
     "permissions": [
       "storage",
       "tabs",
       "http://*/*",
-      "https://*/*"
+      "https://*/*",
+      "http://*/",
+      "https://*/"
     ],
     "web_accessible_resources": [
        "image/*",
