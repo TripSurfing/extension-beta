@@ -70,6 +70,12 @@ const announceError = message => {
         </div>`;
     $("#place-tab, #link-tab").append(error);
 }
+
+const renderTripList = tripList => {
+    tripList.forEach(trip => {
+        $('#tsrs-dropdown-content').append(`<a href="javascript:void(0)" id="${trip.id}">${trip.name}</a>`);
+    });
+}
 const requestToModel = (message, callback) => {
     chrome.runtime.sendMessage(message, response => callback(response));
 }

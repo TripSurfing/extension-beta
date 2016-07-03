@@ -82,6 +82,24 @@ const clearWindow = callback => {
     callback();
 }
 
+const getTripList = userId => {
+    let message = {
+        action: 'getTripList',
+        data: {
+            'userId': userId,
+        }
+    }
+    let callback = response => {
+        switch (response.type) {
+            case 'success':
+                renderTripList(response.list);
+                break;
+            case 'error':
+                break;
+        }
+    }
+    requestToModel(message, callback);
+}
 $(() => {
-    renderTrip();
+    getTripList(23);
 });

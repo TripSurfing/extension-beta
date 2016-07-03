@@ -20,5 +20,6 @@ const getApi = {
     deleteItem          : 'api/action',
     addToFavorite       : 'api/favorite',
     removeFromFavorite  : 'api/favorite',
+    getTripList         : 'api/getTripList',
 }
 

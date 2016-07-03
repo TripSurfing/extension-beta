@@ -64,9 +64,9 @@
       color: #e78720 !important;
       z-index: 23051997;
       line-height: 1 !important; }
-      #right-side #right-side-nav-tabs .tsrs-icon-list:hover .my-dropdown-content {
+      #right-side #right-side-nav-tabs .tsrs-icon-list:hover #tsrs-dropdown-content {
         display: block; }
-      #right-side #right-side-nav-tabs .tsrs-icon-list .my-dropdown-content {
+      #right-side #right-side-nav-tabs .tsrs-icon-list #tsrs-dropdown-content {
         display: none;
         overflow: auto;
         max-height: 390px;
@@ -77,7 +77,7 @@
         background-color: #f9f9f9;
         min-width: 160px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
-        #right-side #right-side-nav-tabs .tsrs-icon-list .my-dropdown-content a {
+        #right-side #right-side-nav-tabs .tsrs-icon-list #tsrs-dropdown-content a {
           color: #333 !important;
           padding: 8px 10px !important;
           text-decoration: none !important;
@@ -86,9 +86,9 @@
           line-height: 1 !important;
           font-size: 16px !important;
           font-family: Arial !important; }
-          #right-side #right-side-nav-tabs .tsrs-icon-list .my-dropdown-content a:hover {
+          #right-side #right-side-nav-tabs .tsrs-icon-list #tsrs-dropdown-content a:hover {
             background-color: rgba(243, 144, 17, 0.38) !important; }
-          #right-side #right-side-nav-tabs .tsrs-icon-list .my-dropdown-content a:active {
+          #right-side #right-side-nav-tabs .tsrs-icon-list #tsrs-dropdown-content a:active {
             background-color: rgba(243, 144, 17, 0.5) !important; }
     #right-side #right-side-nav-tabs #tsrs-trip-name {
       font-size: 19px;

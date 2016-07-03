@@ -3,12 +3,7 @@ $('body').append(
 	`<div id="right-side">
         <div id="right-side-nav-tabs">
             <i class="tsrs-icon-list">
-                <div class="my-dropdown-content">
-                    <a href="javascript:void(0)" id="74">test</a>
-                    <a href="javascript:void(0)" id="80" class="default-trip">Philippines 2</a>
-                    <a href="javascript:void(0)" id="73">Philippines</a>
-                    <a href="javascript:void(0)" id="72">Siquijor Island</a>
-                    <a href="javascript:void(0)" id="27">First trip</a>
+                <div id="tsrs-dropdown-content">
                 </div>
             </i>
             <div id="tsrs-trip-name"></div>
@@ -102,7 +97,7 @@ $('#btn-tool-show').click( function() {
     });
 });
 
-rightSide.on('click', '.my-dropdown-content a', function() {
+rightSide.on('click', '#tsrs-dropdown-content a', function() {
     let tripId = parseInt(this.id);
     let text = $(this).text(); 
 
