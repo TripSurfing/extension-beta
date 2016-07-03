@@ -26,7 +26,7 @@
                 "lib/jquery-1.12.4.min.js", 
                 "lib/tipsy/jquery.tipsy.js",
                 "js/view-event.js", 
-                "js/controller-functions.js",
+                "js/view-action.js",
                 "js/controller.js"
             ]
         }

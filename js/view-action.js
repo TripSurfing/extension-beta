@@ -1,7 +1,7 @@
 const renderPlaceTab = placeList => {
     console.time('test');
     placeList.forEach(place => {
-        let img_url = place.detail === null ? "http://www.tripsurfing.co/static/img/noimg.jpg" : place.detail.url; 
+        let img_url = place.detail !== null ? place.detail.url : "http://www.tripsurfing.co/static/img/noimg.jpg"; 
         let item =
             `<div class="box" id="place-${place.trip_place_id}">
                     <a class="box-image" href= ${place.url} target="_blank">
@@ -34,10 +34,11 @@ const renderPlaceTab = placeList => {
 }
 const renderLinkTab = linkList => {
     linkList.forEach(link => {
+        let img_url = (link.image !== null && link.image != "") ? link.image : "http://www.tripsurfing.co/static/img/noimg.jpg"; 
         item =
             `<div class="box" id="link-${link.trip_link_id}">
                 <a class="box-image" href=${link.url} target="_blank">
-                    <div class="image" style="background-image: url(${link.image})"></div>
+                    <div class="image" style="background-image: url(${img_url})"></div>
                 </a>
                 <div class="box-info">
                     <a href=${link.url} class="box-title"  target="_blank" title="${link.title}">
