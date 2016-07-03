@@ -77,9 +77,19 @@ rightSide.on('click', '.btn-confirm-yes',function() {
 });
 
 rightSide.on("click", ".tsrs-icon-heart", function() {
+
     let heart = $(this);
-    heart.toggleClass("favorite-active favorite-not-active");
-    this.title = heart.hasClass('favorite-active') ? "Remove from favorite" : "Add to favorite";
+    heart.toggleClass("favorite-active favorite-not-active").promise().done(heart => {
+        if (heart.hasClass('favorite-active')) {
+            this.title = 'Remove from favorite';
+            addToFavorite(this);
+        } else {
+            this.title = 'Add to favorite';
+            removeFromFavorite(this);
+        }
+    });
+    // this.title = heart.hasClass('favorite-active') ? "Remove from favorite" : "Add to favorite";
+
 });
 
 /*

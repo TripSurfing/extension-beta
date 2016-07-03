@@ -28,6 +28,7 @@ const renderTrip = tripId => {
     requestToModel(message, callback);
 
 }
+
 const deleteItem = item => {
     let info = item.id.split('-');
     let message = {
@@ -42,13 +43,45 @@ const deleteItem = item => {
         console.log(response);
     }
     requestToModel(message, callback);
+}
 
+const addToFavorite = item => {
+    let info = item.id.split('-');
+    let message = {
+        action: 'addToFavorite',
+        data: {
+            type: info[0],
+            itemId: info[1],
+            action: 'add',
+        }
+    }
+    let callback = response => {
+        console.log(response);
+    }
+    requestToModel(message, callback);
+}
+
+const removeFromFavorite = item => {
+    let info = item.id.split('-');
+    let message = {
+        action: 'removeFromFavorite',
+        data: {
+            type: info[0],
+            itemId: info[1],
+            action: 'remove',
+        }
+    }
+    let callback = response => {
+        console.log(response);
+    }
+    requestToModel(message, callback);
 }
 
 const clearWindow = callback => {
     $("#link-tab, #place-tab").children("div").remove();
     callback();
 }
+
 $(() => {
     renderTrip();
 });

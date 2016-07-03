@@ -23,7 +23,7 @@ const renderPlaceTab = placeList => {
                                 <i class="tsrs-icon-trash" title="Delete" tsrs-data="tipsy"></i>
                             </div>
                             <div class="favorite-btn">
-                                <i class="tsrs-icon-heart favorite-not-active"  title="Add to favorite"   tsrs-data="tipsy"></i>
+                                <i class="tsrs-icon-heart favorite-not-active"  title="Add to favorite"   tsrs-data="tipsy"  id="place-${place.id}-favorite"></i>
                             </div>
                         </div>
                     </div>

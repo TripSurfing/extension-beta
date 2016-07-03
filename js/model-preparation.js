@@ -16,7 +16,9 @@ const ajaxPost = (link, ajaxData, sendResponse) => {
     })
 }
 const getApi = {
-    getTripById: 'api/renderTrip',
-    deleteItem: 'api/action'
+    getTripById         : 'api/renderTrip',
+    deleteItem          : 'api/action',
+    addToFavorite       : 'api/favorite',
+    removeFromFavorite  : 'api/favorite',
 }
 
