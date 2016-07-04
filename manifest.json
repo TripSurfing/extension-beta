@@ -1,49 +1,76 @@
 {
-    "manifest_version": 2,
-    "name": "Trip Surfing Right Side",
-    "version": "1.0",
-    "description": "My first chrome extension",
-
-    "browser_action": {
-        "default_icon": "image/icon19.png"
-        // "default_popup": "popup.html"
+  "manifest_version": 2,
+  "name": "TripSurfing",
+  "description": "Most-used tool for travel-lover!",
+  "version": "1.2",
+  
+  "icons": { 
+    "16": "img/icon16.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+  },
+  
+  "browser_action": {
+    "default_icon": "img/icon48g.png",
+    "default_title": "Save Page To TripSurfing"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [ "http://*/*", "https://*/*" ],
+      "exclude_matches": [ "*://tripsurfing.loc/*", "*://tripsurfing.co/*", "*://*.tripsurfing.loc/*", "*://*.tripsurfing.co/*" ],
+      "css": [ "css/content_script.css" ],
+      "js": [ "js/initialize.js", "lib/SmartStorage.js", "lib/jquery-2.2.0.min.js", "js/content_script/all.js" ]
     },
-
-    "background": {
-        "persistent": true,
-        "page": "html/background.html"
+    {
+      "matches": [ "*://tripadvisor.com/*", "*://*.tripadvisor.com/*", "*://*.tripadvisor.com/*", "*://tripadvisor.com.vn/*", "*://*.tripadvisor.com.vn/*"  ],
+      "js": [ "js/content_script/tripadvisor.js" ]
     },
-    "content_scripts": [
-        {
-            "matches": ["http://*/*", "https://*/*"],
-            "css": [
-                "lib/entypo/tsrs-entypo.css",
-                "css/right-side-2.css", 
-                "lib/tipsy/tipsy.css"
-            ],
-
-            "js": [
-                "lib/jquery-1.12.4.min.js", 
-                "lib/tipsy/jquery.tipsy.js",
-                "js/view-event.js", 
-                "js/view-action.js",
-                "js/controller.js"
-            ]
-        }
-    ],
-    "permissions": [
-      "storage",
-      "tabs",
-      "http://*/*",
-      "https://*/*",
-      "http://*/",
-      "https://*/"
-    ],
-    "web_accessible_resources": [
-       "image/*",
-       "lib/*",
-       "lib/entypo/fonts/*",
-       "lib/entypo/*"
+    {
+      "matches": [ "*://tripsurfing.loc/*", "*://tripsurfing.co/*", "*://*.tripsurfing.loc/*", "*://*.tripsurfing.co/*" ],
+      "js": [ "js/content_script/tripsurfing.js" ]
+    }, 
+    {
+      "matches": [ "*://tripsurfing.loc/extension_login", "*://tripsurfing.co/extension_login", "*://*.tripsurfing.loc/extension_login", "*://*.tripsurfing.co/extension_login" ],
+      "js": [ "js/content_script/login.js" ]
+    },
+    {
+      "matches": [ "*://tripsurfing.loc/login?o=1", "*://tripsurfing.co/login?o=1", "*://*.tripsurfing.loc/login?o=1", "*://*.tripsurfing.co/login?o=1" ],
+      "js": [ "js/content_script/logout.js" ]
+    }, 
+	// Right-side setup
+	{
+        "matches": ["http://*/*", "https://*/*"],
+        "css": [
+            "right-side/lib/entypo/tsrs-entypo.css",
+            "right-side/css/right-side-2.css", 
+            "right-side/lib/tipsy/tipsy.css"
+        ],
+        "js": [
+		// "lib/SmartStorage.js",
+            "right-side/lib/jquery-1.12.4.min.js", 
+            "right-side/lib/tipsy/jquery.tipsy.js",
+            "right-side/js/view-event.js", 
+            "right-side/js/view-action.js",
+            "right-side/js/controller.js"
+        ]
+    }
+  ],
+  
+  "background": {
+    "page": "html/background.html",
+    "persistent" : true
+  },
+  
+  "externally_connectable": {
+    "matches": ["*://tripsurfing.loc/*", "*://tripsurfing.co/*", "*://*.tripsurfing.loc/*", "*://*.tripsurfing.co/*"]
+  },
+  
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+"web_accessible_resources": [
+       "right-side/image/*",
+       "right-side/lib/*"
      ]
 }
-//  TODO: sua lai atr cho rs-icon de no ko phu thuoc vao <a>

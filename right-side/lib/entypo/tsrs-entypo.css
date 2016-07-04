@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'tsrs-entypo';
-	src:url('chrome-extension://__MSG_@@extension_id__/lib/entypo/fonts/tsrs-entypo.woff?-62lsm4') format('woff');
+	src:url('chrome-extension://__MSG_@@extension_id__/right-side/lib/entypo/fonts/tsrs-entypo.woff?-62lsm4') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }

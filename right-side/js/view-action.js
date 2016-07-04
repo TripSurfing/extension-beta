@@ -17,7 +17,7 @@ const renderPlaceTab = placeList => {
                         
                         <div class="place-bottom">
                             <div class="tsrs-rating">
-                                <i class="tsrs-icon-star"></i> 4.5
+                                <i class="tsrs-icon-star"></i> ${place.rate_avg}
                             </div>
                             <div class="delete-btn">
                                 <i class="tsrs-icon-trash" title="Delete" tsrs-data="tipsy"></i>

@@ -1,7 +1,7 @@
 // const tripSurfingUrl = 'http://wwww.tripsurfing.com/';
-const tripSurfingUrl = 'http://www.tripsurfing.co/';
+// const tripSurfingUrl = 'http://www.tripsurfing.co/';
 
-const ajaxPost = (link, ajaxData, sendResponse) => {
+const ajaxRsPost = (link, ajaxData, sendResponse) => {
     $.ajax({
         url: tripSurfingUrl + link,
         type: 'POST',
@@ -21,5 +21,9 @@ const getApi = {
     addToFavorite       : 'api/favorite',
     removeFromFavorite  : 'api/favorite',
     getTripList         : 'api/getTripList',
+}
+const getUserId = (sendResponse) => {
+    if(typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
+    sendResponse(smartStorage.get('userId'));
 }
 
