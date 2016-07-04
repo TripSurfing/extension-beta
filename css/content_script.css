@@ -1,0 +1,124 @@
+/*#tripsurfing-save img{
+  width: 20px;
+}
+::selection { 
+  background-color: orange !important; 
+  color: white !important;
+}*/
+#tripsurfing-tool{
+  position:absolute !important;
+  /*padding: 0 5px;
+  /*border: 1px solid orange;*/
+  width: auto !important;
+  z-index: 9999999999 !important;
+  background: white !important;
+  line-height: 23px !important;
+  opacity: 1 !important;
+}
+
+#tripsurfing-tool:hover .tripsurfing-arrow-up{
+  border-bottom: 5px solid #e69000 !important;
+}
+
+#tripsurfing-save{
+  position: relative !important;
+  top: -4px !important;
+  display: block !important;
+}
+
+#tripsurfing-save:hover, .tripsurfing-list-save:hover{
+  border-bottom: 1px solid #589442 !important;
+}
+
+.tripsurfing-save-quote{
+  background: orange !important;
+  padding: 8px !important;
+  font-family: Arial !important;
+  font-size: 13px !important;
+  font-weight: normal !important;
+  font-style: italic !important;
+  opacity: 1 !important;
+  cursor: pointer !important;
+  color: #fff !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.tripsurfing-arrow-up {
+	width: 0 !important; 
+	height: 0 !important; 
+	border-left: 5px solid transparent !important;
+	border-right: 5px solid transparent !important;	
+	border-bottom: 5px solid orange !important;
+  position: absolute !important;
+  top: -7px !important;
+  left: 10px !important;
+}
+
+.tripsurfing-save-quote:hover{
+  background: #e69000 !important;
+  box-shadow: 3px 4px 2px rgba(0,0,0,0.3) !important;
+}
+
+#tripsurfing-status{
+    max-width: 300px !important;
+    position: fixed;
+    right: 20px !important;
+    top: 30px !important;
+    display: none;
+    border: 1px solid #e69000 !important;
+    box-shadow: rgba(0, 0, 0, 0.14) 1px 3px 3px 1px !important;
+    z-index: 9999999999 !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+}
+#tripsurfing-status .ts-logo{
+  display: table-cell !important;
+  width: 60px !important;
+  text-align: center !important;
+}
+#tripsurfing-status .ts-message{
+  padding: 20px !important;
+  background: #e69000 !important;
+  font-family: arial !important;
+  color: white !important;
+  min-width: 100px !important;
+  text-align: center !important;
+  max-width: 200px !important;
+  font-weight: bold !important;
+  display: table-cell !important;
+}
+#tripsurfing-status .ts-logo img{
+  width: 24px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  padding: 20px !important;
+  display: inline !important;
+  float: none !important;
+  position: static !important;
+  vertical-align: middle;
+}
+#tripsurfing-status .ts-content{
+  display: table-row !important;
+  background: #fff !important;
+}
+#tripsurfing-status .ts-close{
+  position: absolute !important;
+  top: -10px !important;
+  right: -10px !important;
+  color: #BD7200 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  width: 20px !important;
+  font-family: arial !important;
+  cursor: pointer !important;
+}
+#tripsurfing-status .ts-close img{
+  width: 100% !important;
+  border: 0 !important;
+}

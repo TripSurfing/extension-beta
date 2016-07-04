@@ -3,13 +3,15 @@ const renderTrip = tripId => {
         let defaultTrip = $(".default-trip")[0];
         tripId = +defaultTrip.id;
         $("#tsrs-trip-name").text(defaultTrip.text);
+        // tripId = 27;
     }
     let message = {
-        action:   "getTripById",
-        data: {"tripId" : tripId}
+        rightSide: true,
+        action: "getTripById",
+        data: { "tripId": tripId }
     }
     let callback = response => {
-        switch(response.type) {
+        switch (response.type) {
             case "success":
                 renderPlaceTab(response.place);
                 renderLinkTab(response.link);
@@ -32,6 +34,7 @@ const renderTrip = tripId => {
 const deleteItem = item => {
     let info = item.id.split('-');
     let message = {
+        rightSide: true,
         action: 'deleteItem',
         data: {
             type: info[0],
@@ -48,6 +51,7 @@ const deleteItem = item => {
 const addToFavorite = item => {
     let info = item.id.split('-');
     let message = {
+        rightSide: true,
         action: 'addToFavorite',
         data: {
             type: info[0],
@@ -64,6 +68,7 @@ const addToFavorite = item => {
 const removeFromFavorite = item => {
     let info = item.id.split('-');
     let message = {
+        rightSide: true,
         action: 'removeFromFavorite',
         data: {
             type: info[0],
@@ -82,24 +87,37 @@ const clearWindow = callback => {
     callback();
 }
 
-const getTripList = userId => {
+const getTripList = () => {
     let message = {
-        action: 'getTripList',
-        data: {
-            'userId': userId,
-        }
+        getUserId: true
     }
     let callback = response => {
-        switch (response.type) {
-            case 'success':
-                renderTripList(response.list);
-                break;
-            case 'error':
-                break;
+        let userId = parseInt(response);
+        if (userId !== null) {
+            let message = {
+                rightSide: true,
+                action: 'getTripList',
+                data: {
+                    'userId': parseInt(userId),
+                }
+            }
+            let callback = response => {
+                switch (response.type) {
+                    case 'success':
+                        renderTripList(response.list);
+                        break;
+                    case 'error':
+                        break;
+                }
+            }
+            requestToModel(message, callback);
+        } else {
+            announceError('Login first :D');
         }
     }
     requestToModel(message, callback);
 }
 $(() => {
-    getTripList(23);
+    getTripList();
+    renderTrip(27);
 });

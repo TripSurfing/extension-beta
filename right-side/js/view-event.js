@@ -29,8 +29,8 @@ $('body').append(
         </div>
     </div>
     <div id='btn-tool-selector' class="btn-group">
-        <div id="btn-tool-show" class="not-show">
-            <img src="${chromeUrl("image/icon38.png")}" />
+        <div id="btn-tool-show" class="not-show btn-descoration">
+            <img src="${chromeUrl("right-side/image/icon38.png")}" />
         </div>
     </div>`);
 /**
@@ -92,9 +92,8 @@ rightSide.on("click", ".tsrs-icon-heart", function() {
     */
 
 $('#btn-tool-show').click( function() {
-    rightSide.slideToggle(700,"swing", function() {
-        $('#btn-tool-show').toggleClass('not-show show');
-    });
+    $('#btn-tool-show').toggleClass('not-show show');
+    rightSide.slideToggle(700,"swing");
 });
 
 rightSide.on('click', '#tsrs-dropdown-content a', function() {
