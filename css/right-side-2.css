@@ -1,8 +1,17 @@
+@keyframes fadeInEffect {
+  from {
+    opacity: 0.5; }
+  to {
+    opacity: 1; } }
+@keyframes fadeOutEffect {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0.5; } }
 /* Button tool */
 #btn-tool-selector {
   display: block; }
-  #btn-tool-selector #btn-tool-show {
-    opacity: 0.5;
+  #btn-tool-selector .btn-descoration {
     z-index: 23051996;
     border: 0;
     position: fixed;
@@ -11,20 +20,27 @@
     height: 43px;
     width: 43px;
     border-radius: 50%; }
-    #btn-tool-selector #btn-tool-show:hover {
-      opacity: 1;
-      transition: all 0.3s;
-      background-color: #eee;
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
-    #btn-tool-selector #btn-tool-show img {
-      width: 35px;
-      height: 35px;
-      margin: 4px; }
-      #btn-tool-selector #btn-tool-show img:hover {
-        -ms-transform: rotate(-180deg);
-        -webkit-transform: rotate(-180deg);
-        transform: rotate(-180deg);
-        transition: all 0.3s; }
+  #btn-tool-selector .show {
+    opacity: 1;
+    background-color: #eee;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  #btn-tool-selector .not-show {
+    animation: fadeOutEffect 1s;
+    opacity: 0.5 !important; }
+  #btn-tool-selector #btn-tool-show:hover {
+    opacity: 1 !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: #eee;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  #btn-tool-selector #btn-tool-show img {
+    width: 35px;
+    height: 35px;
+    margin: 4px; }
+    #btn-tool-selector #btn-tool-show img:hover {
+      -ms-transform: rotate(-180deg);
+      -webkit-transform: rotate(-180deg);
+      transform: rotate(-180deg);
+      transition: all 0.3s; }
 
 /* Right-side */
 #right-side {

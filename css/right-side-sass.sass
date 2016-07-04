@@ -15,14 +15,19 @@
     font-style: normal !important
     font-weight: none !important
     font-family: "tsrs-entypo"
-// =keyframes($key-name)
-//     @keyframes #{$key-name}
-//         @content
-// +keyframes(fadeEffect)
-//     from
-//         opacity: 0.5
-//     to
-//         opacity: 1
+=keyframes($key-name)
+    @keyframes #{$key-name}
+        @content
++keyframes(fadeInEffect)
+    from
+        opacity: 0.5
+    to
+        opacity: 1
++keyframes(fadeOutEffect)
+    from
+        opacity: 1
+    to
+        opacity: 0.5
 // =animation($string)
 
 // Variables
@@ -32,8 +37,7 @@ $z-index: 23051996
 /* Button tool */
 #btn-tool-selector
     display: block
-    #btn-tool-show
-        opacity: 0.5
+    .btn-descoration
         z-index: $z-index
         border: 0
         position: fixed
@@ -42,9 +46,17 @@ $z-index: 23051996
         height: 43px
         width: 43px
         border-radius: 50%
+    .show
+        opacity: 1
+        background-color: #eee
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+    .not-show
+        animation: fadeOutEffect 1s
+        opacity: 0.5 !important
+    #btn-tool-show
         &:hover
-            opacity: 1
-            transition: all 0.3s
+            opacity: 1 !important
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1)
             background-color: #eee
             box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
 
