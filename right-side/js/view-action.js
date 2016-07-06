@@ -1,13 +1,24 @@
 // const render = (selector, items) => {
 //     $(selector).append(items);
 // }
+const favoriteState = favorites => {
+    if (favorites.length == 0) return ['favorite-not-active', 'Add to favorite'];
+    else {
+        for(user of favorites) {
+            if (user.user_id == userId) return ['favorite-active', 'Remove from favorite'];
+        } 
+    }
+}
 const renderPlaceTab = placeList => {
     console.time('test');
     var item ='';
+
     for (place of placeList) {
-        let img_url = place.images.length != 0 ? place.images[0].url : "http://www.tripsurfing.co/static/img/noimg.jpg"; 
+        let img_url = place.images.length != 0 ? place.images[0].url : "http://www.tripsurfing.co/static/img/noimg.jpg";
+        let favoriteInfo = favoriteState(place.favorites);
+        // place_id = favorite, place.id = delete
         item +=
-            `<div class="box" id="place-${place.id}">
+            `<div class="box" id="place-${place.place_id}-${place.id}">
                     <a class="box-image" href= ${place.url} target="_blank">
                         <div class="image" style="background-image: url(${img_url})"> </div>
                     </a>
@@ -27,7 +38,7 @@ const renderPlaceTab = placeList => {
                                 <i class="tsrs-icon-trash" title="Delete" tsrs-data="tipsy"></i>
                             </div>
                             <div class="favorite-btn">
-                                <i class="tsrs-icon-heart favorite-not-active"  title="Add to favorite" tsrs-data="tipsy"></i>
+                                <i class="tsrs-icon-heart ${favoriteInfo[0]}"  title="${favoriteInfo[1]}" tsrs-data="tipsy"></i>
                             </div>
                         </div>
                     </div>
@@ -40,8 +51,9 @@ const renderLinkTab = linkList => {
     var item = '';
     for (link of linkList) {
         let img_url = (link.image !== null && link.image != "") ? link.image : "http://www.tripsurfing.co/static/img/noimg.jpg"; 
+        let favoriteInfo = favoriteState(link.favorites);
         item +=
-            `<div class="box" id="link-${link.id}">
+            `<div class="box" id="link-${link.link_id}-${link.id}">
                 <a class="box-image" href=${link.url} target="_blank">
                     <div class="image" style="background-image: url(${img_url})"></div>
                 </a>
@@ -56,7 +68,10 @@ const renderLinkTab = linkList => {
                             ${link.canonicalUrl}
                         </a>
                         <div class="delete-btn" >
-                            <i class="tsrs-icon-trash" title="Delete" tsrs-data="tipsy"></i>\
+                            <i class="tsrs-icon-trash" title="Delete" tsrs-data="tipsy"></i>
+                        </div>
+                        <div class="favorite-btn">
+                            <i class="tsrs-icon-heart ${favoriteInfo[0]}" tsrs-data="tipsy" title="${favoriteInfo[1]}"></i>
                         </div>
                     </div>
                 </div>
@@ -87,7 +102,4 @@ const renderTripList = (tripList) => {
         }
 
     });
-}
-const requestToModel = (message, callback) => {
-    chrome.runtime.sendMessage(message, response => callback(response));
 }
