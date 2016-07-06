@@ -287,6 +287,7 @@ $z-index: 23051996
         .link-bottom
             background-size: 15px !important
             height: 20px !important
+            line-height: 20px !important
             .link-canonical-url
                 font:
                     size: 12px !important
@@ -297,12 +298,14 @@ $z-index: 23051996
                 margin-left: 20px !important
                 // width: 
                 +title-wrap
-            .delete-btn
+            .delete-btn,
+            .favorite-btn
                 float: right
                 width: 25px
                 height: 24px
                 line-height: 24px
-                .tsrs-icon-trash
+                .tsrs-icon-trash,
+                .tsrs-icon-heart
                     +tsrs-icon
                     font-size: 14px 
                     padding: 11px
@@ -310,6 +313,17 @@ $z-index: 23051996
                     color: #333
                     padding: 8px
                     font-size: 20px
+            .favorite-btn
+                margin-right: 10px
+                .favorite-active,
+                .favorite-active:hover
+                    color: red !important
+                .favorite-not-active,
+                .favorite-not-active:hover
+                    color: #999 !important
+                &:hover .tsrs-icon-heart
+                    padding: 1px 8px 8px
+                    font-size: 20px !important
         .tsrs-title-wrap
             font:
                 size: 14px !important

@@ -267,7 +267,8 @@
       font-size: 20px !important; }
     #right-side .box .link-bottom {
       background-size: 15px !important;
-      height: 20px !important; }
+      height: 20px !important;
+      line-height: 20px !important; }
       #right-side .box .link-bottom .link-canonical-url {
         font-size: 12px !important;
         font-style: italic !important;
@@ -278,12 +279,16 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden; }
-      #right-side .box .link-bottom .delete-btn {
+      #right-side .box .link-bottom .delete-btn,
+      #right-side .box .link-bottom .favorite-btn {
         float: right;
         width: 25px;
         height: 24px;
         line-height: 24px; }
-        #right-side .box .link-bottom .delete-btn .tsrs-icon-trash {
+        #right-side .box .link-bottom .delete-btn .tsrs-icon-trash,
+        #right-side .box .link-bottom .delete-btn .tsrs-icon-heart,
+        #right-side .box .link-bottom .favorite-btn .tsrs-icon-trash,
+        #right-side .box .link-bottom .favorite-btn .tsrs-icon-heart {
           color: #999 !important;
           text-decoration: none !important;
           text-align: center !important;
@@ -292,10 +297,22 @@
           font-family: "tsrs-entypo";
           font-size: 14px;
           padding: 11px; }
-        #right-side .box .link-bottom .delete-btn:hover .tsrs-icon-trash {
+        #right-side .box .link-bottom .delete-btn:hover .tsrs-icon-trash,
+        #right-side .box .link-bottom .favorite-btn:hover .tsrs-icon-trash {
           color: #333;
           padding: 8px;
           font-size: 20px; }
+      #right-side .box .link-bottom .favorite-btn {
+        margin-right: 10px; }
+        #right-side .box .link-bottom .favorite-btn .favorite-active,
+        #right-side .box .link-bottom .favorite-btn .favorite-active:hover {
+          color: red !important; }
+        #right-side .box .link-bottom .favorite-btn .favorite-not-active,
+        #right-side .box .link-bottom .favorite-btn .favorite-not-active:hover {
+          color: #999 !important; }
+        #right-side .box .link-bottom .favorite-btn:hover .tsrs-icon-heart {
+          padding: 1px 8px 8px;
+          font-size: 20px !important; }
     #right-side .box .tsrs-title-wrap {
       font-size: 14px !important;
       font-family: Arial !important;
