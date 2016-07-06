@@ -7,4 +7,7 @@ chrome.runtime.onMessage.addListener(
     	if (message.getUserId == true) {
     		return getUserId(sendResponse);
     	}
+    	if (message.getTripList == true) {
+    		return getTripList(sendResponse);
+    	}
     });

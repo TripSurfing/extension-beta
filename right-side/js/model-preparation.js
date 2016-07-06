@@ -20,10 +20,4 @@ const getApi = {
     deleteItem          : 'api/action',
     addToFavorite       : 'api/favorite',
     removeFromFavorite  : 'api/favorite',
-    getTripList         : 'api/getTripList',
 }
-const getUserId = (sendResponse) => {
-    if(typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
-    sendResponse(smartStorage.get('userId'));
-}
-
