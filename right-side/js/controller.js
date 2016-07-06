@@ -1,13 +1,3 @@
-var userId;
-const getUserId = () => {
-    let message = {
-        getUserId: true
-    }
-    let callback = response => {
-        userId = response;
-    }
-    requestToModel(message, callback);
-}
 const renderTrip = (tripId) => {
     if (isNaN(tripId)) {
         let defaultTrip = $(".default-trip")[0];
@@ -50,7 +40,7 @@ const deleteItem = item => {
         action: 'deleteItem',
         data: {
             type: info[0],
-            itemId: info[1],
+            itemId: info[2],
             action: 'delete',
         }
     }
@@ -109,6 +99,5 @@ const getTripList = () => {
     requestToModel(message, callback);
 }
 $(() => {
-    getUserId();
     getTripList();
 });
