@@ -1,9 +1,13 @@
+// const render = (selector, items) => {
+//     $(selector).append(items);
+// }
 const renderPlaceTab = placeList => {
     console.time('test');
-    placeList.forEach(place => {
-        let img_url = place.detail !== null ? place.detail.url : "http://www.tripsurfing.co/static/img/noimg.jpg"; 
-        let item =
-            `<div class="box" id="place-${place.trip_place_id}">
+    var item ='';
+    for (place of placeList) {
+        let img_url = place.images.length != 0 ? place.images[0].url : "http://www.tripsurfing.co/static/img/noimg.jpg"; 
+        item +=
+            `<div class="box" id="place-${place.id}">
                     <a class="box-image" href= ${place.url} target="_blank">
                         <div class="image" style="background-image: url(${img_url})"> </div>
                     </a>
@@ -23,20 +27,21 @@ const renderPlaceTab = placeList => {
                                 <i class="tsrs-icon-trash" title="Delete" tsrs-data="tipsy"></i>
                             </div>
                             <div class="favorite-btn">
-                                <i class="tsrs-icon-heart favorite-not-active"  title="Add to favorite"   tsrs-data="tipsy"  id="place-${place.id}-favorite"></i>
+                                <i class="tsrs-icon-heart favorite-not-active"  title="Add to favorite" tsrs-data="tipsy"></i>
                             </div>
                         </div>
                     </div>
             </div>`;
-        $("#place-tab").append(item);
-    });
+        }
+    document.getElementById('place-tab').innerHTML += item;
     console.timeEnd('test');
 }
 const renderLinkTab = linkList => {
-    linkList.forEach(link => {
+    var item = '';
+    for (link of linkList) {
         let img_url = (link.image !== null && link.image != "") ? link.image : "http://www.tripsurfing.co/static/img/noimg.jpg"; 
-        item =
-            `<div class="box" id="link-${link.trip_link_id}">
+        item +=
+            `<div class="box" id="link-${link.link_id}">
                 <a class="box-image" href=${link.url} target="_blank">
                     <div class="image" style="background-image: url(${img_url})"></div>
                 </a>
@@ -56,8 +61,8 @@ const renderLinkTab = linkList => {
                     </div>
                 </div>
             </div>`;
-        $("#link-tab").append(item);
-    });
+    }
+    document.getElementById('link-tab').innerHTML += item;
     // if (linkList.length > 3) $("#saved-links-id").append(nomore);
 }
 const announceError = message => {
@@ -68,12 +73,19 @@ const announceError = message => {
                 <button class="login-btn">Log In</button>
             </a>
         </div>`;
-    $("#place-tab, #link-tab").append(error);
+    $("#place-tab, #link-tab").html(error);
 }
 
-const renderTripList = tripList => {
+const renderTripList = (tripList) => {
     tripList.forEach(trip => {
-        $('#tsrs-dropdown-content').append(`<a href="javascript:void(0)" id="${trip.id}">${trip.name}</a>`);
+        if (trip.is_default == 0)
+            $('#tsrs-dropdown-content').append(`<a href="javascript:void(0)" id="${trip.id}">${trip.name}</a>`);
+        else {
+            $('#tsrs-dropdown-content').append(`<a href="javascript:void(0)" id="${trip.id}" class="default-trip">${trip.name}</a>`);
+            $('#tsrs-trip-name').text(trip.name);
+            renderTrip(trip.id);
+        }
+
     });
 }
 const requestToModel = (message, callback) => {
