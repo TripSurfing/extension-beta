@@ -1,4 +1,14 @@
-const renderTrip = tripId => {
+var userId;
+const getUserId = () => {
+    let message = {
+        getUserId: true
+    }
+    let callback = response => {
+        userId = response;
+    }
+    requestToModel(message, callback);
+}
+const renderTrip = (tripId) => {
     if (isNaN(tripId)) {
         let defaultTrip = $(".default-trip")[0];
         tripId = +defaultTrip.id;
@@ -8,13 +18,16 @@ const renderTrip = tripId => {
     let message = {
         rightSide: true,
         action: "getTripById",
-        data: { "tripId": tripId }
+        data: { 
+            "tripId": tripId,
+            "userId": userId
+        }
     }
     let callback = response => {
         switch (response.type) {
             case "success":
-                renderPlaceTab(response.place);
-                renderLinkTab(response.link);
+                renderPlaceTab(response.places);
+                renderLinkTab(response.links);
                 $('[tsrs-data="tipsy"]').tipsy({
                     gravity: 'se',
                     fade: true,
@@ -28,7 +41,6 @@ const renderTrip = tripId => {
         console.log(response);
     };
     requestToModel(message, callback);
-
 }
 
 const deleteItem = item => {
@@ -89,35 +101,14 @@ const clearWindow = callback => {
 
 const getTripList = () => {
     let message = {
-        getUserId: true
+        getTripList: true
     }
     let callback = response => {
-        let userId = parseInt(response);
-        if (userId !== null) {
-            let message = {
-                rightSide: true,
-                action: 'getTripList',
-                data: {
-                    'userId': parseInt(userId),
-                }
-            }
-            let callback = response => {
-                switch (response.type) {
-                    case 'success':
-                        renderTripList(response.list);
-                        break;
-                    case 'error':
-                        break;
-                }
-            }
-            requestToModel(message, callback);
-        } else {
-            announceError('Login first :D');
-        }
+        renderTripList(response.list);
     }
     requestToModel(message, callback);
 }
 $(() => {
+    getUserId();
     getTripList();
-    renderTrip(27);
 });
