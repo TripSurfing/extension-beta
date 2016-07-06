@@ -72,15 +72,15 @@ rightSide.on('click', '.btn-confirm-yes',function() {
 });
 
 rightSide.on("click", ".tsrs-icon-heart", function() {
-
+    let box = $(this).parents('div.box');
     let heart = $(this);
     heart.toggleClass("favorite-active favorite-not-active").promise().done(heart => {
         if (heart.hasClass('favorite-active')) {
             this.title = 'Remove from favorite';
-            addToFavorite(this);
+            addToFavorite(box[0]);
         } else {
             this.title = 'Add to favorite';
-            removeFromFavorite(this);
+            removeFromFavorite(box[0]);
         }
     });
     // this.title = heart.hasClass('favorite-active') ? "Remove from favorite" : "Add to favorite";
@@ -92,7 +92,7 @@ rightSide.on("click", ".tsrs-icon-heart", function() {
     */
 
 $('#btn-tool-show').click( function() {
-    $('#btn-tool-show').toggleClass('not-show show');
+    $(this).toggleClass('not-show show');
     rightSide.slideToggle(700,"swing");
 });
 
