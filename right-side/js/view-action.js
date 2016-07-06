@@ -41,7 +41,7 @@ const renderLinkTab = linkList => {
     for (link of linkList) {
         let img_url = (link.image !== null && link.image != "") ? link.image : "http://www.tripsurfing.co/static/img/noimg.jpg"; 
         item +=
-            `<div class="box" id="link-${link.link_id}">
+            `<div class="box" id="link-${link.id}">
                 <a class="box-image" href=${link.url} target="_blank">
                     <div class="image" style="background-image: url(${img_url})"></div>
                 </a>
