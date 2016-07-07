@@ -97,11 +97,11 @@ $('#btn-tool-show').click( function() {
 });
 
 rightSide.on('click', '#tsrs-dropdown-content a', function() {
-    let tripId = parseInt(this.id);
+    let i = parseInt(this.id);
     let text = $(this).text(); 
 
     clearWindow( () => {
-        renderTrip(tripId);
+        renderTrip(i, tripDetail[i]);
     });
     $('#tsrs-trip-name').text(text);
 });

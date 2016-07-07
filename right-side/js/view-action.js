@@ -9,16 +9,17 @@ const favoriteState = favorites => {
         } 
     }
 }
-const renderPlaceTab = placeList => {
+const renderPlaceTab = (menuId, placeList) => {
     console.time('test');
     var item ='';
 
-    for (place of placeList) {
+    for (let i = 0, leng = placeList.length; i < leng; i++) {
+        let place = placeList[i];
         let img_url = place.images.length != 0 ? place.images[0].url : "http://www.tripsurfing.co/static/img/noimg.jpg";
         let favoriteInfo = favoriteState(place.favorites);
         // place_id = favorite, place.id = delete
         item +=
-            `<div class="box" id="place-${place.place_id}-${place.id}">
+            `<div class="box" id="place-${place.place_id}-${place.id}" data-location="${menuId}-places-${i}">
                     <a class="box-image" href= ${place.url} target="_blank">
                         <div class="image" style="background-image: url(${img_url})"> </div>
                     </a>
@@ -47,13 +48,14 @@ const renderPlaceTab = placeList => {
     document.getElementById('place-tab').innerHTML += item;
     console.timeEnd('test');
 }
-const renderLinkTab = linkList => {
+const renderLinkTab = (menuId, linkList) => {
     var item = '';
-    for (link of linkList) {
+    for (let i = 0, leng = linkList.length; i < leng; i++) {
+        let link = linkList[i];
         let img_url = (link.image !== null && link.image != "") ? link.image : "http://www.tripsurfing.co/static/img/noimg.jpg"; 
         let favoriteInfo = favoriteState(link.favorites);
         item +=
-            `<div class="box" id="link-${link.link_id}-${link.id}">
+            `<div class="box" id="link-${link.link_id}-${link.id}" data-location="${menuId}-links-${i}">
                 <a class="box-image" href=${link.url} target="_blank">
                     <div class="image" style="background-image: url(${img_url})"></div>
                 </a>
@@ -91,15 +93,22 @@ const announceError = message => {
     $("#place-tab, #link-tab").html(error);
 }
 
-const renderTripList = (tripList) => {
-    tripList.forEach(trip => {
-        if (trip.is_default == 0)
-            $('#tsrs-dropdown-content').append(`<a href="javascript:void(0)" id="${trip.id}">${trip.name}</a>`);
+const renderTripList = () => {
+    for(let i = 0, len = tripList.length; i < len; i++) {
+        if (tripList[i].is_default == 0)
+            $('#tsrs-dropdown-content').append(`<a href="javascript:void(0)" id="${i}">${tripList[i].name}</a>`);
         else {
-            $('#tsrs-dropdown-content').append(`<a href="javascript:void(0)" id="${trip.id}" class="default-trip">${trip.name}</a>`);
-            $('#tsrs-trip-name').text(trip.name);
-            renderTrip(trip.id);
+            $('#tsrs-dropdown-content').append(`<a href="javascript:void(0)" id="${i}" class="default-trip">${tripList[i].name}</a>`);
+            $('#tsrs-trip-name').text(tripList[i].name);
+            renderTrip(i, tripDetail[i]);
         }
-
-    });
+    }
 }
+// var obj = {
+//     getUserId: function() { getUserId(); return this; },
+//     getTripList: function() { getTripList(); return this; },
+//     getTripDetail: function() { getTripDetail(); return this; },
+//     renderTripList: function() { renderTripList(); return this; },
+// }
+// obj.getUserId().getTripList().getTripDetail().renderTripList();
+$(()=>{startLoading();});

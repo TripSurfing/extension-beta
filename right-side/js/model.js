@@ -10,4 +10,7 @@ chrome.runtime.onMessage.addListener(
     	if (message.getTripList == true) {
     		return getTripList(sendResponse);
     	}
+        if (message.getTripDetail == true) {
+            return getTripDetail(sendResponse);
+        }
     });

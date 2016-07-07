@@ -51,9 +51,9 @@
             "right-side/lib/jquery-1.12.4.min.js", 
             "right-side/lib/tipsy/jquery.tipsy.js",
             "right-side/js/initialize-frontend.js",
+            "right-side/js/controller.js",
             "right-side/js/view-event.js", 
-            "right-side/js/view-action.js",
-            "right-side/js/controller.js"
+            "right-side/js/view-action.js"
         ]
     }
   ],
