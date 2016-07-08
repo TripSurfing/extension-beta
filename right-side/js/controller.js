@@ -1,3 +1,5 @@
+// 'use strict';
+
 const renderTrip = (menuId, trip) => {
     renderPlaceTab(menuId, trip.places);
     renderLinkTab(menuId, trip.links);
@@ -6,13 +8,11 @@ const renderTrip = (menuId, trip) => {
         fade: true,
         delayIn: 200
     });
-
 }
-
 
 const address = item => {
     let address = $(item).data('location').split('-');
-    return [address[0], address[1], address[2]];
+    return [+address[0], address[1], +address[2]];
 }
 const deleteItem = item => {
     let info = item.id.split('-');
