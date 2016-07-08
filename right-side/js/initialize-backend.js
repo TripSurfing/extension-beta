@@ -20,7 +20,8 @@ const getTripList = (sendResponse) => {
 var tripDetail = [];
 const getTripDetail = (sendResponse) => {
     tripDetail = [];
-    for (trip of tripList) {
+    for (let i = 0, len = tripList.length; i < len; i++) {
+        let trip = tripList[i];
         $.ajax({
             url: tripSurfingUrl + 'api/renderTrip',
             type: 'POST',
