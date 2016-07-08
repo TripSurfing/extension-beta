@@ -6,7 +6,7 @@ $('body').append(
                 <div id="tsrs-dropdown-content">
                 </div>
             </i>
-            <div id="tsrs-trip-name"></div>
+            <a id="tsrs-trip-name" target="_blank"></a>
         </div>
 
         <div id="tsrs-nav">
@@ -103,7 +103,7 @@ rightSide.on('click', '#tsrs-dropdown-content a', function() {
     clearWindow( () => {
         renderTrip(i, tripDetail[i]);
     });
-    $('#tsrs-trip-name').text(text);
+    $('#tsrs-trip-name').text(text).attr('href', 'http://www.tripsurfing.co/trip/l/' + tripList[i].id);
 });
 
 /*  Change Tab function
