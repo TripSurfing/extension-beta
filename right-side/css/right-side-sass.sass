@@ -77,11 +77,13 @@ $z-index: 23051996
     position: fixed
     box-shadow: 0 0px 20px rgba(0,0,0,0.25), 0 0px 7px rgba(0,0,0,0.22)
     display: none
-    font-family: Arial
+    font-family: 'Open Sans', 'Arial'
     box-sizing: content-box   
     background-color: #fff
     border-right: 1px ridge #999
-
+    a 
+        text-decoration: none !important
+        border-bottom: 0 !important
     #right-side-nav-tabs
         background-color: #f0f0f0
         position: relative
@@ -122,7 +124,7 @@ $z-index: 23051996
                     line-height: 1 !important
                     font:
                         size: 16px !important
-                        family: Arial !important
+                        family: 'Open Sans', Arial
                     &:hover
                         background-color: rgba(243, 144,17,0.38) !important
                     &:active
@@ -135,6 +137,7 @@ $z-index: 23051996
             width: 245px
             z-index: $z-index+1
             +title-wrap
+            color: #333
 
     #tsrs-nav
         position: absolute
@@ -190,6 +193,7 @@ $z-index: 23051996
 
     .box
         position: relative
+        padding: 0
         height: 84px
         width: auto
         border-radius: 0
@@ -239,6 +243,7 @@ $z-index: 23051996
                 font:
                     size: 12px
                     style: italic
+                color: #333
                 height: 22px
                 +title-wrap
 
@@ -329,7 +334,6 @@ $z-index: 23051996
         .tsrs-title-wrap
             font:
                 size: 14px !important
-                family: Arial !important
             line-height: 1
             height: 16px !important
             margin: 0 0 6px !important
@@ -369,7 +373,6 @@ $z-index: 23051996
                     font:
                         weight: bold !important
                         size: 15px !important
-                        family: Arial !important
                     border: 1px solid transparent !important
                     border-radius: 4px !important
                     color: #333 !important
