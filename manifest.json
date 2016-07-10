@@ -43,7 +43,7 @@
         "matches": ["http://*/*", "https://*/*"],
         "css": [
             "right-side/lib/entypo/tsrs-entypo.css",
-            "right-side/css/right-side-2.css", 
+            "right-side/css/right-side.css", 
             "right-side/lib/tipsy/tipsy.css"
         ],
         "js": [
