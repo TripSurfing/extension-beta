@@ -19,22 +19,28 @@ const getTripList = (sendResponse) => {
 };
 var tripDetail = [];
 const getTripDetail = (sendResponse) => {
+    let numberOfTrip = tripList.length;
     tripDetail = [];
-    for (let i = 0, len = tripList.length; i < len; i++) {
+    let count = 0;
+    
+    for (let i = 0; i < numberOfTrip; i++) {
         let trip = tripList[i];
         $.ajax({
             url: tripSurfingUrl + 'api/renderTrip',
             type: 'POST',
             dataType: 'json',
-            async: false,
+            // async: false,
             data: {
                 'userId': userId,
                 'tripId': parseInt(trip.id),
             },
         }).done(res => {
-            tripDetail.push(res);
+            tripDetail[i] = res;
+            count++;
+        }).always(res => {
+            if (count == numberOfTrip) {
+                sendResponse(tripDetail);
+            }
         });
-
     }
-    sendResponse(tripDetail);
 };
