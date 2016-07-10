@@ -31,7 +31,7 @@ const deleteItem = item => {
     // let add = address(item);
     [menuId, type, detailId] = address(item);
     tripDetail[menuId][type].splice(detailId, 1);
-    console.log(tripDetail);
+    // console.log(tripDetail);
     requestToModel(message, callback);
 }
 
@@ -80,9 +80,6 @@ const removeFromFavorite = item => {
             break;
         }
     }
-
-    // console.log(tripDetail[menuId][type][detailId].favorites)
-    // console.log(favorites);
     requestToModel(message, callback);
 }
 

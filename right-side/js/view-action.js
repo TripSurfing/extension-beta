@@ -118,11 +118,4 @@ const renderTripList = () => {
         }
     }
 }
-// var obj = {
-//     getUserId: function() { getUserId(); return this; },
-//     getTripList: function() { getTripList(); return this; },
-//     getTripDetail: function() { getTripDetail(); return this; },
-//     renderTripList: function() { renderTripList(); return this; },
-// }
-// obj.getUserId().getTripList().getTripDetail().renderTripList();
 $(()=>{startLoading();});
