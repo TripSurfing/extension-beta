@@ -1,5 +1,5 @@
 const chromeUrl = url => chrome.extension.getURL(url);
-document.getElementsByTagName('body')[0].innerHTML += 
+$('body').append( 
 	`<div id="right-side">
         <div id="right-side-nav-tabs">
             <i class="tsrs-icon-list">
@@ -32,7 +32,7 @@ document.getElementsByTagName('body')[0].innerHTML +=
         <div id="btn-tool-show" class="not-show btn-descoration">
             <img src="${chromeUrl("right-side/image/icon38.png")}" />
         </div>
-    </div>`;
+    </div>`);
 /**
  * Created by Nguyễn Hữu Hoàng Sơn on 5/20/2016.
  */
