@@ -1,7 +1,11 @@
 /*jshint esversion: 6*/
-if (typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
-const userId = parseInt(smartStorage.get('userId'));
-const getUserId = (sendResponse) => sendResponse(userId);
+
+var userId;
+const getUserId = (sendResponse) => {
+    if (typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
+    userId = parseInt(smartStorage.get('userId'));    
+    sendResponse(userId)
+};
 
 var tripList = [];
 const getTripList = (sendResponse) => {

@@ -13,10 +13,12 @@ const getUserId = () => {
     }
     let callback = response => {
         userId = response;
-        getTripList();
+        if (userId != null)
+            getTripList();
+        else announceError('You have to login or signup first');
     }
     requestToModel(message, callback);
-}
+} 
 
 const getTripList = () => {
     let message = {
