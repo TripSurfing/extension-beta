@@ -26,11 +26,17 @@ const deleteItem = item => {
         }
     }
     let callback = response => {
-        console.log(tripDetail);
+        if (response.type == 'success') {
+            [menuId, type, detailId] = address(item);
+            tripDetail[menuId][type].splice(detailId, 1);
+        } else {
+            let box = $(item);
+            box.children('div.box-info', 'div.box-image').removeClass('box-blur');
+            box.children('div.box-confirm').remove();
+            setTimeout(() => {$(item).fadeIn(300)}, 700);
+            
+        }
     }
-    // let add = address(item);
-    [menuId, type, detailId] = address(item);
-    tripDetail[menuId][type].splice(detailId, 1);
     // console.log(tripDetail);
     requestToModel(message, callback);
 }
@@ -47,12 +53,19 @@ const addToFavorite = item => {
         }
     }
     let callback = response => {
-        console.log(response);
+        if (response.type == 'success') {
+            [menuId, type, detailId] = address(item);
+            tripDetail[menuId][type][detailId].favorites.push({
+                user_id: userId.toString()
+            })
+        } else {
+            let heart = $(item).find('i.tsrs-icon-heart');
+            setTimeout(() => {
+                heart.toggleClass("favorite-active favorite-not-active");
+                heart.attr('title', 'Add to favorite');
+            }, 500);
+        }
     }
-    [menuId, type, detailId] = address(item);
-    tripDetail[menuId][type][detailId].favorites.push({
-        user_id: userId.toString()
-    })
     requestToModel(message, callback);
 }
 
@@ -68,18 +81,25 @@ const removeFromFavorite = item => {
         }
     }
     let callback = response => {
-        console.log(response);
-    }
-    [menuId, type, detailId] = address(item);
-    
-    favorites = tripDetail[menuId][type][detailId].favorites;
-    for (let i = 0, leng = favorites.length; i < leng; i++) {
-        let user = favorites[i];
-        if (user.user_id == userId) {
-            favorites.splice(i, 1);
-            break;
+        if (response.type == 'success') {
+            [menuId, type, detailId] = address(item);    
+            favorites = tripDetail[menuId][type][detailId].favorites;
+            for (let i = 0, leng = favorites.length; i < leng; i++) {
+                let user = favorites[i];
+                if (user.user_id == userId) {
+                    favorites.splice(i, 1);
+                    break;
+                }
+            }
+        } else {
+            let heart = $(item).find('i.tsrs-icon-heart');
+            setTimeout(() => {
+                heart.toggleClass("favorite-active favorite-not-active");
+                heart.attr('title', 'Remove from favorite');
+            }, 500);
         }
     }
+    
     requestToModel(message, callback);
 }
 

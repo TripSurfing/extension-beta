@@ -65,7 +65,6 @@ rightSide.on('click', '.btn-confirm-yes',function() {
     let box = $(this).parents('div.box');
     box.fadeOut(300, function() {
         // Sau này muốn thêm chức năng undo, bỏ dòng này đi
-        box.remove();
         deleteItem(box[0]);
     });
     /*Do something to server here*/

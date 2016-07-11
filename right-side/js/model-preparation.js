@@ -10,9 +10,8 @@ const ajaxRsPost = (link, ajaxData, sendResponse) => {
         crossDomain: true
     })
     .done(res => sendResponse(res))
-    .error(res => (XMLHttpRequest, textStatus, errorThrown) => {
-        sendResponse(textStatus);
-        console.error(XMLHttpRequest, textStatus, errorThrown);
+    .fail(res => {
+        sendResponse(res);
     })
 }
 const getApi = {
