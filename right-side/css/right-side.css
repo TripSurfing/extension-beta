@@ -33,7 +33,8 @@
     opacity: 0.8 !important; }
   #btn-tool-selector #btn-tool-show {
     width: 39px;
-    height: 39px; }
+    height: 39px;
+    padding: 0 !important; }
     #btn-tool-selector #btn-tool-show:hover {
       opacity: 1 !important;
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
