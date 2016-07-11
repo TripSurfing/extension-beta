@@ -6,7 +6,8 @@ const favoriteState = favorites => {
     else {
         for(user of favorites) {
             if (user.user_id == userId) return ['favorite-active', 'Remove from favorite'];
-        } 
+        }
+        return ['favorite-not-active', 'Add to favorite'];
     }
 }
 const renderPlaceTab = (menuId, placeList) => {
@@ -94,7 +95,7 @@ const announceError = message => {
     let error =  
         `<div class="tsrs-error">
             <div class="error-content">${message}</div>
-            <a href="http://tripsurfing.co/login" target="_blank">
+            <a href="http://tripsurfing.co/login?src=extension" target="_blank">
                 <button class="login-btn">Log In</button>
             </a>
         </div>`;
