@@ -12,9 +12,9 @@ const favoriteState = favorites => {
 }
 const renderPlaceTab = (menuId, placeList) => {
     console.time('test');
-    var item ='';
+    let item ='';
     let leng = placeList.length;
-    if (leng == 0) announceEmpty('#place-tab');
+    if (leng == 0) announceEmpty('place-tab');
     else {
 
         for (let i = 0, leng = placeList.length; i < leng; i++) {
@@ -54,9 +54,9 @@ const renderPlaceTab = (menuId, placeList) => {
     console.timeEnd('test');
 }
 const renderLinkTab = (menuId, linkList) => {
-    var item = '';
+    let item = '';
     let leng = linkList.length;
-    if (leng == 0) announceEmpty('#link-tab');
+    if (leng == 0) announceEmpty('link-tab');
     else {
         for (let i = 0; i < leng; i++) {
             let link = linkList[i];
@@ -99,24 +99,26 @@ const announceError = message => {
                 <button class="login-btn">Log In</button>
             </a>
         </div>`;
-    $("#place-tab, #link-tab").html(error);
+    document.querySelector("#place-tab, #link-tab").innerHTML += error;
 }
 const announceEmpty = nameTab => {
     let emptyAnnouncement =
         `<div class="tsrs-empty">
             <div>Oop! You have not added any item yet.</div>
         </div>`
-    $(nameTab).html(emptyAnnouncement);
+    document.getElementById(nameTab).innerHTML += emptyAnnouncement;
 }
 const renderTripList = () => {
+    let list = '';
     for(let i = 0, len = tripList.length; i < len; i++) {
         if (tripList[i].is_default == 0)
-            $('#tsrs-dropdown-content').append(`<a href="javascript:void(0)" id="${i}">${tripList[i].name}</a>`);
+            list += `<a href="javascript:void(0)" id="${i}">${tripList[i].name}</a>`;
         else {
-            $('#tsrs-dropdown-content').append(`<a href="javascript:void(0)" id="${i}" class="default-trip">${tripList[i].name}</a>`);
+            list += `<a href="javascript:void(0)" id="${i}" class="default-trip">${tripList[i].name}</a>`;
             $('#tsrs-trip-name').text(tripList[i].name).attr('href', 'http://www.tripsurfing.co/trip/l/' + tripList[i].id);
             renderTrip(i, tripDetail[i]);
         }
     }
+    document.getElementById('tsrs-dropdown-content').innerHTML += list;
 }
 $(()=>{startLoading();});
