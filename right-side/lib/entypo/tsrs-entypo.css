@@ -5,15 +5,14 @@
 	font-style: normal;
 }
 
-i {
-	font-family: 'tsrs-entypo';
+i.tsrs-entypo {
+	font-family: 'tsrs-entypo' !important;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
-	line-height: 1;
-
+	line-height: 1 !important;
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -100,7 +99,7 @@ i {
 .icon-arrow-long-up:before {
 	content: "\e61a";
 }
-.icon-arrow-right:before {
+.tsrs-icon-arrow-right:before {
 	content: "\e61b";
 }
 .icon-arrow-up:before {
@@ -160,7 +159,7 @@ i {
 .icon-book:before {
 	content: "\e62e";
 }
-.icon-bookmark:before {
+.tsrs-icon-bookmark:before {
 	content: "\e62f";
 }
 .icon-bookmarks:before {
@@ -289,7 +288,7 @@ i {
 .icon-code:before {
 	content: "\e659";
 }
-.icon-cog:before {
+.tsrs-icon-cog:before {
 	content: "\e65a";
 }
 .icon-colours:before {
@@ -718,7 +717,7 @@ i {
 .icon-log-out:before {
 	content: "\e6e8";
 }
-.icon-login:before {
+.tsrs-icon-login:before {
 	content: "\e6e9";
 }
 .icon-loop:before {
@@ -757,7 +756,7 @@ i {
 .icon-megaphone:before {
 	content: "\e6f5";
 }
-.icon-menu:before {
+.tsrs-icon-menu:before {
 	content: "\e6f6";
 }
 .icon-merge:before {
