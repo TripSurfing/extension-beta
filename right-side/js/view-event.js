@@ -2,7 +2,7 @@ const chromeUrl = url => chrome.extension.getURL(url);
 $('body').append( 
 	`<div id="right-side">
         <div id="right-side-nav-tabs">
-            <i class="tsrs-icon-list">
+            <i class="tsrs-icon-menu tsrs-entypo">
                 <div id="tsrs-dropdown-content">
                 </div>
             </i>
@@ -13,26 +13,45 @@ $('body').append(
             <ul class="tsrs-nav-ul">
                 <li id="tsrs-nav-li-link" class="tsrs-nav-li-tab">
                     <a class="tsrs-nav-a">
-                        <i class="tsrs-icon-link" title="Links" tsrs-data="tipsy"></i>
+                        <i class="tsrs-icon-link tsrs-entypo" title="Links" tsrs-data="tipsy"></i>
                     </a>
                 </li>
 
                 <li id="tsrs-nav-li-place" class="tsrs-nav-li-tab">
                     <a class="tsrs-nav-a">
-                        <i class="tsrs-icon-location-pin tsrs-nav-i-active" title="Places" tsrs-data="tipsy"></i>
+                        <i class="tsrs-icon-location-pin tsrs-nav-i-active tsrs-entypo" title="Places" tsrs-data="tipsy"></i>
                     </a>
                 </li>
             </ul>
 
-            <div id="place-tab" class="tsrs-nav-tab-content tsrs-tab-active"></div>
-            <div id="link-tab" class="tsrs-nav-tab-content"></div>
+            <div id="place-tab" class="tsrs-nav-tab-content tsrs-tab-active tsrs-entypo"></div>
+            <div id="link-tab" class="tsrs-nav-tab-content tsrs-entypo"></div>
         </div>
     </div>
-    <div id='btn-tool-selector' class="btn-group">
+    <div id='tsrs-btn-group'></div>
+    <div id='btn-tool-selector'>
         <div id="btn-tool-show" class="not-show btn-descoration">
             <img src="${chromeUrl("right-side/image/icon38.png")}" />
         </div>
+
+        <div id="btn-tool-savelink" class="btn-descoration-small tsrs-animated tsrs-fadeOutDown" title="Save link" tsrs-btn="tipsy">
+            <div class='btn-background-div'><i class='tsrs-icon-bookmark tsrs-entypo'></i></div>
+        </div>
+
+        <div id="btn-tool-setting" class="btn-descoration-small tsrs-animated tsrs-fadeOutDown" title="Setting" tsrs-btn="tipsy">
+            <div class='btn-background-div'><i class='tsrs-icon-cog tsrs-entypo'></i></div>
+        </div>
+
+        <div id="btn-tool-switch" class="btn-descoration-small tsrs-animated tsrs-fadeOutDown" title="Switch on/off" tsrs-btn="tipsy">
+            <div class='btn-background-div'><i class='tsrs-icon-switch tsrs-entypo'></i></div>
+        </div>
+
     </div>`);
+$('[tsrs-btn="tipsy"]').tipsy({
+        gravity: 's',
+        fade: true,
+        delayIn: 200
+    });
 /**
  * Created by Nguyễn Hữu Hoàng Sơn on 5/20/2016.
  */
@@ -90,9 +109,25 @@ rightSide.on("click", ".tsrs-icon-heart", function() {
     rightSide close
     */
 
+const btnGroup = $('#btn-tool-setting, #btn-tool-switch, #btn-tool-savelink');
 $('#btn-tool-show').click( function() {
     $(this).toggleClass('not-show show');
     rightSide.slideToggle(700,"swing");
+    
+});
+$('#btn-tool-show').mouseenter(() => {
+    // $('#btn-tool-selector').css('width', '250px');
+    btnGroup.removeClass('tsrs-fadeOutDown').addClass('tsrs-slideInUp').css('display', 'block');
+    // $('#tsrs-btn-group').css('display', 'block');
+});
+
+$('#btn-tool-selector').mouseleave(() => {
+    if ($('#btn-tool-show').hasClass('not-show')){
+        btnGroup.toggleClass('tsrs-slideInUp tsrs-fadeOutDown');
+        setTimeout(()=>{btnGroup.hide()}, 100);
+        // btnGroup.fadeOut('slow', 'linear');
+        // btnGroup.fadeOut(400);
+    }
 });
 
 rightSide.on('click', '#tsrs-dropdown-content a', function() {

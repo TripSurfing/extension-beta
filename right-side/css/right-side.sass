@@ -1,8 +1,8 @@
 // function
 =rotate($deg)
-    -ms-transform:      rotate($deg+deg)
-    -webkit-transform:  rotate($deg+deg)
-    transform:          rotate($deg+deg)
+    -ms-transform:      rotate($deg+deg) !important
+    -webkit-transform:  rotate($deg+deg) !important
+    transform:          rotate($deg+deg) !important
     transition: all 0.3s
 =title-wrap
     white-space: nowrap
@@ -15,6 +15,9 @@
     font-style: normal !important
     font-weight: none !important
     font-family: "tsrs-entypo"
+=animationName($ani-name)
+    .tsrs-#{$ani-name}
+        animation-name: $ani-name
 =keyframes($key-name)
     @keyframes #{$key-name}
         @content
@@ -29,42 +32,112 @@
     to
         opacity: 0.8
 // =animation($string)
-
+.tsrs-animated
+    animation-duration: 0.3s
+    animation-fill-mode: both
++keyframes(slideInUp)
+    from
+        transform: translate3d(0, 200%, 0) rotate(45deg)
+        display: block
+    to
+        transform: translate3d(0, 0, 0) rotate(45deg)
+        display: block
++keyframes(fadeOutDown)
+    from
+        opacity: 1
+    to
+        opacity: 0
+        transform: translate3d(0, 100%, 0) rotate(45deg)
+        // display: none
++animationName(slideInUp)
++animationName(fadeOutDown)
 // Variables
 $z-index: 23051996
 
 // css
 /* Button tool */
 #btn-tool-selector
+    z-index: $z-index - 1
+    width: auto
+    height: 70px
+    position: fixed
+    right: 0
+    bottom: 0
+    background-color: transparent
+    padding: 0 10px 0 20px
+    display: none
+    // box-sizing: content-box
+    i
+        font-style: none
     display: block
     box-sizing: content-box
-    .btn-descoration
+    .btn-descoration,
+    .btn-descoration-small
+        float: right
         z-index: $z-index
         border: 2px solid orange
-        position: fixed
-        bottom: 10px
-        right: 20px
-        +rotate(45)
+        // position: fixed
         background-color: white
         border-radius: 5px
         box-sizing: content-box
+
+        // margin-right: 20px
         // border-radius: 50%
+    .btn-descoration-small
+        margin: 21px 20px 0 0
+        +rotate(45)
+        // visibility: hidden
+        display: none
+        // bottom: 15px
+        width: 27px
+        height: 27px
+        padding: 0
+        text-align: center
+        box-sizing: content-box
+        &:hover
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1)
+            box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px
+            cursor: pointer
+        .btn-background-div
+            line-height: 1
+            padding: 2px
+            +rotate(-45)  
+            .tsrs-icon-bookmark,
+            .tsrs-icon-cog,
+            .tsrs-icon-switch
+                color: #e78c2b
+                font-size: 21px
+                padding: 0
+                line-height: 1
+
     .show
         opacity: 1
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+        box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px
     .not-show
         animation: fadeOutEffect 1s
         opacity: 0.8 !important
+    #btn-tool-setting
+        // display: block
+        // right: 156px
+    #btn-tool-savelink
+        // right: 95px
+    #btn-tool-switch
+        // right: 217px
     #btn-tool-show
+        &:hover #btn-tool-setting
+            animation: slide 1s
+    #btn-tool-show
+        margin: 15px 15px 0 0
+        z-index: $z-index - 2
+        +rotate(45)
         width: 39px
         height: 39px
         padding: 0 !important
         &:hover
             opacity: 1 !important
             transition: all 0.3s cubic-bezier(.25,.8,.25,1)
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+            box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px
             cursor: pointer
-
         img
             width: 35px
             height: 35px
@@ -84,14 +157,14 @@ $z-index: 23051996
     display: none
     font-family: 'Open Sans', 'Arial'
     box-sizing: content-box   
-    background-color: #f0f0f0
+    background-color: white
     border-right: 1px ridge #999
     a 
         text-decoration: none !important
         border-bottom: 0 !important
     #right-side-nav-tabs
         z-index: $z-index + 1
-        background-color: #f0f0f0
+        background-color: transparent
         position: relative
         box-sizing: content-box
         padding: 7px 0px
@@ -99,7 +172,7 @@ $z-index: 23051996
         text-align: left
         width: 288px
         /* navigation menu */
-        .tsrs-icon-list
+        .tsrs-icon-menu
             +tsrs-icon
             position: absolute
             padding: 9px
@@ -160,6 +233,7 @@ $z-index: 23051996
             display: block !important
             height: 40px !important
             border-bottom: 1px ridge rgba(128, 128, 128, 0.3)
+            background-color: #f0f0f0
             li.tsrs-nav-li-tab
                 z-index: $z-index + 2
                 margin: 0
@@ -189,6 +263,7 @@ $z-index: 23051996
             height: 383px
             overflow: auto
             display: none
+            background-color: transparent
         .tsrs-tab-active
             display: block !important
 
@@ -431,3 +506,5 @@ $z-index: 23051996
         text-align: center
         color: #333
         margin: 25px
+        font-size: 14px
+        font-family: 'Open sans', 'Arial'
