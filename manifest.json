@@ -43,6 +43,8 @@
         "matches": ["http://*/*", "https://*/*"],
         "css": [
             "right-side/lib/entypo/tsrs-entypo.css",
+            // "right-side/lib/animate.css",
+            "right-side/lib/entypo/tsrs-btn-switch.css",
             "right-side/css/right-side.css", 
             "right-side/lib/tipsy/tipsy.css"
         ],

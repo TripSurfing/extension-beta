@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'tsrs-entypo';
+	src:url('chrome-extension://__MSG_@@extension_id__/right-side/lib/entypo/fonts/tsrs-btn-switch.woff?1lv7sv') format('woff');
+	font-weight: normal;
+	font-style: normal;	
+}
+
+.tsrs-icon-switch:before {
+    content: "\e9b6";
+}
+
