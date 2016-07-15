@@ -31,22 +31,33 @@ var isLoggedIn = function() {
 }
 
 chrome.browserAction.onClicked.addListener(function (tab){
-  var currentPage = tab.url;
-  tripSurfing.currentAction = 'saveLink';
-  tripSurfing.currentTab = tab;
-  
-  if(currentPage.indexOf('http://') === -1 && currentPage.indexOf('https://') === -1) {
-    chrome.tabs.update(tab.id, {url: tripSurfingUrl});
-    return;
+  let state = smartStorage.get('switchState');
+  if (state == true) {
+    var currentPage = tab.url;
+    tripSurfing.currentAction = 'saveLink';
+    tripSurfing.currentTab = tab;
+    
+    if(currentPage.indexOf('http://') === -1 && currentPage.indexOf('https://') === -1) {
+      chrome.tabs.update(tab.id, {url: tripSurfingUrl});
+      return;
+    }
+    
+    if(isLoggedIn()){
+      saveLink(tab);
+    }else{
+      chrome.tabs.create({url: tripSurfingUrl+"signup?src=extension"});
+      // or window.open
+    }    
   }
-  
-  if(isLoggedIn()){
-    saveLink(tab);
-  }else{
-    chrome.tabs.create({url: tripSurfingUrl+"signup?src=extension"});
-    // or window.open
+  else {
+    smartStorage.set('switchState', true);
+    chrome.tabs.query({}, function(tabs) {
+        var message = {showAll: true};
+        for (let i = 0, length = tabs.length; i < length; i++) {
+            chrome.tabs.sendMessage(tabs[i].id, message);
+        }
+    });
   }
-  
 });
 
 // Listen to the message from content_script
