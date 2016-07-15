@@ -6,10 +6,11 @@ var userId;
 var tripList = [];
 var tripDetail = [];
 var favorites = [];
+var switchState;
 
 const getUserId = () => {
     let message = {
-        getUserId: true
+        request: 'getUserId'
     }
     let callback = response => {
         userId = response;
@@ -22,10 +23,10 @@ const getUserId = () => {
 
 const getTripList = () => {
     let message = {
-        getTripList: true
+        request: 'getTripList'
     }
     let callback = response => {
-        tripList = response.list;
+        tripList = response;
         getTripDetail();
     }
     requestToModel(message, callback);
@@ -33,18 +34,34 @@ const getTripList = () => {
 
 const getTripDetail = () => {
 	let message = {
-		getTripDetail: true
+		request: 'getTripDetail'
 	}
 	let callback = response => {
 		tripDetail = response;
+        addExt();
 		renderTripList();
 	}
 	requestToModel(message, callback);
+}
+
+const checkState = () => {
+    let message = {
+        request: 'getSwitchState'
+    }
+    let callback = state => {
+        switchState = state;
+        if (state == true) {
+            getUserId();
+        } else {
+            return
+        }
+    }
+    requestToModel(message, callback);
 }
 // const getFavorites = () => {
 
 // }
 // Start Extension
 // const startLoading = $.Deferred();
-const startLoading = getUserId;
+const startLoading = checkState;
 
