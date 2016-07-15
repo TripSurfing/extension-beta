@@ -107,11 +107,35 @@ const clearWindow = callback => {
     $("#link-tab, #place-tab").empty();
     callback();
 }
-// $(()=> {
-//     setTimeout(() => {
-//         clearWindow();
-//         setInterval(startLoading, 5000);
-//     }, 5000);
-// })
 
-// renderTripList();
+const switchOff = () => {
+    let message = {
+        'request': 'setSwitchState',
+        'state': false
+    }
+    let callback = response => {
+
+    }
+    requestToModel(message, callback);
+}
+const hideAll = () => {
+    $('.tipsy').remove();
+    $('#right-side, #tsrs-btn-tool-selector').remove();
+}
+const saveLink = () => {
+    let message = {
+        request: 'saveLink'
+    }
+    let callback = () => {}
+    requestToModel(message, callback);
+}
+chrome.runtime.onMessage.addListener(
+    (message, sender, sendResponse) => {
+        if (message.hideAll == true) {
+            hideAll();
+        }
+        if (message.showAll == true) {
+            switchState = true;
+            startLoading();
+        }
+});
