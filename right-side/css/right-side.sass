@@ -56,7 +56,7 @@ $z-index: 23051996
 
 // css
 /* Button tool */
-#btn-tool-selector
+#tsrs-btn-tool-selector
     z-index: $z-index - 1
     width: auto
     height: 70px
@@ -71,8 +71,8 @@ $z-index: 23051996
         font-style: none
     display: block
     box-sizing: content-box
-    .btn-descoration,
-    .btn-descoration-small
+    .tsrs-btn-descoration,
+    .tsrs-btn-descoration-small
         float: right
         z-index: $z-index
         border: 2px solid orange
@@ -83,14 +83,16 @@ $z-index: 23051996
 
         // margin-right: 20px
         // border-radius: 50%
-    .btn-descoration-small
+    .tsrs-btn-descoration-small
         margin: 21px 20px 0 0
         +rotate(45)
         // visibility: hidden
         display: none
         // bottom: 15px
-        width: 27px
-        height: 27px
+        width: 27px !important
+        height: 27px !important
+        min-height: 27px !important
+        min-width: 27px !important
         padding: 0
         text-align: center
         box-sizing: content-box
@@ -98,7 +100,7 @@ $z-index: 23051996
             transition: all 0.3s cubic-bezier(.25,.8,.25,1)
             box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px
             cursor: pointer
-        .btn-background-div
+        .tsrs-btn-background-div
             line-height: 1
             padding: 2px
             +rotate(-45)  
@@ -110,23 +112,20 @@ $z-index: 23051996
                 padding: 0
                 line-height: 1
 
-    .show
+    .tsrs-show
         opacity: 1
         box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px
-    .not-show
+    .tsrs-not-show
         animation: fadeOutEffect 1s
         opacity: 0.8 !important
-    #btn-tool-setting
+    #tsrs-btn-tool-setting
         // display: block
         // right: 156px
-    #btn-tool-savelink
+    #tsrs-btn-tool-savelink
         // right: 95px
-    #btn-tool-switch
+    #tsrs-btn-tool-switch
         // right: 217px
-    #btn-tool-show
-        &:hover #btn-tool-setting
-            animation: slide 1s
-    #btn-tool-show
+    #tsrs-btn-tool-show
         margin: 15px 15px 0 0
         z-index: $z-index - 2
         +rotate(45)
@@ -194,11 +193,12 @@ $z-index: 23051996
                 top: 42px
                 left: 0
                 background-color: #f9f9f9
-                min-width: 160px
+                min-width: 170px
+                max-width: 180px
                 box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
                 a
                     color: #333 !important
-                    padding: 8px 10px !important
+                    padding: 10px 12px !important
                     text-decoration: none !important
                     display: block !important
                     text-align: left !important
@@ -211,9 +211,10 @@ $z-index: 23051996
                     &:active
                         background-color: rgba(243, 144, 17, 0.5) !important
         #tsrs-trip-name
-            font-size: 19px
+            font-size: 17px
+            font-weight: bold
             margin-left: 43px
-            line-height: 1.4
+            line-height: 1.8
             text-transform: capitalize
             width: 245px
             z-index: $z-index+1

@@ -32,7 +32,7 @@
   animation-name: fadeOutDown; }
 
 /* Button tool */
-#btn-tool-selector {
+#tsrs-btn-tool-selector {
   z-index: 23051995;
   width: auto;
   height: 70px;
@@ -44,55 +44,55 @@
   display: none;
   display: block;
   box-sizing: content-box; }
-  #btn-tool-selector i {
+  #tsrs-btn-tool-selector i {
     font-style: none; }
-  #btn-tool-selector .btn-descoration,
-  #btn-tool-selector .btn-descoration-small {
+  #tsrs-btn-tool-selector .tsrs-btn-descoration,
+  #tsrs-btn-tool-selector .tsrs-btn-descoration-small {
     float: right;
     z-index: 23051996;
     border: 2px solid orange;
     background-color: white;
     border-radius: 5px;
     box-sizing: content-box; }
-  #btn-tool-selector .btn-descoration-small {
+  #tsrs-btn-tool-selector .tsrs-btn-descoration-small {
     margin: 21px 20px 0 0;
     -ms-transform: rotate(45deg) !important;
     -webkit-transform: rotate(45deg) !important;
     transform: rotate(45deg) !important;
     transition: all 0.3s;
     display: none;
-    width: 27px;
-    height: 27px;
+    width: 27px !important;
+    height: 27px !important;
+    min-height: 27px !important;
+    min-width: 27px !important;
     padding: 0;
     text-align: center;
     box-sizing: content-box; }
-    #btn-tool-selector .btn-descoration-small:hover {
+    #tsrs-btn-tool-selector .tsrs-btn-descoration-small:hover {
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px;
       cursor: pointer; }
-    #btn-tool-selector .btn-descoration-small .btn-background-div {
+    #tsrs-btn-tool-selector .tsrs-btn-descoration-small .tsrs-btn-background-div {
       line-height: 1;
       padding: 2px;
       -ms-transform: rotate(-45deg) !important;
       -webkit-transform: rotate(-45deg) !important;
       transform: rotate(-45deg) !important;
       transition: all 0.3s; }
-      #btn-tool-selector .btn-descoration-small .btn-background-div .tsrs-icon-bookmark,
-      #btn-tool-selector .btn-descoration-small .btn-background-div .tsrs-icon-cog,
-      #btn-tool-selector .btn-descoration-small .btn-background-div .tsrs-icon-switch {
+      #tsrs-btn-tool-selector .tsrs-btn-descoration-small .tsrs-btn-background-div .tsrs-icon-bookmark,
+      #tsrs-btn-tool-selector .tsrs-btn-descoration-small .tsrs-btn-background-div .tsrs-icon-cog,
+      #tsrs-btn-tool-selector .tsrs-btn-descoration-small .tsrs-btn-background-div .tsrs-icon-switch {
         color: #e78c2b;
         font-size: 21px;
         padding: 0;
         line-height: 1; }
-  #btn-tool-selector .show {
+  #tsrs-btn-tool-selector .tsrs-show {
     opacity: 1;
     box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px; }
-  #btn-tool-selector .not-show {
+  #tsrs-btn-tool-selector .tsrs-not-show {
     animation: fadeOutEffect 1s;
     opacity: 0.8 !important; }
-  #btn-tool-selector #btn-tool-show:hover #btn-tool-setting {
-    animation: slide 1s; }
-  #btn-tool-selector #btn-tool-show {
+  #tsrs-btn-tool-selector #tsrs-btn-tool-show {
     margin: 15px 15px 0 0;
     z-index: 23051994;
     -ms-transform: rotate(45deg) !important;
@@ -102,12 +102,12 @@
     width: 39px;
     height: 39px;
     padding: 0 !important; }
-    #btn-tool-selector #btn-tool-show:hover {
+    #tsrs-btn-tool-selector #tsrs-btn-tool-show:hover {
       opacity: 1 !important;
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px;
       cursor: pointer; }
-    #btn-tool-selector #btn-tool-show img {
+    #tsrs-btn-tool-selector #tsrs-btn-tool-show img {
       width: 35px;
       height: 35px;
       margin: 2px;
@@ -115,7 +115,7 @@
       -webkit-transform: rotate(45deg) !important;
       transform: rotate(45deg) !important;
       transition: all 0.3s; }
-      #btn-tool-selector #btn-tool-show img:hover {
+      #tsrs-btn-tool-selector #tsrs-btn-tool-show img:hover {
         -ms-transform: rotate(-180deg) !important;
         -webkit-transform: rotate(-180deg) !important;
         transform: rotate(-180deg) !important;
@@ -177,11 +177,12 @@
         top: 42px;
         left: 0;
         background-color: #f9f9f9;
-        min-width: 160px;
+        min-width: 170px;
+        max-width: 180px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
         #right-side #right-side-nav-tabs .tsrs-icon-menu #tsrs-dropdown-content a {
           color: #333 !important;
-          padding: 8px 10px !important;
+          padding: 10px 12px !important;
           text-decoration: none !important;
           display: block !important;
           text-align: left !important;
@@ -193,9 +194,10 @@
           #right-side #right-side-nav-tabs .tsrs-icon-menu #tsrs-dropdown-content a:active {
             background-color: rgba(243, 144, 17, 0.5) !important; }
     #right-side #right-side-nav-tabs #tsrs-trip-name {
-      font-size: 19px;
+      font-size: 17px;
+      font-weight: bold;
       margin-left: 43px;
-      line-height: 1.4;
+      line-height: 1.8;
       text-transform: capitalize;
       width: 245px;
       z-index: 23051997;
