@@ -3,14 +3,32 @@ chrome.runtime.onMessage.addListener(
     	if (message.rightSide == true) {
     		ajaxRsPost(getApi[message.action], message.data, sendResponse);
         	return true;
-    	}
-    	if (message.getUserId == true) {
-    		return getUserId(sendResponse);
-    	}
-    	if (message.getTripList == true) {
-    		return getTripList(sendResponse);
-    	}
-        if (message.getTripDetail == true) {
-            return getTripDetail(sendResponse);
+    	} else {
+            switch(message.request) {
+                case 'getUserId':
+		            return getUserId(sendResponse);  
+                    break;
+                case 'getTripList':
+                    return getTripList(sendResponse);
+                    break;
+                case 'getTripDetail':
+                    return getTripDetail(sendResponse);
+                    break;
+                case 'getSwitchState':
+                    return getSwitchState(sendResponse);
+                    break;
+                case 'setSwitchState':
+                    return setSwitchState(message.state, sendResponse);
+                    break;
+                case 'saveLink':
+                    // tab = sender.currentTab;
+                    if(isLoggedIn()){
+                      saveLink(sender.tab);
+                    }else{
+                      chrome.tabs.create({url: tripSurfingUrl+"signup?src=extension"});
+                      // or window.open
+                    }
+                    break;
+            }
         }
     });
