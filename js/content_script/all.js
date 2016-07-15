@@ -2,10 +2,10 @@
 
   $('body').append('<div id="tripsurfing-status">\
   <div class="ts-content">\
-    <a href="'+tripSurfingUrl+'queue" target="_blank" title="Go to Queue"><div class="ts-logo"><img src="'+tripSurfingUrl+'static/img/icon48.png" ></div></a>\
+    <a href="'+tripSurfingUrl+'queue" target="_blank" title="Go to Queue"><div class="ts-logo"><img src="'+ chrome.extension.getURL("right-side/image/icon38.png") + '" ></div></a>\
     <div class="ts-message">Page saved!</div>\
   </div>\
-  <div class="ts-close" title="Close"><img src="'+tripSurfingUrl+'static/img/close.png" ></div>\
+  <div class="ts-close" title="Close">&times;</div>\
   </div>');
 
 $('#tripsurfing-status .ts-close').click(function(){
