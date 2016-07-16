@@ -3,6 +3,7 @@
   "name": "TripSurfing",
   "description": "Most-used tool for travel-lover!",
   "version": "1.2",
+   "options_page": "right-side/options/options.html",
   
   "icons": { 
     "16": "img/icon16.png",
@@ -74,6 +75,7 @@
   ],
 "web_accessible_resources": [
        "right-side/image/*",
-       "right-side/lib/*"
+       "right-side/lib/*",
+       "right-side/options/*"
      ]
 }
