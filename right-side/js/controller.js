@@ -27,9 +27,20 @@ const deleteItem = item => {
     }
     let callback = response => {
         if (response.type == 'success') {
+            if (info[0] == 'place') {
+                let leng = parseInt(document.getElementById('tsrs-quantity-place').innerHTML) - 1;
+                if (leng < 2) document.getElementById('tsrs-quantity-place').innerHTML = leng.toString() + ' place';
+                else document.getElementById('tsrs-quantity-place').innerHTML = leng.toString() + ' places';
+            } else if (info[0] == 'link') {
+                let leng = parseInt(document.getElementById('tsrs-quantity-link').innerHTML) - 1;
+                if (leng < 2) document.getElementById('tsrs-quantity-link').innerHTML = leng.toString() + ' link';
+                else document.getElementById('tsrs-quantity-link').innerHTML = leng.toString() + ' links';
+            }
+
             [menuId, type, detailId] = address(item);
             tripDetail[menuId][type].splice(detailId, 1);
         } else {
+            console.log(response);
             let box = $(item);
             box.children('div.box-info', 'div.box-image').removeClass('box-blur');
             box.children('div.box-confirm').remove();
@@ -104,7 +115,7 @@ const removeFromFavorite = item => {
 }
 
 const clearWindow = callback => {
-    $("#link-tab, #place-tab").empty();
+    $("#tsrs-link-group, #tsrs-place-group").empty();
     callback();
 }
 
