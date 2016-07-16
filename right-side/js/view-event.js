@@ -26,8 +26,15 @@ const addExt = () => {
                     </li>
                 </ul>
 
-                <div id="place-tab" class="tsrs-nav-tab-content tsrs-tab-active tsrs-entypo"></div>
-                <div id="link-tab" class="tsrs-nav-tab-content tsrs-entypo"></div>
+                <div id="place-tab" class="tsrs-nav-tab-content tsrs-tab-active">
+                    <div id = 'tsrs-place-group' class='tsrs-box-group'></div>
+                    <div id="tsrs-quantity-place" class="tsrs-quantity"></div>
+                </div>
+
+                <div id="link-tab" class="tsrs-nav-tab-content tsrs-entypo">
+                    <div id = 'tsrs-link-group' class='tsrs-box-group'></div>
+                    <div id="tsrs-quantity-link" class="tsrs-quantity"></div>
+                </div>
             </div>
         </div>
         
@@ -39,14 +46,17 @@ const addExt = () => {
             <div id="tsrs-btn-tool-savelink" class="tsrs-btn-descoration-small tsrs-animated tsrs-fadeOutDown" title="Save link" tsrs-btn="tipsy">
                 <div class='tsrs-btn-background-div'><i class='tsrs-icon-bookmark tsrs-entypo'></i></div>
             </div>
-
+            
             <div id="tsrs-btn-tool-setting" class="tsrs-btn-descoration-small tsrs-animated tsrs-fadeOutDown" title="Setting" tsrs-btn="tipsy">
+                <a href="${chromeUrl("right-side/options/options.html")}" target="_blank">                
                 <div class='tsrs-btn-background-div'><i class='tsrs-icon-cog tsrs-entypo'></i></div>
+                </a>
             </div>
 
-            <div id="tsrs-btn-tool-switch" class="tsrs-btn-descoration-small tsrs-animated tsrs-fadeOutDown" title="Switch on/off" tsrs-btn="tipsy">
+            <div id="tsrs-btn-tool-switch" class="tsrs-btn-descoration-small tsrs-animated tsrs-fadeOutDown" title="Turn Off" tsrs-btn="tipsy">
                 <div class='tsrs-btn-background-div'><i class='tsrs-icon-switch tsrs-entypo'></i></div>
             </div>
+            
         </div>`);
         $('[tsrs-btn="tipsy"]').tipsy({
                 gravity: 's',
@@ -136,6 +146,10 @@ const addExt = () => {
             switchState = false;
             switchOff();
         });
+        $('#tsrs-btn-tool-setting').click(() => {
+            // chrome.tabs.create({url: chromeUrl("right-side/options/options.htm")});
+            
+        }); 
         $('#tsrs-btn-tool-savelink').click(() => {
             saveLink();
         });
@@ -149,6 +163,20 @@ const addExt = () => {
             $('#tsrs-trip-name').text(text).attr('href', 'http://www.tripsurfing.co/trip/l/' + tripList[i].id);
         });
 
+        // const showQuantity = type => {
+        //     switch (type) {
+        //         case '#place-tab':
+        //             len = document.getElementById('place-tab').childElementCount;
+        //             if (len < 2) document.getElementById('tsrs-quantity').innerHTML = len.toString() + ' place';
+        //             else document.getElementById('tsrs-quantity').innerHTML = len.toString() + ' places';
+        //             break;
+        //         case '#link-tab':
+        //             len = document.getElementById('link-tab').childElementCount;
+        //             if (len < 2) document.getElementById('tsrs-quantity').innerHTML = len.toString() + ' link';
+        //             else document.getElementById('tsrs-quantity').innerHTML = len.toString() + ' links';
+        //             break;
+        //     }
+        // }
         /*  Change Tab function
         *   .tsrs-tab-active:     tab is active now
         *   .tsrs-nav-a-active:   icon is active now
@@ -161,6 +189,7 @@ const addExt = () => {
         }
         $(".tsrs-nav-li-tab").click(function() { 
             let displayTab = tabsKey[this.id]; 
+            // showQuantity(displayTab);
             $(".tsrs-tab-active").fadeOut(220, function() {
                 $(this).removeClass("tsrs-tab-active");
                 $(displayTab).addClass("tsrs-tab-active");
