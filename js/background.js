@@ -19,6 +19,7 @@ var tripSurfing = {status: 0};
 
 // Initiate the variables if smartStorage, clientId are undefined.
 if(typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
+smartStorage.set('tripadvisorBtn', true);
 if(!smartStorage.get('clientId')){
   smartStorage.set('clientId', guid());
 }
@@ -51,6 +52,7 @@ chrome.browserAction.onClicked.addListener(function (tab){
   }
   else {
     smartStorage.set('switchState', true);
+    startGetData();
     chrome.tabs.query({}, function(tabs) {
         var message = {showAll: true};
         for (let i = 0, length = tabs.length; i < length; i++) {
