@@ -119,6 +119,10 @@ $z-index: 23051996
         animation: fadeOutEffect 1s
         opacity: 0.8 !important
     #tsrs-btn-tool-setting
+        a
+            font-style: normal
+            &:hover
+                text-decoration: none !important
         // display: block
         // right: 156px
     #tsrs-btn-tool-savelink
@@ -146,9 +150,15 @@ $z-index: 23051996
                 +rotate(-180)
 /* Right-side */
 #right-side
+    .tsrs-quantity
+        font-size: 12px
+        line-height: 1
+        margin: 5px 5px 5px 12px
+        // z-index: $z-index + 2
+    // transform: rotate(180deg)
     z-index: $z-index
     width: 372px
-    height: 430px
+    height: 445px
     bottom: 63px
     right: 0
     position: fixed
@@ -184,6 +194,7 @@ $z-index: 23051996
                 cursor: pointer
                 #tsrs-dropdown-content
                     display: block
+
             #tsrs-dropdown-content
                 display: none
                 overflow: auto
@@ -261,10 +272,13 @@ $z-index: 23051996
                     .tsrs-nav-i-active
                         color: #e78720 !important
         .tsrs-nav-tab-content
-            height: 383px
-            overflow: auto
+            height: 405px
+            // overflow: auto
             display: none
             background-color: transparent
+            .tsrs-box-group
+                height: 385px
+                overflow: auto
         .tsrs-tab-active
             display: block !important
 
