@@ -21,13 +21,17 @@ chrome.runtime.onMessage.addListener(
                     return setSwitchState(message.state, sendResponse);
                     break;
                 case 'saveLink':
-                    // tab = sender.currentTab;
                     if(isLoggedIn()){
                       saveLink(sender.tab);
                     }else{
                       chrome.tabs.create({url: tripSurfingUrl+"signup?src=extension"});
-                      // or window.open
                     }
+                    break;
+                case 'getTripAdvisorState':
+                    return getTripAdvisorState(sendResponse);
+                    break;
+                case 'setTripAdvisorState':
+                    return setTripAdvisorState(message.state);
                     break;
             }
         }

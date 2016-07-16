@@ -1,5 +1,11 @@
 /*jshint esversion: 6*/
 var switchState;
+const getTripAdvisorState = sendResponse => {
+    sendResponse(smartStorage.get('tripadvisorBtn'));
+}
+const setTripAdvisorState = state => {
+    smartStorage.set('tripadvisorBtn', state);
+}
 const getSwitchState = sendResponse => {
     if (typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
     switchState = smartStorage.get('switchState');
@@ -91,9 +97,11 @@ const getTripDetailFromDb = () => {
         });
     }
 };
-getUserIdFromDb();
-(function poll() {
-   setTimeout(function() {
-       $.ajax({}).done(poll());
-   }, 3000);
-})();
+const startGetData = getUserIdFromDb;
+startGetData();
+// (function poll() {
+//    setTimeout(function() {
+//        $.ajax({}).done(poll());
+//    }, 3000);
+// })();
+// setInterval(startGetData, 3000);
