@@ -62,7 +62,6 @@ const getTripListFromDb = () => {
             })
             .done(res => {
                 tripList = res.list;
-                // sendResponse(res); 
                 smartStorage.set('tripList', res.list);
                 getTripDetailFromDb();
             });

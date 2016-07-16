@@ -3,9 +3,7 @@ chrome.runtime.onMessage.addListener(
     	if (message.rightSide == true) {
     		ajaxRsPost(getApi[message.action], message.data, sendResponse);
         	return true;
-    	} else if (message.broadcast == true) {
-            
-        } else {
+    	} else {
             switch(message.request) {
                 case 'getUserId':
 		            return getUserId(sendResponse);  
