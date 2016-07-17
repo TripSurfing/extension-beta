@@ -128,7 +128,7 @@ const renderTripList = () => {
                 renderTrip(i, tripDetail[i]);
             }
         }
-        document.getElementById('tsrs-dropdown-content').innerHTML += list;        
+        document.getElementById('tsrs-dropdown-content').innerHTML = list;        
     }
 
 }
