@@ -68,11 +68,14 @@ const getTripListFromDb = () => {
     }
 };
 var tripDetail = [];
+var lastTime;
 const getTripDetailFromDb = () => {
+    
     let numberOfTrip = tripList.length;
     tripDetail = [];
     let count = 0;
-    
+    lastTime = Math.round(Date.now()/1000);
+
     for (let i = 0; i < numberOfTrip; i++) {
         let trip = tripList[i];
         $.ajax({
