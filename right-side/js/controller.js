@@ -149,4 +149,10 @@ chrome.runtime.onMessage.addListener(
             switchState = true;
             startLoading();
         }
+		if (message.refreshTripSurfing == true) {
+			tripList = message.tripList;
+			tripDetail = message.tripDetail;
+            // clearWindow();
+			renderTripList();
+		}
 });

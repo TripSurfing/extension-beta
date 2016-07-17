@@ -52,7 +52,7 @@ const renderPlaceTab = (menuId, placeList) => {
                         </div>
                 </div>`;
             }
-        document.getElementById('tsrs-place-group').innerHTML += item;
+        document.getElementById('tsrs-place-group').innerHTML = item;
     }
     console.timeEnd('test');
 }
@@ -92,7 +92,7 @@ const renderLinkTab = (menuId, linkList) => {
                     </div>
                 </div>`;
         }
-        document.getElementById('tsrs-link-group').innerHTML += item;
+        document.getElementById('tsrs-link-group').innerHTML = item;
     }
     // if (linkList.length > 3) $("#saved-links-id").append(nomore);
 }

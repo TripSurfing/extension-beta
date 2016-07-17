@@ -11,7 +11,7 @@ const getSwitchState = sendResponse => {
     switchState = smartStorage.get('switchState');
     if (switchState == null) {
         switchState = true;
-        smartStorage.set('switchState', true);    
+        smartStorage.set('switchState', true);
     }
     sendResponse(switchState);
 }
@@ -22,7 +22,7 @@ const setSwitchState = (state, sendResponse) => {
 
     if (state == false) {
         chrome.tabs.query({}, function(tabs) {
-            var message = {hideAll: true};
+            var message = { hideAll: true };
             for (let i = 0, length = tabs.length; i < length; i++) {
                 chrome.tabs.sendMessage(tabs[i].id, message);
             }
@@ -45,7 +45,7 @@ var userId;
 const getUserIdFromDb = () => {
     if (typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
     userId = parseInt(smartStorage.get('userId'));
-    getTripListFromDb();    
+    getTripListFromDb();
     // sendResponse(userId)
 };
 
@@ -70,33 +70,45 @@ const getTripListFromDb = () => {
 var tripDetail = [];
 var lastTime;
 const getTripDetailFromDb = () => {
-    
+
     let numberOfTrip = tripList.length;
     tripDetail = [];
     let count = 0;
-    lastTime = Math.round(Date.now()/1000);
+    lastTime = Math.round(Date.now() / 1000);
 
     for (let i = 0; i < numberOfTrip; i++) {
         let trip = tripList[i];
         $.ajax({
-            url: tripSurfingUrl + 'api/renderTrip',
-            type: 'POST',
-            dataType: 'json',
-            // async: false,
-            data: {
-                'userId': userId,
-                'tripId': parseInt(trip.id),
-            },
-        }).done(res => {
-            tripDetail[i] = res;
-            count++;
-        })
-        .always(res => {
-            if (count == numberOfTrip) {
-                // sendResponse(tripDetail);
-                smartStorage.set('tripDetail', tripDetail);
-            }
-        });
+                url: tripSurfingUrl + 'api/renderTrip',
+                type: 'POST',
+                dataType: 'json',
+                // async: false,
+                data: {
+                    'userId': userId,
+                    'tripId': parseInt(trip.id),
+                },
+            }).done(res => {
+                tripDetail[i] = res;
+                count++;
+            })
+            .always(res => {
+                if (count == numberOfTrip) {
+                    // sendResponse(tripDetail);
+                    smartStorage.set('tripDetail', tripDetail);
+
+                    chrome.tabs.query({}, function(tabs) {
+                        var message = {
+                            refreshTripSurfing: true,
+                            tripList: tripList,
+                            tripDetail: tripDetail
+                        };
+                        for (let i = 0, length = tabs.length; i < length; i++) {
+                            chrome.tabs.sendMessage(tabs[i].id, message);
+                        }
+                    });
+
+                }
+            });
     }
 };
 const startGetData = getUserIdFromDb;
