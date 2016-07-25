@@ -1,4 +1,4 @@
-// 'use strict';
+// use strict';
 
 const renderTrip = (menuId, trip) => {
     renderPlaceTab(menuId, trip.places);
@@ -11,7 +11,7 @@ const renderTrip = (menuId, trip) => {
 }
 
 const address = item => {
-    let address = $(item).data('location').split('-');
+	let address = $(item).data('location').split('-');
     return [+address[0], address[1], +address[2]];
 }
 const deleteItem = item => {

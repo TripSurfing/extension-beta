@@ -30,8 +30,7 @@ const getTripList = () => {
         getTripDetail();
     }
     requestToModel(message, callback);
-}
-
+} 
 const getTripDetail = () => {
 	let message = {
 		request: 'getTripDetail'
@@ -39,9 +38,9 @@ const getTripDetail = () => {
 	let callback = response => {
 		tripDetail = response;
         addExt();
-		renderTripList();
-	}
-	requestToModel(message, callback);
+        renderTripList();
+    }
+    requestToModel(message, callback);
 }
 
 const checkState = () => {
