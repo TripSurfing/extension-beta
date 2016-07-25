@@ -4,7 +4,8 @@
 const favoriteState = favorites => {
     if (favorites.length == 0) return ['favorite-not-active', 'Add to favorite'];
     else {
-        for(user of favorites) {
+        for (let i = 0, len = favorites.length; i < len; i++) {
+			let user = favorites[i];
             if (user.user_id == userId) return ['favorite-active', 'Remove from favorite'];
         }
         return ['favorite-not-active', 'Add to favorite'];
@@ -111,7 +112,7 @@ const announceEmpty = nameTab => {
         `<div class="tsrs-empty">
             <div>Oop! You have not added any item yet.</div>
         </div>`
-    document.getElementById(nameTab).innerHTML += emptyAnnouncement;
+    document.getElementById(nameTab).innerHTML = emptyAnnouncement;
 }
 const renderTripList = () => {
     let list = '';
