@@ -46,13 +46,14 @@ chrome.browserAction.onClicked.addListener(function (tab){
     if(isLoggedIn()){
       saveLink(tab);
     }else{
+      tripSurfingUrl.currentAction = '';
       chrome.tabs.create({url: tripSurfingUrl+"signup?src=extension"});
       // or window.open
     }    
   }
   else {
     smartStorage.set('switchState', true);
-    startGetData();
+    // startGetData();
     chrome.tabs.query({}, function(tabs) {
         var message = {showAll: true};
         for (let i = 0, length = tabs.length; i < length; i++) {
@@ -100,15 +101,28 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
     smartStorage.set("userId", message.userId);
     sendResponse({});
     chrome.tabs.query({},function(tabs) {
-      tabs.forEach(function(tab) {
+      // var message = {
+      //   showAll: true
+      // };
+      startGetData();
+      startPoll();
+      for (let i = 0, length = tabs.length; i < length; i++) {
+          let tab = tabs[i];
           var url = tab.url;
           var windowId = tab.windowId;
           if (url.indexOf("extension_login") !== -1) {
               chrome.tabs.remove(tab.id, function() {});
           }
-      });
+      }
     });
     console.log(tripSurfing.currentTab);
+
+    chrome.tabs.query({}, function(tabs) {
+        var message = {showAll: true};
+        for (let i = 0, length = tabs.length; i < length; i++) {
+            chrome.tabs.sendMessage(tabs[i].id, message);
+        }
+    });
     chrome.tabs.update(tripSurfing.currentTab.id, {active: true});
     if(tripSurfing.currentAction == "saveLink"){
       saveLink(tripSurfing.currentTab);

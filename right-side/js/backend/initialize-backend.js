@@ -50,7 +50,7 @@ const getUserIdFromDb = () => {
 };
 
 var tripList = [];
-const getTripListFromDb = () => {
+const getTripListFromDb = (isPoll = false) => {
     tripList = [];
     if (typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
     if (userId !== null) {
@@ -63,13 +63,13 @@ const getTripListFromDb = () => {
             .done(res => {
                 tripList = res.list;
                 smartStorage.set('tripList', res.list);
-                getTripDetailFromDb();
+                getTripDetailFromDb(isPoll);
             });
     }
 };
 var tripDetail = [];
 var lastTime;
-const getTripDetailFromDb = () => {
+const getTripDetailFromDb = (isPoll = false) => {
 
     let numberOfTrip = tripList.length;
     tripDetail = [];
@@ -95,7 +95,7 @@ const getTripDetailFromDb = () => {
                 if (count == numberOfTrip) {
                     // sendResponse(tripDetail);
                     smartStorage.set('tripDetail', tripDetail);
-
+                    if (isPoll == true) poll(lastTime);
                     chrome.tabs.query({}, function(tabs) {
                         var message = {
                             refreshTripSurfing: true,
@@ -112,7 +112,7 @@ const getTripDetailFromDb = () => {
     }
 };
 const startGetData = getUserIdFromDb;
-startGetData();
+// startGetData();
 // (function poll() {
 //    setTimeout(function() {
 //        $.ajax({}).done(poll());
