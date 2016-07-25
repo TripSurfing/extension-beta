@@ -33,5 +33,9 @@ const startPoll = () => {
 		poll(lastTime);
 	}, 5000);
 }
+if (isLoggedIn()) {
+	startPoll();
+}
+// startPoll();
 
 // 1 468 661 959 032

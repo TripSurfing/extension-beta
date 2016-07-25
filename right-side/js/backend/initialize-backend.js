@@ -112,6 +112,10 @@ const getTripDetailFromDb = (isPoll = false) => {
     }
 };
 const startGetData = getUserIdFromDb;
+if (isLoggedIn()) {
+    startGetData();
+    // startPoll();
+}
 // startGetData();
 // (function poll() {
 //    setTimeout(function() {
