@@ -144,12 +144,14 @@
   #right-side .tsrs-quantity {
     font-size: 12px;
     line-height: 1;
-    margin: 5px 5px 5px 12px; }
+    margin: 5px 5px 5px 12px;
+    float: left; }
   #right-side a {
     text-decoration: none !important;
     border-bottom: 0 !important; }
   #right-side #right-side-nav-tabs {
     z-index: 23051997;
+    float: left;
     background-color: transparent;
     position: relative;
     box-sizing: content-box;
@@ -171,7 +173,8 @@
       font-size: 28px;
       color: #e78720 !important;
       z-index: 23051998;
-      line-height: 1 !important; }
+      line-height: 1 !important;
+      float: left; }
       #right-side #right-side-nav-tabs .tsrs-icon-menu:hover {
         cursor: pointer; }
         #right-side #right-side-nav-tabs .tsrs-icon-menu:hover #tsrs-dropdown-content {
