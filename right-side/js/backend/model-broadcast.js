@@ -25,6 +25,7 @@ const poll = ( lastTime = Math.round(Date.now()/1000) ) => {
 	})
 	.fail(response => {
 		console.log(response);
+		poll(lastTime);
 	});
 	
 }
@@ -33,9 +34,9 @@ const startPoll = () => {
 		poll(lastTime);
 	}, 5000);
 }
-if (isLoggedIn()) {
-	startPoll();
-}
+// if (isLoggedIn()) {
+// 	startPoll();
+// }
 // startPoll();
 
 // 1 468 661 959 032

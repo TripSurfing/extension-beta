@@ -42,10 +42,10 @@ const getTripDetail = sendResponse => {
 }
 
 var userId;
-const getUserIdFromDb = () => {
+const getUserIdFromDb = (isPoll = false) => {
     if (typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
     userId = parseInt(smartStorage.get('userId'));
-    getTripListFromDb();
+    getTripListFromDb(isPoll);
     // sendResponse(userId)
 };
 
@@ -113,7 +113,7 @@ const getTripDetailFromDb = (isPoll = false) => {
 };
 const startGetData = getUserIdFromDb;
 if (isLoggedIn()) {
-    startGetData();
+    startGetData(true);
     // startPoll();
 }
 // startGetData();
