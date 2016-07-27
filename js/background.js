@@ -46,7 +46,7 @@ chrome.browserAction.onClicked.addListener(function (tab){
     if(isLoggedIn()){
       saveLink(tab);
     }else{
-      tripSurfingUrl.currentAction = '';
+      tripSurfing.currentAction = '';
       chrome.tabs.create({url: tripSurfingUrl+"signup?src=extension"});
       // or window.open
     }    

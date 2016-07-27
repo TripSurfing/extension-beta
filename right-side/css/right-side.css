@@ -46,8 +46,7 @@
   box-sizing: content-box; }
   #tsrs-btn-tool-selector i {
     font-style: none; }
-  #tsrs-btn-tool-selector .tsrs-btn-descoration,
-  #tsrs-btn-tool-selector .tsrs-btn-descoration-small {
+  #tsrs-btn-tool-selector .tsrs-btn-descoration, #tsrs-btn-tool-selector .tsrs-btn-descoration-small {
     float: right;
     z-index: 23051996;
     border: 2px solid orange;
@@ -245,8 +244,7 @@
             outline: none !important;
             text-decoration: none !important;
             color: transparent !important; }
-          #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a .tsrs-icon-location-pin,
-          #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a .tsrs-icon-link {
+          #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a .tsrs-icon-location-pin, #right-side #tsrs-nav ul.tsrs-nav-ul li.tsrs-nav-li-tab a.tsrs-nav-a .tsrs-icon-link {
             font-size: 23px !important;
             color: #999 !important;
             text-decoration: none !important;
@@ -336,20 +334,15 @@
         font-weight: none !important;
         font-family: "tsrs-entypo";
         color: #e69000 !important; }
-    #right-side .box .place-bottom .delete-btn,
-    #right-side .box .place-bottom .favorite-btn {
+    #right-side .box .place-bottom .delete-btn, #right-side .box .place-bottom .favorite-btn {
       font-weight: bold;
       font-size: 14px;
       display: inline-block;
       float: right;
       margin-top: 1px; }
-      #right-side .box .place-bottom .delete-btn:hover,
-      #right-side .box .place-bottom .favorite-btn:hover {
+      #right-side .box .place-bottom .delete-btn:hover, #right-side .box .place-bottom .favorite-btn:hover {
         cursor: pointer; }
-      #right-side .box .place-bottom .delete-btn .tsrs-icon-trash,
-      #right-side .box .place-bottom .delete-btn .tsrs-icon-heart,
-      #right-side .box .place-bottom .favorite-btn .tsrs-icon-trash,
-      #right-side .box .place-bottom .favorite-btn .tsrs-icon-heart {
+      #right-side .box .place-bottom .delete-btn .tsrs-icon-trash, #right-side .box .place-bottom .delete-btn .tsrs-icon-heart, #right-side .box .place-bottom .favorite-btn .tsrs-icon-trash, #right-side .box .place-bottom .favorite-btn .tsrs-icon-heart {
         color: #999 !important;
         text-decoration: none !important;
         text-align: center !important;
@@ -364,11 +357,9 @@
         color: #333;
         font-size: 20px;
         padding: 1px 8px 8px; }
-    #right-side .box .place-bottom .favorite-btn .favorite-active,
-    #right-side .box .place-bottom .favorite-btn .favorite-active:hover {
+    #right-side .box .place-bottom .favorite-btn .favorite-active, #right-side .box .place-bottom .favorite-btn .favorite-active:hover {
       color: red !important; }
-    #right-side .box .place-bottom .favorite-btn .favorite-not-active,
-    #right-side .box .place-bottom .favorite-btn .favorite-not-active:hover {
+    #right-side .box .place-bottom .favorite-btn .favorite-not-active, #right-side .box .place-bottom .favorite-btn .favorite-not-active:hover {
       color: #999 !important; }
     #right-side .box .place-bottom .favorite-btn .tsrs-icon-heart {
       padding: 11px; }
@@ -390,19 +381,14 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden; }
-      #right-side .box .link-bottom .delete-btn,
-      #right-side .box .link-bottom .favorite-btn {
+      #right-side .box .link-bottom .delete-btn, #right-side .box .link-bottom .favorite-btn {
         float: right;
         width: 25px;
         height: 24px;
         line-height: 24px; }
-        #right-side .box .link-bottom .delete-btn:hover,
-        #right-side .box .link-bottom .favorite-btn:hover {
+        #right-side .box .link-bottom .delete-btn:hover, #right-side .box .link-bottom .favorite-btn:hover {
           cursor: pointer; }
-        #right-side .box .link-bottom .delete-btn .tsrs-icon-trash,
-        #right-side .box .link-bottom .delete-btn .tsrs-icon-heart,
-        #right-side .box .link-bottom .favorite-btn .tsrs-icon-trash,
-        #right-side .box .link-bottom .favorite-btn .tsrs-icon-heart {
+        #right-side .box .link-bottom .delete-btn .tsrs-icon-trash, #right-side .box .link-bottom .delete-btn .tsrs-icon-heart, #right-side .box .link-bottom .favorite-btn .tsrs-icon-trash, #right-side .box .link-bottom .favorite-btn .tsrs-icon-heart {
           color: #999 !important;
           text-decoration: none !important;
           text-align: center !important;
@@ -411,18 +397,15 @@
           font-family: "tsrs-entypo";
           font-size: 14px;
           padding: 11px; }
-        #right-side .box .link-bottom .delete-btn:hover .tsrs-icon-trash,
-        #right-side .box .link-bottom .favorite-btn:hover .tsrs-icon-trash {
+        #right-side .box .link-bottom .delete-btn:hover .tsrs-icon-trash, #right-side .box .link-bottom .favorite-btn:hover .tsrs-icon-trash {
           color: #333;
           padding: 8px;
           font-size: 20px; }
       #right-side .box .link-bottom .favorite-btn {
         margin-right: 10px; }
-        #right-side .box .link-bottom .favorite-btn .favorite-active,
-        #right-side .box .link-bottom .favorite-btn .favorite-active:hover {
+        #right-side .box .link-bottom .favorite-btn .favorite-active, #right-side .box .link-bottom .favorite-btn .favorite-active:hover {
           color: red !important; }
-        #right-side .box .link-bottom .favorite-btn .favorite-not-active,
-        #right-side .box .link-bottom .favorite-btn .favorite-not-active:hover {
+        #right-side .box .link-bottom .favorite-btn .favorite-not-active, #right-side .box .link-bottom .favorite-btn .favorite-not-active:hover {
           color: #999 !important; }
         #right-side .box .link-bottom .favorite-btn:hover .tsrs-icon-heart {
           padding: 1px 8px 8px;
