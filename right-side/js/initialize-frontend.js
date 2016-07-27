@@ -7,6 +7,7 @@ var tripList = [];
 var tripDetail = [];
 var favorites = [];
 var switchState;
+var currentTripId = null;
 
 const getUserId = () => {
     let message = {

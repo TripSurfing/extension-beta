@@ -155,11 +155,13 @@ const addExt = () => {
         });
         rightSide.on('click', '#tsrs-dropdown-content a', function() {
             let i = parseInt(this.id);
-            let text = $(this).text(); 
+            let text = $(this).text();
+            currentTripId = +this.dataset.tripid;
+            renderTrip(i, tripDetail[i]);
 
-            clearWindow( () => {
-                renderTrip(i, tripDetail[i]);
-            });
+            // clearWindow( () => {
+            //     renderTrip(i, tripDetail[i]);
+            // });
             $('#tsrs-trip-name').text(text).attr('href', 'http://www.tripsurfing.co/trip/l/' + tripList[i].id);
         });
 

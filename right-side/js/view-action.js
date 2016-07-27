@@ -116,21 +116,30 @@ const announceEmpty = nameTab => {
 }
 const renderTripList = () => {
     let list = '';
-    let  len = tripList.length;
+    let len = tripList.length;
     if (len == 0 || len == undefined || len == null) {
         document.getElementById('tsrs-trip-name').innerHTML = 'No trips :(';
-    } else {
+    } else if (currentTripId === null) {
         for(let i = 0; i < len; i++) {
-            if (tripList[i].is_default == 0)
-                list += `<a href="javascript:void(0)" id="${i}">${tripList[i].name}</a>`;
+            let trip = tripList[i];
+            if (trip.is_default == 0)
+                list += `<a href="javascript:void(0)" data-tripId='${trip.id}' id="${i}">${trip.name}</a>`;
             else {
-                list += `<a href="javascript:void(0)" id="${i}" class="default-trip">${tripList[i].name}</a>`;
-                $('#tsrs-trip-name').text(tripList[i].name).attr('href', 'http://www.tripsurfing.co/trip/l/' + tripList[i].id);
+                list += `<a href="javascript:void(0)" id="${i}" data-tripId='${trip.id}' class="default-trip">${trip.name}</a>`;
+                $('#tsrs-trip-name').text(trip.name).attr('href', 'http://tripsurfing.co/trip/l/' + trip.id);
                 renderTrip(i, tripDetail[i]);
             }
         }
-        document.getElementById('tsrs-dropdown-content').innerHTML = list;        
+    } else {
+        for(let i = 0; i < len; i++) {
+            let trip = tripList[i];
+            list += `<a href="javascript:void(0)" id="${i}" data-tripId='${trip.id}'>${trip.name}</a>`;
+            if (trip.id == currentTripId) {
+                $('#tsrs-trip-name').text(trip.name).attr('href', 'http://tripsurfing.co/trip/l/' + trip.id);
+                renderTrip(i, tripDetail[i]);
+            }
+        }
     }
-
+    document.getElementById('tsrs-dropdown-content').innerHTML = list;        
 }
 $(()=>{startLoading();});
