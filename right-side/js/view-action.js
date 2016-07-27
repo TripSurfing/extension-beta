@@ -25,6 +25,8 @@ const renderPlaceTab = (menuId, placeList) => {
             let place = placeList[i];
             let img_url = place.images.length != 0 ? place.images[0].url : "http://www.tripsurfing.co/static/img/noimg.jpg";
             let favoriteInfo = favoriteState(place.favorites);
+            let rate = (+place.rate_avg != 0) ? place.rate_avg : 'Not voted yet';
+            let address = (place.address != null) ? place.address : ' ';
             // place_id = favorite, place.id = delete
             item +=
                 `<div class="box" id="place-${place.place_id}-${place.id}" data-location="${menuId}-places-${i}">
@@ -37,11 +39,11 @@ const renderPlaceTab = (menuId, placeList) => {
                                 <div class="tsrs-title-wrap">${place.name}</div>
                             </a>
                             
-                            <div class="box-desc" title="${place.address}">${place.address}</div>
+                            <div class="box-desc" title="${address}">${address}</div>
                             
                             <div class="place-bottom">
                                 <div class="tsrs-rating">
-                                    <i class="tsrs-icon-star"></i> ${place.rate_avg}
+                                    <i class="tsrs-icon-star"></i> ${rate}
                                 </div>
                                 <div class="delete-btn">
                                     <i class="tsrs-icon-trash" title="Delete" tsrs-data="tipsy"></i>
