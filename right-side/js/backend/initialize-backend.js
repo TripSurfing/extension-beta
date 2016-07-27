@@ -1,4 +1,8 @@
 /*jshint esversion: 6*/
+// const tripSurfingUrl = 'http://wwww.tripsurfing.com/';
+// const tripSurfingUrl = 'http://www.tripsurfing.co/';
+const tripSurfingApiUrl = 'http://api.tripsurfing.co/';
+
 var switchState;
 const getTripAdvisorState = sendResponse => {
     sendResponse(smartStorage.get('tripadvisorBtn'));
@@ -55,7 +59,7 @@ const getTripListFromDb = (isPoll = false) => {
     if (typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
     if (userId !== null) {
         $.ajax({
-                url: tripSurfingUrl + 'api/getTripList',
+                url: tripSurfingApiUrl + 'api/getTripList',
                 type: 'POST',
                 dataType: 'json',
                 data: { 'userId': userId },
@@ -79,7 +83,7 @@ const getTripDetailFromDb = (isPoll = false) => {
     for (let i = 0; i < numberOfTrip; i++) {
         let trip = tripList[i];
         $.ajax({
-                url: tripSurfingUrl + 'api/renderTrip',
+                url: tripSurfingApiUrl + 'api/renderTrip',
                 type: 'POST',
                 dataType: 'json',
                 // async: false,

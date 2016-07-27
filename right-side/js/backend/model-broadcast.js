@@ -4,7 +4,7 @@
 
 const poll = ( lastTime = Math.round(Date.now()/1000) ) => {
 	$.ajax({
-		url: tripSurfingUrl + 'api/updateTripList',
+		url: tripSurfingApiUrl + 'api/updateTripList',
 		type: 'POST',
 		dataType: 'json',
 		data: {

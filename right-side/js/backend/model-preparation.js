@@ -1,9 +1,6 @@
-// const tripSurfingUrl = 'http://wwww.tripsurfing.com/';
-// const tripSurfingUrl = 'http://www.tripsurfing.co/';
-
 const ajaxRsPost = (link, ajaxData, sendResponse) => {
     $.ajax({
-        url: tripSurfingUrl + link,
+        url: tripSurfingApiUrl + link,
         type: 'POST',
         dataType: 'json',
         data: ajaxData,
