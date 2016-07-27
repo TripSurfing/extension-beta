@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "TripSurfing",
   "description": "Most-used tool for travel-lover!",
-  "version": "1.2",
+  "version": "1.2.1",
    "options_page": "right-side/options/options.html",
   
   "icons": { 
@@ -39,18 +39,15 @@
       "matches": [ "*://tripsurfing.loc/login?o=1", "*://tripsurfing.co/login?o=1", "*://*.tripsurfing.loc/login?o=1", "*://*.tripsurfing.co/login?o=1" ],
       "js": [ "js/content_script/logout.js" ]
     }, 
-	// Right-side setup
 	{
         "matches": ["http://*/*", "https://*/*"],
         "css": [
             "right-side/lib/entypo/tsrs-entypo.css",
-            // "right-side/lib/animate.css",
             "right-side/lib/entypo/tsrs-btn-switch.css",
             "right-side/css/right-side.css", 
             "right-side/lib/tipsy/tipsy.css"
         ],
         "js": [
-		// "lib/SmartStorage.js",
             "right-side/lib/jquery-1.12.4.min.js", 
             "right-side/lib/tipsy/jquery.tipsy.js",
             "right-side/js/initialize-frontend.js",
