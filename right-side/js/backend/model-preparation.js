@@ -13,7 +13,7 @@ const ajaxRsPost = (link, ajaxData, sendResponse) => {
 }
 const getApi = {
     getTripById         : 'api/renderTrip',
-    deleteItem          : 'api/action',
-    addToFavorite       : 'api/favorite',
-    removeFromFavorite  : 'api/favorite',
+    deleteItem          : 'api/extDelAction',
+    addToFavorite       : 'api/extFavAction',
+    removeFromFavorite  : 'api/extFavAction',
 }

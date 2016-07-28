@@ -22,7 +22,8 @@ const deleteItem = item => {
         data: {
             type: info[0],
             itemId: info[2],
-            action: 'delete',
+            // action: 'delete',
+            userId: USER_ID
         }
     }
     let callback = response => {
@@ -61,6 +62,7 @@ const addToFavorite = item => {
             type: info[0],
             itemId: info[1],
             action: 'add',
+            userId: USER_ID
         }
     }
     let callback = response => {
@@ -89,6 +91,7 @@ const removeFromFavorite = item => {
             type: info[0],
             itemId: info[1],
             action: 'remove',
+            userId: USER_ID
         }
     }
     let callback = response => {
