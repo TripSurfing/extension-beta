@@ -71,9 +71,11 @@
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px;
       cursor: pointer; }
+    #tsrs-btn-tool-selector .tsrs-btn-descoration-small a:link, #tsrs-btn-tool-selector .tsrs-btn-descoration-small a:visited {
+      text-decoration: none !important; }
     #tsrs-btn-tool-selector .tsrs-btn-descoration-small .tsrs-btn-background-div {
       line-height: 1;
-      padding: 2px;
+      padding: 3px;
       -ms-transform: rotate(-45deg) !important;
       -webkit-transform: rotate(-45deg) !important;
       transform: rotate(-45deg) !important;
@@ -82,9 +84,12 @@
       #tsrs-btn-tool-selector .tsrs-btn-descoration-small .tsrs-btn-background-div .tsrs-icon-cog,
       #tsrs-btn-tool-selector .tsrs-btn-descoration-small .tsrs-btn-background-div .tsrs-icon-switch {
         color: #e78c2b;
-        font-size: 21px;
+        font-size: 20px;
         padding: 0;
-        line-height: 1; }
+        line-height: 1;
+        text-decoration: none; }
+      #tsrs-btn-tool-selector .tsrs-btn-descoration-small .tsrs-btn-background-div .tsrs-icon-switch {
+        font-size: 19px; }
   #tsrs-btn-tool-selector .tsrs-show {
     opacity: 1;
     box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px; }
@@ -141,9 +146,9 @@
   /* Box */
   /* Error box */ }
   #right-side .tsrs-quantity {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1;
-    margin: 5px 5px 5px 12px;
+    margin: 4px 5px 5px 12px;
     float: left; }
   #right-side a {
     text-decoration: none !important;

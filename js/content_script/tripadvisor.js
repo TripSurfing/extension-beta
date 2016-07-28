@@ -8,14 +8,14 @@ chrome.runtime.sendMessage({request: 'getTripAdvisorState'}, function(res) {
   }
 });
 
-$('#tripsurfing-save').click(function(){
+$('body').on('click', '#tripsurfing-save',function(){
   var data = {fromUrl: trimChar(location.href, '#'), placeUrl: location.href, source: "tripadvisor", type: "place"};  
   showLoading();
   chrome.runtime.sendMessage(data, function(response){hideLoading(); showTSStatus(response)});
   return false;
 });
 
-$('.tripsurfing-list-save').click(function(){
+$('body').on('click', '.tripsurfing-list-save', function(){
   var placeUrl = location.origin + $(this).parents('.entry').find('.property_title a').attr("href");
   var data = {fromUrl: trimChar(location.href, '#'), placeUrl: placeUrl, source: "tripadvisor", type: "place"};
   showLoading();

@@ -111,18 +111,22 @@ $z-index: 23051996;
             box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px;
             cursor: pointer;
         }
+        a:link, a:visited {text-decoration: none !important}
         .tsrs-btn-background-div {
             line-height: 1;
-            padding: 2px;
+            padding: 3px;
             @include rotate(-45);
             .tsrs-icon-bookmark,
             .tsrs-icon-cog,
             .tsrs-icon-switch {
                 color: #e78c2b;
-                font-size: 21px;
+                font-size: 20px;
                 padding: 0;
                 line-height: 1;
+                text-decoration: none;
             }
+            .tsrs-icon-switch { font-size: 19px}
+            // .tsrs-icon-cong {&:visited {text-decoration: none !important}}
         }
     }
     .tsrs-show {
@@ -165,9 +169,9 @@ $z-index: 23051996;
 /* Right-side */
 #right-side {
     .tsrs-quantity {
-        font-size: 12px;
+        font-size: 11px;
         line-height: 1;
-        margin: 5px 5px 5px 12px;
+        margin: 4px 5px 5px 12px;
         float: left;
     }
     z-index: $z-index;
