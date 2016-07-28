@@ -70,9 +70,9 @@
   "permissions": [
     "tabs", "http://*/*", "https://*/*"
   ],
-"web_accessible_resources": [
-       "right-side/image/*",
-       "right-side/lib/*",
-       "right-side/options/*"
-     ]
+  "web_accessible_resources": [
+     "right-side/image/*",
+     "right-side/lib/*",
+     "right-side/options/*"
+  ]
 }

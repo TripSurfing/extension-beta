@@ -2,36 +2,36 @@
  * Long-polling
  */
 
-const poll = ( lastTime = Math.round(Date.now()/1000) ) => {
-	$.ajax({
-		url: tripSurfingApiUrl + 'api/updateTripList',
+const poll = ( LAST_TIME = Math.round(Date.now()/1000) ) => {
+	pollAjax = $.ajax({
+		url: TRIPSURFING_API_URL + 'api/updateTripList',
 		type: 'POST',
 		dataType: 'json',
 		data: {
-			userId: userId,
-			lastTime: lastTime
+			userId: USER_ID,
+			lastTime: LAST_TIME
 		},
 	})
 	.done(response => {
 		if (response.type == 'success') {
-			lastTime = Math.round(Date.now()/1000);
-			console.log('new update at: ', lastTime);
+			LAST_TIME = Math.round(Date.now()/1000);
+			console.log('new update at: ', LAST_TIME);
 			getTripListFromDb(true);
 		} else {
-			poll(lastTime);
+			poll(LAST_TIME);
 		}
-		// poll(lastTime);
-		console.log(lastTime);
+		// poll(LAST_TIME);
+		console.log(LAST_TIME);
 	})
 	.fail(response => {
 		console.log(response);
-		poll(lastTime);
+		poll(LAST_TIME);
 	});
 	
 }
 const startPoll = () => {
 	setTimeout(function() {
-		poll(lastTime);
+		poll(LAST_TIME);
 	}, 5000);
 }
 // if (isLoggedIn()) {

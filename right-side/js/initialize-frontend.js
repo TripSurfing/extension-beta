@@ -2,20 +2,20 @@ const requestToModel = (message, callback) => {
     chrome.runtime.sendMessage(message, response => callback(response));
 }
 
-var userId;
-var tripList = [];
-var tripDetail = [];
-var favorites = [];
-var switchState;
-var currentTripId = null;
+var USER_ID;
+var TRIP_LIST = [];
+var TRIP_DETAIL = [];
+var FAVORITES = [];
+var SWITCH_STATE;
+var CURRENT_TRIP_ID = null;
 
 const getUserId = () => {
     let message = {
         request: 'getUserId'
     }
     let callback = response => {
-        userId = response;
-        if (userId != null)
+        USER_ID = response;
+        if (USER_ID != null)
             getTripList();
         else announceError('You have to login or signup first');
     }
@@ -27,7 +27,7 @@ const getTripList = () => {
         request: 'getTripList'
     }
     let callback = response => {
-        tripList = response;
+        TRIP_LIST = response;
         getTripDetail();
     }
     requestToModel(message, callback);
@@ -37,7 +37,7 @@ const getTripDetail = () => {
 		request: 'getTripDetail'
 	}
 	let callback = response => {
-		tripDetail = response;
+		TRIP_DETAIL = response;
         addExt();
         renderTripList();
     }
@@ -49,7 +49,7 @@ const checkState = () => {
         request: 'getSwitchState'
     }
     let callback = state => {
-        switchState = state;
+        SWITCH_STATE = state;
         if (state == true) {
             getUserId();
         } else {

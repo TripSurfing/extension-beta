@@ -1,9 +1,9 @@
 /*jshint esversion: 6*/
 // const tripSurfingUrl = 'http://wwww.tripsurfing.com/';
 // const tripSurfingUrl = 'http://www.tripsurfing.co/';
-const tripSurfingApiUrl = 'http://api.tripsurfing.co/';
+const TRIPSURFING_API_URL = 'http://api.tripsurfing.co/';
 
-var switchState;
+var SWITCH_STATE;
 const getTripAdvisorState = sendResponse => {
     sendResponse(smartStorage.get('tripadvisorBtn'));
 }
@@ -12,12 +12,12 @@ const setTripAdvisorState = state => {
 }
 const getSwitchState = sendResponse => {
     if (typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
-    switchState = smartStorage.get('switchState');
-    if (switchState == null) {
-        switchState = true;
+    SWITCH_STATE = smartStorage.get('switchState');
+    if (SWITCH_STATE == null) {
+        SWITCH_STATE = true;
         smartStorage.set('switchState', true);
     }
-    sendResponse(switchState);
+    sendResponse(SWITCH_STATE);
 }
 
 const setSwitchState = (state, sendResponse) => {
@@ -30,6 +30,13 @@ const setSwitchState = (state, sendResponse) => {
             for (let i = 0, length = tabs.length; i < length; i++) {
                 chrome.tabs.sendMessage(tabs[i].id, message);
             }
+        });
+        // pollAjax.abort();
+        // pollAjax = null;
+        let url = chrome.extension.getURL('img/icon12.png');
+        chrome.browserAction.setIcon({
+            path: url
+            // tabId: sender.tab.id
         });
     }
     sendResponse({});
@@ -45,66 +52,66 @@ const getTripDetail = sendResponse => {
     sendResponse(smartStorage.get('tripDetail'));
 }
 
-var userId;
+var USER_ID;
 const getUserIdFromDb = (isPoll = false) => {
     if (typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
-    userId = parseInt(smartStorage.get('userId'));
+    USER_ID = parseInt(smartStorage.get('userId'));
     getTripListFromDb(isPoll);
-    // sendResponse(userId)
+    // sendResponse(USER_ID)
 };
 
-var tripList = [];
+var TRIP_LIST = [];
 const getTripListFromDb = (isPoll = false) => {
-    tripList = [];
+    TRIP_LIST = [];
     if (typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
-    if (userId !== null) {
+    if (USER_ID !== null) {
         $.ajax({
-                url: tripSurfingApiUrl + 'api/getTripList',
+                url: TRIPSURFING_API_URL + 'api/getTripList',
                 type: 'POST',
                 dataType: 'json',
-                data: { 'userId': userId },
+                data: { 'userId': USER_ID },
             })
             .done(res => {
-                tripList = res.list;
+                TRIP_LIST = res.list;
                 smartStorage.set('tripList', res.list);
                 getTripDetailFromDb(isPoll);
             });
     }
 };
-var tripDetail = [];
-var lastTime;
+var TRIP_DETAIL = [];
+var LAST_TIME;
 const getTripDetailFromDb = (isPoll = false) => {
 
-    let numberOfTrip = tripList.length;
-    tripDetail = [];
+    let numberOfTrip = TRIP_LIST.length;
+    TRIP_DETAIL = [];
     let count = 0;
-    lastTime = Math.round(Date.now() / 1000);
+    LAST_TIME = Math.round(Date.now() / 1000);
 
     for (let i = 0; i < numberOfTrip; i++) {
-        let trip = tripList[i];
+        let trip = TRIP_LIST[i];
         $.ajax({
-                url: tripSurfingApiUrl + 'api/renderTrip',
+                url: TRIPSURFING_API_URL + 'api/renderTrip',
                 type: 'POST',
                 dataType: 'json',
                 // async: false,
                 data: {
-                    'userId': userId,
+                    'userId': USER_ID,
                     'tripId': parseInt(trip.id),
                 },
             }).done(res => {
-                tripDetail[i] = res;
+                TRIP_DETAIL[i] = res;
                 count++;
             })
             .always(res => {
                 if (count == numberOfTrip) {
-                    // sendResponse(tripDetail);
-                    smartStorage.set('tripDetail', tripDetail);
-                    if (isPoll == true) poll(lastTime);
+                    // sendResponse(TRIP_DETAIL);
+                    smartStorage.set('tripDetail', TRIP_DETAIL);
+                    if (isPoll == true) poll(LAST_TIME);
                     chrome.tabs.query({}, function(tabs) {
                         var message = {
                             refreshTripSurfing: true,
-                            tripList: tripList,
-                            tripDetail: tripDetail
+                            tripList: TRIP_LIST,
+                            tripDetail: TRIP_DETAIL
                         };
                         for (let i = 0, length = tabs.length; i < length; i++) {
                             chrome.tabs.sendMessage(tabs[i].id, message);

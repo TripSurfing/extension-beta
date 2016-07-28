@@ -38,7 +38,7 @@ const deleteItem = item => {
             }
 
             [menuId, type, detailId] = address(item);
-            tripDetail[menuId][type].splice(detailId, 1);
+            TRIP_DETAIL[menuId][type].splice(detailId, 1);
         } else {
             console.log(response);
             let box = $(item);
@@ -48,7 +48,7 @@ const deleteItem = item => {
             
         }
     }
-    // console.log(tripDetail);
+    // console.log(TRIP_DETAIL);
     requestToModel(message, callback);
 }
 
@@ -66,8 +66,8 @@ const addToFavorite = item => {
     let callback = response => {
         if (response.type == 'success') {
             [menuId, type, detailId] = address(item);
-            tripDetail[menuId][type][detailId].favorites.push({
-                user_id: userId.toString()
+            TRIP_DETAIL[menuId][type][detailId].favorites.push({
+                user_id: USER_ID.toString()
             })
         } else {
             let heart = $(item).find('i.tsrs-icon-heart');
@@ -94,11 +94,11 @@ const removeFromFavorite = item => {
     let callback = response => {
         if (response.type == 'success') {
             [menuId, type, detailId] = address(item);    
-            favorites = tripDetail[menuId][type][detailId].favorites;
-            for (let i = 0, leng = favorites.length; i < leng; i++) {
-                let user = favorites[i];
-                if (user.user_id == userId) {
-                    favorites.splice(i, 1);
+            FAVORITES = TRIP_DETAIL[menuId][type][detailId].favorites;
+            for (let i = 0, leng = FAVORITES.length; i < leng; i++) {
+                let user = FAVORITES[i];
+                if (user.user_id == USER_ID) {
+                    FAVORITES.splice(i, 1);
                     break;
                 }
             }
@@ -146,12 +146,12 @@ chrome.runtime.onMessage.addListener(
             hideAll();
         }
         if (message.showAll == true) {
-            switchState = true;
+            SWITCH_STATE = true;
             startLoading();
         }
 		if (message.refreshTripSurfing == true) {
-			tripList = message.tripList;
-			tripDetail = message.tripDetail;
+			TRIP_LIST = message.tripList;
+			TRIP_DETAIL = message.tripDetail;
             // clearWindow();
 			renderTripList();
 		}

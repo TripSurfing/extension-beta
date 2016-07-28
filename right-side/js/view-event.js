@@ -1,6 +1,6 @@
 const chromeUrl = url => chrome.extension.getURL(url);
 const addExt = () => {
-    if (switchState == true) {
+    if (SWITCH_STATE == true) {
         $('body').append( 
     	`<div id="right-side">
             <div id="right-side-nav-tabs">
@@ -143,7 +143,7 @@ const addExt = () => {
 
         $('#tsrs-btn-tool-switch').click(()=>{
             // $('#tsrs-btn-tool-selector').hide().promise().done($);
-            switchState = false;
+            SWITCH_STATE = false;
             switchOff();
         });
         $('#tsrs-btn-tool-setting').click(() => {
@@ -156,13 +156,13 @@ const addExt = () => {
         rightSide.on('click', '#tsrs-dropdown-content a', function() {
             let i = parseInt(this.id);
             let text = $(this).text();
-            currentTripId = +this.dataset.tripid;
-            renderTrip(i, tripDetail[i]);
+            CURRENT_TRIP_ID = +this.dataset.tripid;
+            renderTrip(i, TRIP_DETAIL[i]);
 
             // clearWindow( () => {
-            //     renderTrip(i, tripDetail[i]);
+            //     renderTrip(i, TRIP_DETAIL[i]);
             // });
-            $('#tsrs-trip-name').text(text).attr('href', 'http://www.tripsurfing.co/trip/l/' + tripList[i].id);
+            $('#tsrs-trip-name').text(text).attr('href', 'http://www.tripsurfing.co/trip/l/' + TRIP_LIST[i].id);
         });
 
         // const showQuantity = type => {

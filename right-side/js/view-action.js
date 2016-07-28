@@ -6,7 +6,7 @@ const favoriteState = favorites => {
     else {
         for (let i = 0, len = favorites.length; i < len; i++) {
 			let user = favorites[i];
-            if (user.user_id == userId) return ['favorite-active', 'Remove from favorite'];
+            if (user.user_id == USER_ID) return ['favorite-active', 'Remove from favorite'];
         }
         return ['favorite-not-active', 'Add to favorite'];
     }
@@ -118,27 +118,27 @@ const announceEmpty = nameTab => {
 }
 const renderTripList = () => {
     let list = '';
-    let len = tripList.length;
+    let len = TRIP_LIST.length;
     if (len == 0 || len == undefined || len == null) {
         document.getElementById('tsrs-trip-name').innerHTML = 'No trips :(';
-    } else if (currentTripId === null) {
+    } else if (CURRENT_TRIP_ID === null) {
         for(let i = 0; i < len; i++) {
-            let trip = tripList[i];
+            let trip = TRIP_LIST[i];
             if (trip.is_default == 0)
                 list += `<a href="javascript:void(0)" data-tripId='${trip.id}' id="${i}">${trip.name}</a>`;
             else {
                 list += `<a href="javascript:void(0)" id="${i}" data-tripId='${trip.id}' class="default-trip">${trip.name}</a>`;
                 $('#tsrs-trip-name').text(trip.name).attr('href', 'http://tripsurfing.co/trip/l/' + trip.id);
-                renderTrip(i, tripDetail[i]);
+                renderTrip(i, TRIP_DETAIL[i]);
             }
         }
     } else {
         for(let i = 0; i < len; i++) {
-            let trip = tripList[i];
+            let trip = TRIP_LIST[i];
             list += `<a href="javascript:void(0)" id="${i}" data-tripId='${trip.id}'>${trip.name}</a>`;
-            if (trip.id == currentTripId) {
+            if (trip.id == CURRENT_TRIP_ID) {
                 $('#tsrs-trip-name').text(trip.name).attr('href', 'http://tripsurfing.co/trip/l/' + trip.id);
-                renderTrip(i, tripDetail[i]);
+                renderTrip(i, TRIP_DETAIL[i]);
             }
         }
     }
