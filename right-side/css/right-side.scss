@@ -1,4 +1,6 @@
+$fav-color: #f25268;
 // function
+
 @mixin rotate($deg) {
     -ms-transform: rotate($deg + deg) !important;
     -webkit-transform: rotate($deg + deg) !important;
@@ -80,6 +82,7 @@ $z-index: 23051996;
     position: fixed;
     right: 0;
     bottom: 0;
+    margin-bottom: 4px;
     background-color: transparent;
     padding: 0 10px 0 20px;
     display: none;
@@ -147,8 +150,8 @@ $z-index: 23051996;
         margin: 15px 15px 0 0;
         z-index: $z-index - 2;
         @include rotate(45);
-        width: 39px;
-        height: 39px;
+        width: 36px;
+        height: 36px;
         padding: 0 !important;
         &:hover {
             opacity: 1 !important;
@@ -157,8 +160,8 @@ $z-index: 23051996;
             cursor: pointer;
         }
         img {
-            width: 35px;
-            height: 35px;
+            width: 32px;
+            height: 32px;
             margin: 2px;
             @include rotate(45);
             &:hover { @include rotate(-180); }
@@ -177,7 +180,7 @@ $z-index: 23051996;
     z-index: $z-index;
     width: 372px;
     height: 445px;
-    bottom: 63px;
+    bottom: 70px;
     right: 0;
     position: fixed;
     box-shadow: 0 0px 20px rgba(0, 0, 0, 0.25),
@@ -392,10 +395,7 @@ $z-index: 23051996;
             .delete-btn, .favorite-btn {
                 &:hover {cursor: pointer; }
                 .tsrs-icon-trash, .tsrs-icon-heart {@include tsrs-icon; }
-                font: {
-                    weight: bold;
-                    size: 14px;
-                }
+                font-size: 14px;
                 display: inline-block;
                 float: right;
                 margin-top: 1px;
@@ -410,7 +410,7 @@ $z-index: 23051996;
                 }
             }
             .favorite-btn {
-                .favorite-active, .favorite-active:hover {color: red !important; }
+                .favorite-active, .favorite-active:hover {color: $fav-color !important; }
                 .favorite-not-active, .favorite-not-active:hover {
                     color: #999 !important;
                 }
@@ -458,7 +458,7 @@ $z-index: 23051996;
             .favorite-btn {
                 margin-right: 10px;
                 .favorite-active, .favorite-active:hover {
-                    color: red !important;
+                    color: $fav-color !important;
                 }
                 .favorite-not-active, .favorite-not-active:hover {
                     color: #999 !important;

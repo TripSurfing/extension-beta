@@ -39,6 +39,7 @@
   position: fixed;
   right: 0;
   bottom: 0;
+  margin-bottom: 4px;
   background-color: transparent;
   padding: 0 10px 0 20px;
   display: none;
@@ -107,8 +108,8 @@
     -webkit-transform: rotate(45deg) !important;
     transform: rotate(45deg) !important;
     transition: all 0.3s;
-    width: 39px;
-    height: 39px;
+    width: 36px;
+    height: 36px;
     padding: 0 !important; }
     #tsrs-btn-tool-selector #tsrs-btn-tool-show:hover {
       opacity: 1 !important;
@@ -116,8 +117,8 @@
       box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px;
       cursor: pointer; }
     #tsrs-btn-tool-selector #tsrs-btn-tool-show img {
-      width: 35px;
-      height: 35px;
+      width: 32px;
+      height: 32px;
       margin: 2px;
       -ms-transform: rotate(45deg) !important;
       -webkit-transform: rotate(45deg) !important;
@@ -134,7 +135,7 @@
   z-index: 23051996;
   width: 372px;
   height: 445px;
-  bottom: 63px;
+  bottom: 70px;
   right: 0;
   position: fixed;
   box-shadow: 0 0px 20px rgba(0, 0, 0, 0.25), 0 0px 7px rgba(0, 0, 0, 0.22);
@@ -340,7 +341,6 @@
         font-family: "tsrs-entypo";
         color: #e69000 !important; }
     #right-side .box .place-bottom .delete-btn, #right-side .box .place-bottom .favorite-btn {
-      font-weight: bold;
       font-size: 14px;
       display: inline-block;
       float: right;
@@ -363,7 +363,7 @@
         font-size: 20px;
         padding: 1px 8px 8px; }
     #right-side .box .place-bottom .favorite-btn .favorite-active, #right-side .box .place-bottom .favorite-btn .favorite-active:hover {
-      color: red !important; }
+      color: #f25268 !important; }
     #right-side .box .place-bottom .favorite-btn .favorite-not-active, #right-side .box .place-bottom .favorite-btn .favorite-not-active:hover {
       color: #999 !important; }
     #right-side .box .place-bottom .favorite-btn .tsrs-icon-heart {
@@ -409,7 +409,7 @@
       #right-side .box .link-bottom .favorite-btn {
         margin-right: 10px; }
         #right-side .box .link-bottom .favorite-btn .favorite-active, #right-side .box .link-bottom .favorite-btn .favorite-active:hover {
-          color: red !important; }
+          color: #f25268 !important; }
         #right-side .box .link-bottom .favorite-btn .favorite-not-active, #right-side .box .link-bottom .favorite-btn .favorite-not-active:hover {
           color: #999 !important; }
         #right-side .box .link-bottom .favorite-btn:hover .tsrs-icon-heart {
