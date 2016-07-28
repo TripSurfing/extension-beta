@@ -2,6 +2,7 @@
 // const tripSurfingUrl = 'http://wwww.tripsurfing.com/';
 // const tripSurfingUrl = 'http://www.tripsurfing.co/';
 const TRIPSURFING_API_URL = 'http://api.tripsurfing.co/';
+const TRIPSURFING_URL = 'http://www.tripsurfing.co/';
 
 var SWITCH_STATE;
 const getTripAdvisorState = sendResponse => {
@@ -66,7 +67,7 @@ const getTripListFromDb = (isPoll = false) => {
     if (typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
     if (USER_ID !== null) {
         $.ajax({
-                url: TRIPSURFING_API_URL + 'api/getTripList',
+                url: TRIPSURFING_URL + 'api/getTripList',
                 type: 'POST',
                 dataType: 'json',
                 data: { 'userId': USER_ID },
@@ -90,7 +91,7 @@ const getTripDetailFromDb = (isPoll = false) => {
     for (let i = 0; i < numberOfTrip; i++) {
         let trip = TRIP_LIST[i];
         $.ajax({
-                url: TRIPSURFING_API_URL + 'api/renderTrip',
+                url: TRIPSURFING_URL + 'api/renderTrip',
                 type: 'POST',
                 dataType: 'json',
                 // async: false,

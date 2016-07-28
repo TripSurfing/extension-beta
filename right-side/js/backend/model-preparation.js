@@ -1,6 +1,6 @@
 const ajaxRsPost = (link, ajaxData, sendResponse) => {
-    $.ajax({
-        url: TRIPSURFING_API_URL + link,
+    request = $.ajax({
+        url: TRIPSURFING_URL + link,
         type: 'POST',
         dataType: 'json',
         data: ajaxData,

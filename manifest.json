@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "TripSurfing",
   "description": "Most-used tool for travel-lover!",
-  "version": "1.2.1",
+  "version": "1.2.2",
    "options_page": "right-side/options/options.html",
   
   "icons": { 
