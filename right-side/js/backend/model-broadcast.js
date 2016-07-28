@@ -25,7 +25,7 @@ const poll = ( LAST_TIME = Math.round(Date.now()/1000) ) => {
 	})
 	.fail(response => {
 		console.log(response);
-		poll(LAST_TIME);
+		startPoll();
 	});
 	
 }
