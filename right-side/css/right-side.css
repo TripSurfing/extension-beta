@@ -191,7 +191,7 @@
         max-height: 390px;
         z-index: 23051999;
         position: absolute;
-        top: 43px;
+        top: 42px;
         left: 0;
         background-color: #f9f9f9;
         min-width: 170px;
@@ -204,14 +204,13 @@
           display: block !important;
           text-align: left !important;
           line-height: 1 !important;
-          font-size: 0.55em !important;
-          font-family: "Open Sans", Arial; }
+          border-bottom: 1px ridge #e5e5e5 !important;
+          font-size: 15px !important;
+          font-family: "Open Sans", Arial;
+          font-weight: bold; }
           #right-side #right-side-nav-tabs .tsrs-icon-menu #tsrs-dropdown-content a:hover {
             background-color: white !important;
-            color: #e68620 !important;
-            font-weight: bold; }
-          #right-side #right-side-nav-tabs .tsrs-icon-menu #tsrs-dropdown-content a:active {
-            display: none; }
+            color: #e68620 !important; }
     #right-side #right-side-nav-tabs #tsrs-trip-name {
       display: block;
       font-size: 17px;

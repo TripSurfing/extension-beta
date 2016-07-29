@@ -227,7 +227,7 @@ $z-index: 23051996;
                 max-height: 390px;
                 z-index: $z-index + 3;
                 position: absolute;
-                top: 43px;
+                top: 42px;
                 left: 0;
                 background-color: #f9f9f9;
                 min-width: 170px;
@@ -240,14 +240,16 @@ $z-index: 23051996;
                     display: block !important;
                     text-align: left !important;
                     line-height: 1 !important;
+                    border-bottom: 1px ridge #e5e5e5 !important;
                     font: {
-                        size: 0.55em !important;
+                        size: 15px !important;
                         family: "Open Sans", Arial;
+                        weight: bold;
                     }
                     &:hover {
                         background-color: white !important;
                         color: #e68620 !important;
-                        font-weight: bold;
+                        // font-weight: bold;
                     }
                     // &:active {
                     //     background-color: rgba(243, 144, 17, 0.5) !important;
