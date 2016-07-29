@@ -24,19 +24,19 @@ $fav-color: #f25268;
 }
 
 @mixin animationName($ani-name) {
-    .tsrs-#{$ani-name} { animation-name: $ani-name; }
+    .#{$ani-name} { animation-name: $ani-name; }
 }
 
 @mixin keyframes($key-name) {
     @keyframes #{$key-name} { @content; }
 }
 
-@include keyframes(fadeInEffect) {
+@include keyframes(tsrs-fadeInEffect) {
     from { opacity: 0.5; }
     to { opacity: 1; }
 }
 
-@include keyframes(fadeOutEffect) {
+@include keyframes(tsrs-fadeOutEffect) {
     from { opacity: 1; }
     to { opacity: 0.8; }
 }
@@ -47,7 +47,7 @@ $fav-color: #f25268;
     animation-fill-mode: both;
 }
 
-@include keyframes(slideInUp) {
+@include keyframes(tsrs-slideInUp) {
     from {
         transform: translate3d(0, 200%, 0) rotate(45deg);
         display: block;
@@ -58,7 +58,7 @@ $fav-color: #f25268;
     }
 }
 
-@include keyframes(fadeOutDown) {
+@include keyframes(tsrs-fadeOutDown) {
     from {opacity: 1; }
     to {
         opacity: 0;
@@ -67,8 +67,8 @@ $fav-color: #f25268;
     }
 }
 
-@include animationName(slideInUp);
-@include animationName(fadeOutDown);
+@include animationName(tsrs-slideInUp);
+@include animationName(tsrs-fadeOutDown);
 // Variables
 $z-index: 23051996;
 // css
@@ -117,6 +117,7 @@ $z-index: 23051996;
         a:link, a:visited {text-decoration: none !important}
         .tsrs-btn-background-div {
             line-height: 1;
+            min-height: 1em;
             padding: 3px;
             @include rotate(-45);
             .tsrs-icon-bookmark,
@@ -137,7 +138,7 @@ $z-index: 23051996;
         box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px;
     }
     .tsrs-not-show {
-        animation: fadeOutEffect 1s;
+        animation: tsrs-fadeOutEffect 1s;
         opacity: 0.8 !important;
     }
     #tsrs-btn-tool-setting {
@@ -226,7 +227,7 @@ $z-index: 23051996;
                 max-height: 390px;
                 z-index: $z-index + 3;
                 position: absolute;
-                top: 42px;
+                top: 43px;
                 left: 0;
                 background-color: #f9f9f9;
                 min-width: 170px;
@@ -234,21 +235,29 @@ $z-index: 23051996;
                 box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
                 a {
                     color: #333 !important;
-                    padding: 10px 12px !important;
+                    padding: 12px 12px !important;
                     text-decoration: none !important;
                     display: block !important;
                     text-align: left !important;
                     line-height: 1 !important;
                     font: {
-                        size: 16px !important;
+                        size: 0.55em !important;
                         family: "Open Sans", Arial;
                     }
-                    &:hover {background-color: rgba(243, 144, 17, 0.38) !important; }
-                    &:active {background-color: rgba(243, 144, 17, 0.5) !important; }
+                    &:hover {
+                        background-color: white !important;
+                        color: #e68620 !important;
+                        font-weight: bold;
+                    }
+                    // &:active {
+                    //     background-color: rgba(243, 144, 17, 0.5) !important;
+                    //     // display: none;
+                    // }
                 }
             }
         }
         #tsrs-trip-name {
+            display: block;
             font-size: 17px;
             font-weight: bold;
             margin-left: 43px;

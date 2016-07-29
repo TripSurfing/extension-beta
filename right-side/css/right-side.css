@@ -1,9 +1,9 @@
-@keyframes fadeInEffect {
+@keyframes tsrs-fadeInEffect {
   from {
     opacity: 0.5; }
   to {
     opacity: 1; } }
-@keyframes fadeOutEffect {
+@keyframes tsrs-fadeOutEffect {
   from {
     opacity: 1; }
   to {
@@ -12,24 +12,24 @@
   animation-duration: 0.3s;
   animation-fill-mode: both; }
 
-@keyframes slideInUp {
+@keyframes tsrs-slideInUp {
   from {
     transform: translate3d(0, 200%, 0) rotate(45deg);
     display: block; }
   to {
     transform: translate3d(0, 0, 0) rotate(45deg);
     display: block; } }
-@keyframes fadeOutDown {
+@keyframes tsrs-fadeOutDown {
   from {
     opacity: 1; }
   to {
     opacity: 0;
     transform: translate3d(0, 100%, 0) rotate(45deg); } }
 .tsrs-slideInUp {
-  animation-name: slideInUp; }
+  animation-name: tsrs-slideInUp; }
 
 .tsrs-fadeOutDown {
-  animation-name: fadeOutDown; }
+  animation-name: tsrs-fadeOutDown; }
 
 /* Button tool */
 #tsrs-btn-tool-selector {
@@ -76,6 +76,7 @@
       text-decoration: none !important; }
     #tsrs-btn-tool-selector .tsrs-btn-descoration-small .tsrs-btn-background-div {
       line-height: 1;
+      min-height: 1em;
       padding: 3px;
       -ms-transform: rotate(-45deg) !important;
       -webkit-transform: rotate(-45deg) !important;
@@ -95,7 +96,7 @@
     opacity: 1;
     box-shadow: rgba(0, 0, 0, 0.25) 14px 14px 28px, rgba(0, 0, 0, 0.22) 10px 10px 10px; }
   #tsrs-btn-tool-selector .tsrs-not-show {
-    animation: fadeOutEffect 1s;
+    animation: tsrs-fadeOutEffect 1s;
     opacity: 0.8 !important; }
   #tsrs-btn-tool-selector #tsrs-btn-tool-setting a {
     font-style: normal; }
@@ -190,7 +191,7 @@
         max-height: 390px;
         z-index: 23051999;
         position: absolute;
-        top: 42px;
+        top: 43px;
         left: 0;
         background-color: #f9f9f9;
         min-width: 170px;
@@ -198,18 +199,21 @@
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
         #right-side #right-side-nav-tabs .tsrs-icon-menu #tsrs-dropdown-content a {
           color: #333 !important;
-          padding: 10px 12px !important;
+          padding: 12px 12px !important;
           text-decoration: none !important;
           display: block !important;
           text-align: left !important;
           line-height: 1 !important;
-          font-size: 16px !important;
+          font-size: 0.55em !important;
           font-family: "Open Sans", Arial; }
           #right-side #right-side-nav-tabs .tsrs-icon-menu #tsrs-dropdown-content a:hover {
-            background-color: rgba(243, 144, 17, 0.38) !important; }
+            background-color: white !important;
+            color: #e68620 !important;
+            font-weight: bold; }
           #right-side #right-side-nav-tabs .tsrs-icon-menu #tsrs-dropdown-content a:active {
-            background-color: rgba(243, 144, 17, 0.5) !important; }
+            display: none; }
     #right-side #right-side-nav-tabs #tsrs-trip-name {
+      display: block;
       font-size: 17px;
       font-weight: bold;
       margin-left: 43px;

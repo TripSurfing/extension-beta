@@ -154,6 +154,7 @@ const addExt = () => {
             saveLink();
         });
         rightSide.on('click', '#tsrs-dropdown-content a', function() {
+            // document.getElementById('tsrs-dropdown-content').style.visibility= 'hidden';
             let i = parseInt(this.id);
             let text = $(this).text();
             CURRENT_TRIP_ID = +this.dataset.tripid;

@@ -1,6 +1,4 @@
 /*jshint esversion: 6*/
-// const tripSurfingUrl = 'http://wwww.tripsurfing.com/';
-// const tripSurfingUrl = 'http://www.tripsurfing.co/';
 const TRIPSURFING_API_URL = 'http://api.tripsurfing.co/';
 const TRIPSURFING_URL = 'http://www.tripsurfing.co/';
 
