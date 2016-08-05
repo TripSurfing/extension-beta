@@ -13,6 +13,12 @@ const addExt = () => {
 
             <div id="tsrs-nav">
                 <ul class="tsrs-nav-ul">
+                    <li id="tsrs-nav-li-quote" class="tsrs-nav-li-tab">
+                        <a class="tsrs-nav-a">
+                            <i class="tsrs-icon-quote tsrs-entypo" title="Quotes" tsrs-data="tipsy"></i>
+                        </a>
+                    </li>
+
                     <li id="tsrs-nav-li-link" class="tsrs-nav-li-tab">
                         <a class="tsrs-nav-a">
                             <i class="tsrs-icon-link tsrs-entypo" title="Links" tsrs-data="tipsy"></i>
@@ -35,6 +41,12 @@ const addExt = () => {
                     <div id = 'tsrs-link-group' class='tsrs-box-group'></div>
                     <div id="tsrs-quantity-link" class="tsrs-quantity"></div>
                 </div>
+
+                <div id="quote-tab" class="tsrs-nav-tab-content tsrs-entypo">
+                    <div id = 'tsrs-quote-group' class='tsrs-box-group'></div>
+                    <div id="tsrs-quantity-quote" class="tsrs-quantity"></div>
+                </div>
+
             </div>
         </div>
         
@@ -74,6 +86,9 @@ const addExt = () => {
 
         rightSide.on("click", ".delete-btn", function() {
             let boxParent = $(this).parents('div.box');
+            if (boxParent.hasClass('quotes-tab')) {
+                boxParent.next('div.tsrs-quote-list').slideUp();
+            }
             boxParent.children('div.box-info', 'div.box-image').addClass('box-blur');
             boxParent.prepend(
                 `<div class="box-confirm">
@@ -84,21 +99,44 @@ const addExt = () => {
                     </div>
                 </div>`);
         });
+
         rightSide.on('click', '.btn-confirm-no',function() {
             let parent = $(this).parents('div.box-confirm');
+            let boxParent = $(this).parents('div.box');
             parent.siblings('.box-info', '.box-image').removeClass('box-blur');
             parent.remove();
-
+            if (boxParent.hasClass('quotes-tab')) {
+                boxParent.next('div.tsrs-quote-list').slideDown();
+            }
         });
         rightSide.on('click', '.btn-confirm-yes',function() {
             // $(this).parents('div.box').remove();
             let box = $(this).parents('div.box');
             box.fadeOut(300, function() {
                 // Sau này muốn thêm chức năng undo, bỏ dòng này đi
-                deleteItem(box[0]);
+                deleteItem(box[0].id);
             });
             /*Do something to server here*/
         });
+
+        /**
+         * Delete quote groups
+         */
+        // rightSide.on('click', '.delete-quote-group', function() {
+        //     let boxParent = $(this).parents('div.box');
+        //     boxParent.children('div.box-info', 'div.box-image').addClass('box-blur');
+        //     boxParent.prepend(
+        //         `<div class="box-confirm">
+        //             <div class="box-confirm-content">
+        //                 <p>Are you sure?</p>
+        //                 <button type="button" class="btn-confirm-no">No</button>
+        //                 <button type="button" class="btn-confirm-yes">Yes</button>
+        //             </div>
+        //         </div>`);
+        //     boxParent.next('div.tsrs-quote-list').slideUp();
+        // });
+
+
 
         rightSide.on("click", ".tsrs-icon-heart", function() {
             let box = $(this).parents('div.box');
@@ -106,10 +144,10 @@ const addExt = () => {
             heart.toggleClass("favorite-active favorite-not-active").promise().done(heart => {
                 if (heart.hasClass('favorite-active')) {
                     this.title = 'Remove from favorite';
-                    addToFavorite(box[0]);
+                    addToFavorite(box[0].id);
                 } else {
                     this.title = 'Add to favorite';
-                    removeFromFavorite(box[0]);
+                    removeFromFavorite(box[0].id);
                 }
             });
             // this.title = heart.hasClass('favorite-active') ? "Remove from favorite" : "Add to favorite";
@@ -141,18 +179,23 @@ const addExt = () => {
             }
         });
 
+        /*
+        *   Turn off extension
+         */
         $('#tsrs-btn-tool-switch').click(()=>{
             // $('#tsrs-btn-tool-selector').hide().promise().done($);
             SWITCH_STATE = false;
             switchOff();
         });
-        $('#tsrs-btn-tool-setting').click(() => {
-            // chrome.tabs.create({url: chromeUrl("right-side/options/options.htm")});
-            
-        }); 
+        /**
+         * Save Link
+         */
         $('#tsrs-btn-tool-savelink').click(() => {
             saveLink();
         });
+        /**
+         * Open a trip
+         */
         rightSide.on('click', '#tsrs-dropdown-content a', function() {
             // document.getElementById('tsrs-dropdown-content').style.visibility= 'hidden';
             let i = parseInt(this.id);
@@ -160,26 +203,10 @@ const addExt = () => {
             CURRENT_TRIP_ID = +this.dataset.tripid;
             renderTrip(i, TRIP_DETAIL[i]);
 
-            // clearWindow( () => {
-            //     renderTrip(i, TRIP_DETAIL[i]);
-            // });
             $('#tsrs-trip-name').text(text).attr('href', 'http://www.tripsurfing.co/trip/l/' + TRIP_LIST[i].id);
         });
 
-        // const showQuantity = type => {
-        //     switch (type) {
-        //         case '#place-tab':
-        //             len = document.getElementById('place-tab').childElementCount;
-        //             if (len < 2) document.getElementById('tsrs-quantity').innerHTML = len.toString() + ' place';
-        //             else document.getElementById('tsrs-quantity').innerHTML = len.toString() + ' places';
-        //             break;
-        //         case '#link-tab':
-        //             len = document.getElementById('link-tab').childElementCount;
-        //             if (len < 2) document.getElementById('tsrs-quantity').innerHTML = len.toString() + ' link';
-        //             else document.getElementById('tsrs-quantity').innerHTML = len.toString() + ' links';
-        //             break;
-        //     }
-        // }
+        
         /*  Change Tab function
         *   .tsrs-tab-active:     tab is active now
         *   .tsrs-nav-a-active:   icon is active now
@@ -188,7 +215,8 @@ const addExt = () => {
         const tabsKey = {
             // id-tab : id-tab-content
             "tsrs-nav-li-place": "#place-tab",
-            "tsrs-nav-li-link" : "#link-tab"
+            "tsrs-nav-li-link" : "#link-tab",
+            'tsrs-nav-li-quote': '#quote-tab',
         }
         $(".tsrs-nav-li-tab").click(function() { 
             let displayTab = tabsKey[this.id]; 
@@ -202,6 +230,35 @@ const addExt = () => {
             $(this).children('a').children('i').addClass('tsrs-nav-i-active');
         });
         
+        /*
+        *   Expand/Collapse quotes from link
+         */       
+        rightSide.on('click', '.link-bag__bottom a', function(event) {
+            // $(this).parents('div.box').toggleClass('tsrs-shadow');
+            let boxParent = $(this).parents('div.box');
+            let quoteList = boxParent.next('.tsrs-quote-list');
+            if (quoteList.hasClass('tsrs-quote-showing')) {
+                quoteList.slideUp(400, function () {
+                    quoteList.removeClass('tsrs-quote-showing');
+                })
+            } else {
+                quoteList.slideDown(400, function() {
+                    quoteList.addClass('tsrs-quote-showing');
+                });
+            }
+            $(this).children('i').toggleClass('tsrs-icon-chevron-down tsrs-icon-chevron-up');
+        });
+
+        /*
+        *   Delete a quote
+         */ 
+        rightSide.on('click', '.tsrs-quote__delete', function() {
+            let quote = $(this).parents('div.tsrs-quote');
+            quote.fadeOut(300, function() {
+                // Call to controller
+                deleteQuote(quote[0].id);
+            });
+        });
     }
 }
 // addExt();

@@ -207,7 +207,7 @@ i.tsrs-entypo {
 .icon-check:before {
 	content: "\e63e";
 }
-.icon-chevron-down:before {
+.tsrs-icon-chevron-down:before {
 	content: "\e63f";
 }
 .icon-chevron-left:before {
@@ -240,7 +240,7 @@ i.tsrs-entypo {
 .icon-chevron-thin-up:before {
 	content: "\e649";
 }
-.icon-chevron-up:before {
+.tsrs-icon-chevron-up:before {
 	content: "\e64a";
 }
 .icon-chevron-with-circle-down:before {
@@ -258,7 +258,7 @@ i.tsrs-entypo {
 .icon-circle:before {
 	content: "\e64f";
 }
-.icon-circle-with-cross:before {
+.tsrs-icon-circle-with-cross:before {
 	content: "\e650";
 }
 .icon-circle-with-minus:before {
@@ -903,7 +903,7 @@ i.tsrs-entypo {
 .icon-qq-with-circle:before {
 	content: "\e726";
 }
-.icon-quote:before {
+.tsrs-icon-quote:before {
 	content: "\e727";
 }
 .icon-radio:before {

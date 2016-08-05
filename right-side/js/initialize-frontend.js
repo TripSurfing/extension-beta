@@ -8,6 +8,7 @@ var TRIP_DETAIL = [];
 var FAVORITES = [];
 var SWITCH_STATE;
 var CURRENT_TRIP_ID = null;
+var QUOTE_BAG_LINK = {};
 
 const getUserId = () => {
     let message = {
