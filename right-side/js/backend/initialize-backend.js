@@ -30,6 +30,7 @@ const setSwitchState = (state, sendResponse) => {
                 chrome.tabs.sendMessage(tabs[i].id, message);
             }
         });
+        smartStorage.set('lastTime', LAST_TIME);
         // pollAjax.abort();
         // pollAjax = null;
         let url = chrome.extension.getURL('img/icon12.png');

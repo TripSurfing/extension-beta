@@ -54,6 +54,8 @@ chrome.browserAction.onClicked.addListener(function (tab){
   else {
     smartStorage.set('switchState', true);
     // startGetData();
+    LAST_TIME = smartStorage.get('lastTime');
+    poll(LAST_TIME);
     chrome.tabs.query({}, function(tabs) {
         var message = {showAll: true};
         for (let i = 0, length = tabs.length; i < length; i++) {
