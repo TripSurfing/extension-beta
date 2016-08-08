@@ -1,7 +1,7 @@
 const chromeUrl = url => chrome.extension.getURL(url);
 const addExt = () => {
     if (SWITCH_STATE == true) {
-        $('body').append( 
+        $('body').append(
     	`<div id="right-side">
             <div id="right-side-nav-tabs">
                 <i class="tsrs-icon-menu tsrs-entypo">
@@ -49,7 +49,7 @@ const addExt = () => {
 
             </div>
         </div>
-        
+
         <div id='tsrs-btn-tool-selector'>
             <div id="tsrs-btn-tool-show" class="tsrs-not-show tsrs-btn-descoration">
                 <img src="${chromeUrl("right-side/image/icon38.png")}" />
@@ -58,9 +58,9 @@ const addExt = () => {
             <div id="tsrs-btn-tool-savelink" class="tsrs-btn-descoration-small tsrs-animated tsrs-fadeOutDown" title="Save link" tsrs-btn="tipsy">
                 <div class='tsrs-btn-background-div'><i class='tsrs-icon-bookmark tsrs-entypo'></i></div>
             </div>
-            
+
             <div id="tsrs-btn-tool-setting" class="tsrs-btn-descoration-small tsrs-animated tsrs-fadeOutDown" title="Setting" tsrs-btn="tipsy">
-                <a href="${chromeUrl("right-side/options/options.html")}" target="_blank">                
+                <a href="${chromeUrl("right-side/options/options.html")}" target="_blank">
                 <div class='tsrs-btn-background-div'><i class='tsrs-icon-cog tsrs-entypo'></i></div>
                 </a>
             </div>
@@ -68,7 +68,7 @@ const addExt = () => {
             <div id="tsrs-btn-tool-switch" class="tsrs-btn-descoration-small tsrs-animated tsrs-fadeOutDown" title="Turn Off" tsrs-btn="tipsy">
                 <div class='tsrs-btn-background-div'><i class='tsrs-icon-switch tsrs-entypo'></i></div>
             </div>
-            
+
         </div>`);
         $('[tsrs-btn="tipsy"]').tipsy({
                 gravity: 's',
@@ -162,7 +162,7 @@ const addExt = () => {
         $('#tsrs-btn-tool-show').click( function() {
             $(this).toggleClass('tsrs-not-show tsrs-show');
             rightSide.slideToggle(700,"swing");
-            
+
         });
         $('#tsrs-btn-tool-show').mouseenter(() => {
             // $('#btn-tool-selector').css('width', '250px');
@@ -206,7 +206,7 @@ const addExt = () => {
             $('#tsrs-trip-name').text(text).attr('href', 'http://www.tripsurfing.co/trip/l/' + TRIP_LIST[i].id);
         });
 
-        
+
         /*  Change Tab function
         *   .tsrs-tab-active:     tab is active now
         *   .tsrs-nav-a-active:   icon is active now
@@ -218,8 +218,8 @@ const addExt = () => {
             "tsrs-nav-li-link" : "#link-tab",
             'tsrs-nav-li-quote': '#quote-tab',
         }
-        $(".tsrs-nav-li-tab").click(function() { 
-            let displayTab = tabsKey[this.id]; 
+        $(".tsrs-nav-li-tab").click(function() {
+            let displayTab = tabsKey[this.id];
             // showQuantity(displayTab);
             $(".tsrs-tab-active").fadeOut(220, function() {
                 $(this).removeClass("tsrs-tab-active");
@@ -229,10 +229,10 @@ const addExt = () => {
             $(".tsrs-nav-li-tab a i").removeClass('tsrs-nav-i-active');
             $(this).children('a').children('i').addClass('tsrs-nav-i-active');
         });
-        
+
         /*
         *   Expand/Collapse quotes from link
-         */       
+         */
         rightSide.on('click', '.link-bag__bottom a', function(event) {
             // $(this).parents('div.box').toggleClass('tsrs-shadow');
             let boxParent = $(this).parents('div.box');
@@ -251,7 +251,7 @@ const addExt = () => {
 
         /*
         *   Delete a quote
-         */ 
+         */
         rightSide.on('click', '.tsrs-quote__delete', function() {
             let quote = $(this).parents('div.tsrs-quote');
             quote.fadeOut(300, function() {

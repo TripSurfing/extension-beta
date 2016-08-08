@@ -1,6 +1,6 @@
 // use strict';
 // jshint esversion: 6
-const renderTrip = (menuId, trip) => {
+function renderTrip(menuId, trip) {
     renderPlaceTab(menuId, trip.places);
     renderLinkTab(menuId, trip.links);
     renderQuoteTab(menuId, trip.quotes);
@@ -9,13 +9,13 @@ const renderTrip = (menuId, trip) => {
         fade: true,
         delayIn: 200
     });
-};
+}
 
-const address = item => {
+function address(item) {
     let address = $(item).data('location').split('-');
     return [+address[0], address[1], +address[2]];
-};
-const deleteItem = itemId => {
+}
+function deleteItem(itemId) {
     // item.id = tsrs-{type}-{itemId}
     let info = itemId.split('-');
     console.log(itemId);
@@ -31,35 +31,36 @@ const deleteItem = itemId => {
         }
     };
     let callback = response => {
-            // if (response.type == 'success') {
-            //     if (info[0] == 'place') {
-            //         let leng = parseInt(document.getElementById('tsrs-quantity-place').innerHTML) - 1;
-            //         if (leng < 2) document.getElementById('tsrs-quantity-place').innerHTML = leng.toString() + ' place';
-            //         else document.getElementById('tsrs-quantity-place').innerHTML = leng.toString() + ' places';
-            //     } else if (info[0] == 'link') {
-            //         let leng = parseInt(document.getElementById('tsrs-quantity-link').innerHTML) - 1;
-            //         if (leng < 2) document.getElementById('tsrs-quantity-link').innerHTML = leng.toString() + ' link';
-            //         else document.getElementById('tsrs-quantity-link').innerHTML = leng.toString() + ' links';
-            //     }
+        // if (response.type == 'success') {
+        //     if (info[0] == 'place') {
+        //         let leng = parseInt(document.getElementById('tsrs-quantity-place').innerHTML) - 1;
+        //         if (leng < 2) document.getElementById('tsrs-quantity-place').innerHTML = leng.toString() + ' place';
+        //         else document.getElementById('tsrs-quantity-place').innerHTML = leng.toString() + ' places';
+        //     } else if (info[0] == 'link') {
+        //         let leng = parseInt(document.getElementById('tsrs-quantity-link').innerHTML) - 1;
+        //         if (leng < 2) document.getElementById('tsrs-quantity-link').innerHTML = leng.toString() + ' link';
+        //         else document.getElementById('tsrs-quantity-link').innerHTML = leng.toString() + ' links';
+        //     }
 
-            //     [menuId, type, detailId] = address(item);
-            //     TRIP_DETAIL[menuId][type].splice(detailId, 1);
-            // }
-            if (response.type != 'success') {
-                console.log(response);
-                let box = $(`#${itemId}`);
-                box.children('div.box-info', 'div.box-image').removeClass('box-blur');
-                box.children('div.box-confirm').remove();
-                setTimeout(() => {
-                    box.fadeIn(300);
-                }, 700);
+        //     [menuId, type, detailId] = address(item);
+        //     TRIP_DETAIL[menuId][type].splice(detailId, 1);
+        // }
+        if (response.type != 'success') {
+            console.log(response);
+            let box = $(`#${itemId}`);
+            box.children('div.box-info', 'div.box-image').removeClass('box-blur');
+            box.children('div.box-confirm').remove();
+            setTimeout(() => {
+                box.fadeIn(300);
+            }, 700);
 
-            }
-        };
-        // console.log(TRIP_DETAIL);
+        }
+    };
+    // console.log(TRIP_DETAIL);
     requestToModel(message, callback);
-};
-const deleteQuotesByLink = itemId => {
+}
+
+function deleteQuotesByLink(itemId) {
     let linkBag = $(`#${itemId}`);
     // console.log(linkBag);
     let url = linkBag.data('url');
@@ -70,7 +71,7 @@ const deleteQuotesByLink = itemId => {
     }
     // console.log(url);
     // console.log(QUOTE_BAG_LINK[url]);
-};
+}
 const deleteQuote = quoteId => {
     // action: delete, itemId type: quote
     // id = tsrs-quoteId-{id}

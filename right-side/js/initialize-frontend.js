@@ -1,3 +1,4 @@
+// jshint esversion: 6
 const requestToModel = (message, callback) => {
     chrome.runtime.sendMessage(message, response => callback(response));
 }
@@ -10,18 +11,18 @@ var SWITCH_STATE;
 var CURRENT_TRIP_ID = null;
 var QUOTE_BAG_LINK = {};
 
-const getUserId = () => {
+function getUserId() {
     let message = {
         request: 'getUserId'
     }
     let callback = response => {
         USER_ID = response;
-        if (USER_ID != null)
+        if (USER_ID !== null)
             getTripList();
         else announceError('You have to login or signup first');
     }
     requestToModel(message, callback);
-} 
+}
 
 const getTripList = () => {
     let message = {
@@ -32,13 +33,13 @@ const getTripList = () => {
         getTripDetail();
     }
     requestToModel(message, callback);
-} 
+}
 const getTripDetail = () => {
-	let message = {
-		request: 'getTripDetail'
-	}
-	let callback = response => {
-		TRIP_DETAIL = response;
+    let message = {
+        request: 'getTripDetail'
+    }
+    let callback = response => {
+        TRIP_DETAIL = response;
         addExt();
         renderTripList();
     }
@@ -51,18 +52,17 @@ const checkState = () => {
     }
     let callback = state => {
         SWITCH_STATE = state;
-        if (state == true) {
+        if (state === true) {
             getUserId();
         } else {
-            return
+            return;
         }
     }
     requestToModel(message, callback);
 }
-// const getFavorites = () => {
+    // const getFavorites = () => {
 
 // }
 // Start Extension
 // const startLoading = $.Deferred();
 const startLoading = checkState;
-
