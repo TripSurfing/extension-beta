@@ -37,19 +37,19 @@ chrome.browserAction.onClicked.addListener(function (tab){
     var currentPage = tab.url;
     tripSurfing.currentAction = 'saveLink';
     tripSurfing.currentTab = tab;
-    
+
     if(currentPage.indexOf('http://') === -1 && currentPage.indexOf('https://') === -1) {
       chrome.tabs.update(tab.id, {url: tripSurfingUrl});
       return;
     }
-    
+
     if(isLoggedIn()){
       saveLink(tab);
     }else{
       tripSurfing.currentAction = '';
       chrome.tabs.create({url: tripSurfingUrl+"signup?src=extension"});
       // or window.open
-    }    
+    }
   }
   else {
     smartStorage.set('switchState', true);
@@ -67,10 +67,10 @@ chrome.browserAction.onClicked.addListener(function (tab){
 
 // Listen to the message from content_script
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
-   
+
   // From tripadvisor.js
   if(message.type == "place"){
-    tripSurfing.currentMessage = message;  
+    tripSurfing.currentMessage = message;
     tripSurfing.currentResponse = sendResponse;
     tripSurfing.currentTab = sender.tab;
     tripSurfing.currentAction = 'savePlace';
@@ -80,10 +80,10 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
       chrome.tabs.create({url: tripSurfingUrl+"signup?src=extension"});
     }
   }
-  
+
   // From all.js
   if(message.type == "quote"){
-    tripSurfing.currentMessage = message;  
+    tripSurfing.currentMessage = message;
     tripSurfing.currentResponse = sendResponse;
     tripSurfing.currentTab = sender.tab;
     tripSurfing.currentAction = 'saveQuote';
@@ -91,15 +91,15 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
       saveQuote(message, sendResponse);
     }else{
       chrome.tabs.create({url: tripSurfingUrl+"signup?src=extension"});
-    }    
+    }
   }
-  
-  if(message.type == "userdata"){ 
+
+  if(message.type == "userdata"){
     sendResponse(tripSurfing);
   }
-  
+
   //From login.js
-  if(message.action == "loggedIn"){    
+  if(message.action == "loggedIn"){
     smartStorage.set("userId", message.userId);
     sendResponse({});
     chrome.tabs.query({},function(tabs) {
@@ -117,7 +117,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
           }
       }
     });
-    console.log(tripSurfing.currentTab);
+    // console.log(tripSurfing.currentTab);
 
     chrome.tabs.query({}, function(tabs) {
         var message = {showAll: true};
@@ -133,15 +133,15 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
     }else{
       savePlace(tripSurfing.currentMessage, tripSurfing.currentResponse);
     }
-    
+
   }else if (message.action === "logout") {
-    // Logout the extension    
+    // Logout the extension
     smartStorage.set("userId", "");
 
     sendResponse({});
     return false;
   }
-  
+
   return true;
   /*}else{
     chrome.browserAction.setIcon({

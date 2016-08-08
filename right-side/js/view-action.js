@@ -7,7 +7,7 @@ const favoriteState = favorites => {
     else {
         for (let i = 0, len = favorites.length; i < len; i++) {
             let user = favorites[i];
-            if (user.user_id === USER_ID) return ['favorite-active', 'Remove from favorite'];
+            if (+user.user_id === USER_ID) return ['favorite-active', 'Remove from favorite'];
         }
         return ['favorite-not-active', 'Add to favorite'];
     }
