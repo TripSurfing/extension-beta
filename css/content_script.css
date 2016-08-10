@@ -1,15 +1,15 @@
 /*#tripsurfing-save img{
   width: 20px;
 }
-::selection { 
-  background-color: orange !important; 
+::selection {
+  background-color: orange !important;
   color: white !important;
 }*/
 #tripsurfing-tool{
   position:absolute !important;
   /*padding: 0 5px;
   /*border: 1px solid orange;*/
-  width: auto !important;
+  width: 90px !important;
   z-index: 9999999999 !important;
   background: white !important;
   line-height: 23px !important;
@@ -50,10 +50,10 @@
 }
 
 .tripsurfing-arrow-up {
-	width: 0 !important; 
-	height: 0 !important; 
+	width: 0 !important;
+	height: 0 !important;
 	border-left: 5px solid transparent !important;
-	border-right: 5px solid transparent !important;	
+	border-right: 5px solid transparent !important;
 	border-bottom: 5px solid #e78720 !important;
   position: absolute !important;
   top: -8px !important;
