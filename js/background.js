@@ -15,8 +15,8 @@ chrome.runtime.onMessageExternal.addListener(
         return true;
     });
 */
-var tripSurfing = {status: 0};
 
+var tripSurfing = {status: 0};
 // Initiate the variables if smartStorage, clientId are undefined.
 if(typeof smartStorage == 'undefined') smartStorage = new SmartStorage("tripSurfing");
 smartStorage.set('tripadvisorBtn', true);
@@ -56,6 +56,9 @@ chrome.browserAction.onClicked.addListener(function (tab){
     // startGetData();
     LAST_TIME = smartStorage.get('lastTime');
     poll(LAST_TIME);
+    chrome.browserAction.setIcon({
+        path: chrome.extension.getURL('img/icon19g.png')
+    });
     chrome.tabs.query({}, function(tabs) {
         var message = {showAll: true};
         for (let i = 0, length = tabs.length; i < length; i++) {

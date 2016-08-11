@@ -33,10 +33,8 @@ const setSwitchState = (state, sendResponse) => {
         smartStorage.set('lastTime', LAST_TIME);
         // pollAjax.abort();
         // pollAjax = null;
-        let url = chrome.extension.getURL('img/icon12.png');
         chrome.browserAction.setIcon({
-            path: url
-            // tabId: sender.tab.id
+            path: chrome.extension.getURL('img/icon-black.png')
         });
     }
     sendResponse({});
